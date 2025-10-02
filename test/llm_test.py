@@ -1,0 +1,64 @@
+# Import Model (only needs to be ran once)
+
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+import torch
+
+# List of different LLMs that we may want to use or tryout. You can lookup each one on https://huggingface.co/
+llm_ids = [
+    "deepseek-ai/DeepSeek-Prover-V2-7B",
+    "Goedel-LM/Goedel-Prover-V2-8B",
+    "Goedel-LM/Goedel-Prover-SFT",
+    "Goedel-LM/Goedel-Prover-DPO",
+    "ByteDance-Seed/BFS-Prover",
+    "internlm/internlm2-step-prover",
+    "internlm/internlm2_5-step-prover",
+    "AI-MO/Kimina-Prover-RL-1.7B"
+]
+
+# Select Deepseek LLM
+llm_id = llm_ids[0]
+
+tokenizer = AutoTokenizer.from_pretrained(llm_id, cache_dir="./")
+model = AutoModelForCausalLM.from_pretrained(llm_id, device_map="auto", cache_dir="./", torch_dtype=torch.bfloat16, trust_remote_code=True)
+
+# Inference
+
+# This causes the outputs to be deterministic (comment out if this is not desired)
+torch.manual_seed(30)
+
+# This prompt was taken from the Deepseek page so it will likely not work with theother LLMs
+formal_statement = """
+import Mathlib
+import Aesop
+
+set_option maxHeartbeats 0
+
+open BigOperators Real Nat Topology Rat
+
+/-- What is the positive difference between $120\%$ of 30 and $130\%$ of 20? Show that it is 10.-/
+theorem mathd_algebra_10 : abs ((120 : ℝ) / 100 * 30 - 130 / 100 * 20) = 10 := by
+  sorry
+""".strip()
+
+prompt = """
+Complete the following Lean 4 code:
+
+```lean4
+{}
+```
+
+Before producing the Lean 4 code to formally prove the given theorem, provide a detailed proof plan outlining the main proof steps and strategies.
+The plan should highlight key ideas, intermediate lemmas, and proof structures that will guide the construction of the final formal proof.
+""".strip()
+
+chat = [
+  {"role": "user", "content": prompt.format(formal_statement)},
+]
+
+inputs = tokenizer.apply_chat_template(chat, tokenize=True, add_generation_prompt=True, return_tensors="pt", padding=True, truncation=True).to(model.device)
+
+import time
+start = time.time()
+outputs = model.generate(inputs, max_new_tokens=8192)
+print(tokenizer.batch_decode(outputs)[0])
+print(time.time() - start)
