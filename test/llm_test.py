@@ -2,6 +2,9 @@
 
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 import torch
+import getpass
+
+USER = getpass.getuser()
 
 # List of different LLMs that we may want to use or tryout. You can lookup each one on https://huggingface.co/
 llm_ids = [
@@ -18,8 +21,8 @@ llm_ids = [
 # Select Deepseek LLM
 llm_id = llm_ids[0]
 
-tokenizer = AutoTokenizer.from_pretrained(llm_id, cache_dir="./")
-model = AutoModelForCausalLM.from_pretrained(llm_id, device_map="auto", cache_dir="./", torch_dtype=torch.bfloat16, trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained(llm_id, cache_dir=f"/work/classtmp/{USER}/models")
+model = AutoModelForCausalLM.from_pretrained(llm_id, device_map="auto", cache_dir=f"/work/classtmp/{USER}/models", torch_dtype=torch.bfloat16, trust_remote_code=True)
 
 # Inference
 
