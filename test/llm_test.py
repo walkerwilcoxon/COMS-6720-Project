@@ -1,5 +1,3 @@
-# Import Model (only needs to be ran once)
-
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 import torch
 import getpass
@@ -30,7 +28,19 @@ model = AutoModelForCausalLM.from_pretrained(llm_id, device_map="auto", cache_di
 torch.manual_seed(30)
 
 # This prompt was taken from the Deepseek page so it will likely not work with theother LLMs
-formal_statement = """
+
+theorem = """
+theorem mathd_algebra_73
+  (p q r x : ℂ)
+  (h₀ : (x - p) * (x - q) = (r - p) * (r - q))
+  (h₁ : x ≠ r) :
+  x = p + q - r :=
+begin
+  sorry
+end
+"""
+
+formal_statement = f"""
 import Mathlib
 import Aesop
 
@@ -38,9 +48,7 @@ set_option maxHeartbeats 0
 
 open BigOperators Real Nat Topology Rat
 
-/-- What is the positive difference between $120\%$ of 30 and $130\%$ of 20? Show that it is 10.-/
-theorem mathd_algebra_10 : abs ((120 : ℝ) / 100 * 30 - 130 / 100 * 20) = 10 := by
-  sorry
+{theorem}
 """.strip()
 
 prompt = """
