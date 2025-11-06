@@ -15,7 +15,10 @@ We follow [DeepSeek-Prover-V1.5](https://github.com/deepseek-ai/DeepSeek-Prover-
 ### Installation
 
 1. **Install Lean 4**
+  
+You can uninstall Lean if you are using a different version and skip this step. It will automatically install the correct version in the following steps. Explicitly, it happens when running lake build in step 4 (you should have the required files lakefile.lean and lean-toolchain in mathlib4 after you clone the repository).
 
+Or can install the correct version manually. 
    Follow the instructions on the [Lean 4 installation page](https://leanprover.github.io/lean4/doc/quickstart.html) to set up Lean 4.
 
 2. **Clone the repository**
