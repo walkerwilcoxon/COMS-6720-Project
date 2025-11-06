@@ -50,8 +50,8 @@ def produce_proof(model, tokenizer, problem):
     dt = time.time() - start
     return output, dt
 
-def validate_proof(proof) -> dict[str, ]:
-    proof_evalutation = None# evaluation
+def validate_proof(proof) -> dict[str, object]:
+    proof_evalutation = None # evaluation
 
     return {
         "valid": False,
