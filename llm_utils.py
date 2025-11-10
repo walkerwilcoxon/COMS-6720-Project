@@ -64,7 +64,7 @@ def extract_problems(file) -> List[str]:
         lines = f.readlines()
         contents = reduce(lambda x, y: x + y, lines)
 
-        regex = re.compile("theorem[\s\S]*?\nbegin")
+        regex = re.compile("theorem[\s\S]*?sorry")
 
         matches = regex.findall(contents)
 
@@ -74,13 +74,12 @@ def extract_problems(file) -> List[str]:
     return problems
 
 def get_f2f_problems() -> Dict[str, List[str]]:
-    test_problems = _get_problems(test_file)
-    valid_problems = _get_problems(valid_file)
-
     data_dir = Path(__file__).parent.resolve()
     test_file = Path(f"{data_dir}/datasets/miniF2F/test.lean")
     valid_file = Path(f"{data_dir}/datasets/miniF2F/valid.lean")
 
+    test_problems = extract_problems(test_file)
+    valid_problems = extract_problems(valid_file)
 
     return {
         "test": test_problems,

@@ -16,7 +16,7 @@ model, tokenizer = load_model(llm_id)
 
 with open("solutions.txt", "a") as f:
     for problem in problems["test"]:
-        output, dt = evaluate(model, tokenizer, problem + "\n    sorry\nend")
+        output, dt = evaluate(model, tokenizer, problem)
 
         print([output, dt])
 
