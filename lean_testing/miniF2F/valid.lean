@@ -1,20 +1,24 @@
 /-
 Copyright (c) 2021 OpenAI. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
+Released under Apache 2.0 license as described ∈ the file LICENSE.
 Authors: Kunhao Zheng, Stanislas Polu, David Renshaw, OpenAI GPT-f
 -/
+
 
 import Mathlib
 import Aesop
 
 set_option maxHeartbeats 0
+set_option linter.all false
 
 open scoped BigOperators
+open Real Nat Topology Rat Finset
+
 
 theorem amc12a_2019_p21
   (z : ℂ)
   (h₀ : z = (1 + Complex.I) / Real.sqrt 2) :
-  (∑ k in Finset.Icc 1 12, (z^(k^2))) * (∑ k in Finset.Icc 1 12, (1 / z^(k^2))) = 36 :=
+  (∑ k ∈ Finset.Icc 1 12, (z^(k^2))) * (∑ k ∈ Finset.Icc 1 12, (1 / z^(k^2))) = 36 :=
   sorry
 
 theorem amc12a_2015_p10
@@ -65,8 +69,8 @@ theorem mathd_numbertheory_13
   (u v : ℕ)
   (S : Set ℕ)
   (h₀ : ∀ (n : ℕ), n ∈ S ↔ 0 < n ∧ (14 * n) % 100 = 46)
-  (h₁ : is_least S u)
-  (h₂ : is_least (S \ {u}) v) :
+  (h₁ : IsLeast S u)
+  (h₂ : IsLeast (S \ {u}) v) :
   ((u + v) : ℚ) / 2 = 64 :=
   sorry
 
@@ -98,17 +102,17 @@ theorem mathd_algebra_13
 
 theorem induction_sum2kp1npqsqm1
   (n : ℕ) :
-  ↑∑ k in (Finset.range n), 2 * k + 3 = ↑(n + 1)^2 - (1:ℤ) :=
+  ∑ k ∈ (Finset.range n), 2 * k + 3 = ↑(n + 1)^2 - (1:ℤ) :=
   sorry
 
 theorem aime_1991_p6
   (r : ℝ)
-  (h₀ : ∑ k in Finset.Icc (19 : ℕ) 91, (Int.floor (r + k / 100)) = 546) :
+  (h₀ : ∑ k ∈ Finset.Icc (19 : ℕ) 91, (Int.floor (r + k / 100)) = 546) :
   Int.floor (100 * r) = 743 :=
   sorry
 
 theorem mathd_numbertheory_149 :
-  ∑ k in (Finset.filter (λ x, x % 8 = 5 ∧ x % 6 = 3) (Finset.range 50)), k = 66 :=
+  ∑ k ∈ (Finset.filter (fun x => x % 8 = 5 ∧ x % 6 = 3) (Finset.range 50)), k = 66 :=
   sorry
 
 theorem imo_1984_p2
@@ -122,7 +126,7 @@ theorem imo_1984_p2
   sorry
 
 theorem amc12a_2008_p4 :
-  ∏ k in Finset.Icc (1 : ℕ) 501, ((4 : ℝ) * k + 4) / (4 * k) = 502 :=
+  ∏ k ∈ Finset.Icc (1 : ℕ) 501, ((4 : ℝ) * k + 4) / (4 * k) = 502 :=
   sorry
 
 theorem imo_2006_p6
@@ -146,7 +150,7 @@ theorem mathd_numbertheory_221
   sorry
 
 theorem mathd_numbertheory_64 :
-  is_least {x : ℕ | 30 * x ≡ 42 [MOD 47]} 39 :=
+  IsLeast {x : ℕ | 30 * x ≡ 42 [MOD 47]} 39 :=
   sorry
 
 theorem imo_1987_p4
@@ -189,7 +193,7 @@ theorem numbertheory_sqmod4in01d
   sorry
 
 theorem mathd_numbertheory_466 :
-  (∑ k in (Finset.range 11), k) % 9 = 1 :=
+  (∑ k ∈ (Finset.range 11), k) % 9 = 1 :=
   sorry
 
 theorem mathd_algebra_48
@@ -201,8 +205,8 @@ theorem mathd_algebra_48
 theorem amc12_2000_p15
   (f : ℂ → ℂ)
   (h₀ : ∀ x, f (x / 3) = x^2 + x + 1)
-  (h₁ : fIntype (f ⁻¹' {7})) :
-  ∑ y in (f⁻¹' {7}).to_Finset, y / 3 = - 1 / 9 :=
+  (h₁ : Fintype (f ⁻¹' {7})) :
+  ∑ y ∈ (f⁻¹' {7}).toFinset, y / 3 = - 1 / 9 :=
   sorry
 
 theorem mathd_numbertheory_132 :
@@ -232,13 +236,13 @@ theorem induction_divisibility_3divnto3m2n
 
 theorem induction_sum_1oktkp1
   (n : ℕ) :
-  ∑ k in (Finset.range n), (1 : ℝ) / ((k + 1) * (k + 2)) = n / (n + 1) :=
+  ∑ k ∈ (Finset.range n), (1 : ℝ) / ((k + 1) * (k + 2)) = n / (n + 1) :=
   sorry
 
 theorem mathd_numbertheory_32
   (S : Finset ℕ)
   (h₀ : ∀ (n : ℕ), n ∈ S ↔ n ∣ 36) :
-  ∑ k in S, k = 91 :=
+  ∑ k ∈ S, k = 91 :=
   sorry
 
 theorem mathd_algebra_422
@@ -268,7 +272,7 @@ theorem mathd_algebra_73
 theorem mathd_numbertheory_109
   (v : ℕ → ℕ)
   (h₀ : ∀ n, v n = 2 * n - 1) :
-  (∑ k in Finset.Icc 1 100, v k) % 7 = 4 :=
+  (∑ k ∈ Finset.Icc 1 100, v k) % 7 = 4 :=
   sorry
 
 theorem algebra_xmysqpymzsqpzmxsqeqxyz_xpypzp6dvdx3y3z3
@@ -288,14 +292,14 @@ theorem mathd_numbertheory_236 :
   sorry
 
 theorem mathd_numbertheory_24 :
-  (∑ k in (Finset.Icc 1 9), 11^k) % 100 = 59 :=
+  (∑ k ∈ (Finset.Icc 1 9), 11^k) % 100 = 59 :=
   sorry
 
 theorem algebra_amgm_prod1toneq1_sum1tongeqn
   (a : ℕ → NNReal)
   (n : ℕ)
-  (h₀ : Finset.prod (Finset.range(n)) a = 1) :
-  Finset.sum (Finset.range(n)) a ≥ n :=
+  (h₀ : Finset.prod (Finset.range n) a = 1) :
+  Finset.sum (Finset.range n) a ≥ n :=
   sorry
 
 theorem mathd_algebra_101
@@ -307,7 +311,7 @@ theorem mathd_algebra_101
 theorem mathd_numbertheory_257
   (x : ℕ)
   (h₀ : 1 ≤ x ∧ x ≤ 100)
-  (h₁ : 77∣(∑ k in (Finset.range 101), k - x)) :
+  (h₁ : 77∣(∑ k ∈ (Finset.range 101), k - x)) :
   x = 45 :=
   sorry
 
@@ -356,7 +360,7 @@ theorem mathd_numbertheory_45 :
 theorem aime_1994_p4
   (n : ℕ)
   (h₀ : 0 < n)
-  (h₀ : ∑ k in Finset.Icc 1 n, Int.floor (Real.logb 2 k) = 1994) :
+  (h₀ : ∑ k ∈ Finset.Icc 1 n, Int.floor (Real.logb 2 k) = 1994) :
   n = 312 :=
   sorry
 
@@ -385,7 +389,7 @@ theorem mathd_algebra_28
   sorry
 
 theorem mathd_numbertheory_543 :
-  (∑ k in (Nat.divisors (30^4)), 1) - 2 = 123 :=
+  (∑ k ∈ (Nat.divisors (30^4)), 1) - 2 = 123 :=
   sorry
 
 theorem mathd_algebra_480
@@ -450,7 +454,7 @@ theorem mathd_numbertheory_335
 theorem mathd_numbertheory_35
   (S : Finset ℕ)
   (h₀ : ∀ (n : ℕ), n ∣ (Nat.sqrt 196)) :
-  ∑ k in S, k = 24 :=
+  ∑ k ∈ S, k = 24 :=
   sorry
 
 theorem amc12a_2021_p7
@@ -486,7 +490,7 @@ theorem amc12a_2002_p21
   (h₀ : u 0 = 4)
   (h₁ : u 1 = 7)
   (h₂ : ∀ n ≥ 2, u (n + 2) = (u n + u (n + 1)) % 10) :
-  ∀ n, ∑ k in Finset.range(n), u k > 10000 → 1999 ≤ n :=
+  ∀ n, ∑ k ∈ Finset.range n, u k > 10000 → 1999 ≤ n :=
   sorry
 
 theorem mathd_algebra_192
@@ -508,17 +512,12 @@ theorem mathd_numbertheory_102 :
   (2^8) % 5 = 1 :=
   sorry
 
-theorem amc12a_2010_p22
-  (x : ℝ) :
-  49 ≤ ∑ k in Finset.Icc 1 119, abs (↑k * x - 1) :=
-  sorry
-
 theorem mathd_numbertheory_81 :
   71 % 3 = 2 :=
   sorry
 
 theorem mathd_numbertheory_155 :
-  Finset.card (Finset.filter (λ x, x % 19 = 7) (Finset.Icc 100 999)) = 52 :=
+  Finset.card (Finset.filter (fun x => x % 19 = 7) (Finset.Icc 100 999)) = 52 :=
   sorry
 
 theorem imo_1978_p5
@@ -527,14 +526,14 @@ theorem imo_1978_p5
   (h₀ : ∀ (m : ℕ), 0 < a m)
   (h₁ : ∀ (p q : ℕ), p ≠ q → a p ≠ a q)
   (h₂ : 0 < n) :
-  (∑ k in Finset.Icc 1 n, (1 : ℝ)/k) ≤ ∑ k in Finset.Icc 1 n, (a k)/k^2 :=
+  (∑ k ∈ Finset.Icc 1 n, (1 : ℝ)/k) ≤ ∑ k ∈ Finset.Icc 1 n, (a k)/k^2 :=
   sorry
 
 theorem amc12a_2017_p7
   (f : ℕ → ℝ)
   (h₀ : f 1 = 2)
-  (h₁ : ∀ n, 1 < n ∧ even n → f n = f (n - 1) + 1)
-  (h₂ : ∀ n, 1 < n ∧ odd n → f n = f (n - 2) + 2) :
+  (h₁ : ∀ n, 1 < n ∧ Even n → f n = f (n - 1) + 1)
+  (h₂ : ∀ n, 1 < n ∧ Odd n → f n = f (n - 2) + 2) :
   f 2017 = 2018 :=
   sorry
 
@@ -542,8 +541,8 @@ theorem mathd_numbertheory_42
   (S : Set ℕ)
   (u v : ℕ)
   (h₀ : ∀ (a : ℕ), a ∈ S ↔ 0 < a ∧ 27 * a % 40 = 17)
-  (h₁ : is_least S u)
-  (h₂ : is_least (S \ {u}) v) :
+  (h₁ : IsLeast S u)
+  (h₂ : IsLeast (S \ {u}) v) :
   u + v = 62 :=
   sorry
 
@@ -557,7 +556,7 @@ theorem mathd_algebra_110
 theorem amc12b_2021_p21
   (S : Finset ℝ)
   (h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 < x ∧ x^((2 : ℝ)^Real.sqrt 2) = (Real.sqrt 2)^((2 : ℝ)^x)) :
-  ↑2 ≤ ∑ k in S, k ∧ ∑ k in S, k < 6 :=
+  ↑2 ≤ ∑ k ∈ S, k ∧ ∑ k ∈ S, k < 6 :=
   sorry
 
 theorem mathd_algebra_405
@@ -569,7 +568,7 @@ theorem mathd_algebra_405
 theorem numbertheory_sumkmulnckeqnmul2pownm1
   (n : ℕ)
   (h₀ : 0 < n) :
-  ∑ k in Finset.Icc 1 n, (k * Nat.choose n k) = n * 2^(n - 1) :=
+  ∑ k ∈ Finset.Icc 1 n, (k * Nat.choose n k) = n * 2^(n - 1) :=
   sorry
 
 theorem mathd_algebra_393
@@ -587,7 +586,7 @@ theorem amc12b_2004_p3
 theorem mathd_numbertheory_303
   (S : Finset ℕ)
   (h₀ : ∀ (n : ℕ), n ∈ S ↔ 2 ≤ n ∧ 171 ≡ 80 [MOD n] ∧ 468 ≡ 13 [MOD n]) :
-  ∑ k in S, k = 111 :=
+  ∑ k ∈ S, k = 111 :=
   sorry
 
 theorem mathd_algebra_151 :
@@ -607,7 +606,7 @@ theorem mathd_algebra_15
   sorry
 
 theorem mathd_numbertheory_211 :
-  Finset.card (Finset.filter (λ n, 6 ∣ (4 * ↑n - (2 : ℤ))) (Finset.range 60)) = 20 :=
+  Finset.card (Finset.filter (fun n => 6 ∣ (4 * ↑n - (2 : ℤ))) (Finset.range 60)) = 20 :=
   sorry
 
 theorem mathd_numbertheory_640 :
@@ -750,7 +749,7 @@ theorem amc12a_2013_p8
 
 theorem mathd_numbertheory_461
   (n : ℕ)
-  (h₀ : n = Finset.card (Finset.filter (λ x, gcd x 8 = 1) (Finset.Icc 1 7))) :
+  (h₀ : n = Finset.card (Finset.filter (fun x => Nat.gcd x 8 = 1) (Finset.Icc 1 7))) :
   (3^n) % 8 = 1 :=
   sorry
 
@@ -873,8 +872,8 @@ theorem mathd_algebra_149
   (f : ℝ → ℝ)
   (h₀ : ∀ x < -5, f x = x^2 + 5)
   (h₁ : ∀ x ≥ -5, f x = 3 * x -8)
-  (h₂ : fIntype (f⁻¹' {10})) :
-  ∑ k in (f⁻¹' {10}).to_Finset, k = 6 :=
+  (h₂ : Fintype (f⁻¹' {10})) :
+  ∑ k ∈ (f⁻¹' {10}).toFinset, k = 6 :=
   sorry
 
 theorem mathd_algebra_132
@@ -924,7 +923,7 @@ theorem mathd_numbertheory_301
 theorem amc12a_2009_p15
   (n : ℕ)
   (h₀ : 0 < n)
-  (h₁ : ∑ k in Finset.Icc 1 n, (↑k * (Complex.I^k)) = 48 + 49 * Complex.I) :
+  (h₁ : ∑ k ∈ Finset.Icc 1 n, (↑k * (Complex.I^k)) = 48 + 49 * Complex.I) :
   n = 97 :=
   sorry
 
@@ -976,7 +975,7 @@ theorem algebra_3rootspoly_amdtamctambeqnasqmbpctapcbtdpasqmbpctapcbta
   sorry
 
 theorem mathd_numbertheory_403 :
-  ∑ k in (Nat.proper_divisors 198), k = 270 :=
+  ∑ k ∈ (Nat.properDivisors 198), k = 270 :=
   sorry
 
 theorem mathd_algebra_190 :
@@ -1027,8 +1026,8 @@ theorem mathd_algebra_144
 
 theorem mathd_algebra_282
   (f : ℝ → ℝ)
-  (h₀ : ∀ x, (¬ irrational x) → f x = abs (Int.floor x))
-  (h₁ : ∀ x, (irrational x) → f x = (Int.ceil x)^2) :
+  (h₀ : ∀ x, (¬ Irrational x) → f x = abs (Int.floor x))
+  (h₁ : ∀ x, (Irrational x) → f x = (Int.ceil x)^2) :
   f (8^(1/3)) + f (-Real.pi) + f (Real.sqrt 50) + f (9/2) = 79 :=
   sorry
 
@@ -1091,7 +1090,7 @@ theorem imo_1967_p3
   (h₁ : ∀ s, c s = s * (s + 1))
   (h₂ : Nat.Prime (k + m + 1))
   (h₃ : n + 1 < k + m + 1) :
-  (∏ i in Finset.Icc 1 n, c i) ∣ (∏ i in Finset.Icc 1 n, (c (m + i) - c k)) :=
+  (∏ i ∈ Finset.Icc 1 n, c i) ∣ (∏ i ∈ Finset.Icc 1 n, (c (m + i) - c k)) :=
   sorry
 
 theorem mathd_algebra_11
@@ -1106,13 +1105,13 @@ theorem amc12a_2003_p1
   (u v : ℕ → ℕ)
   (h₀ : ∀ n, u n = 2 * n + 2)
   (h₁ : ∀ n, v n = 2 * n + 1) :
-  (∑ k in Finset.range(2003), u k) - (∑ k in Finset.range(2003), v k) = 2003 :=
+  (∑ k ∈ Finset.range 2003, u k) - (∑ k ∈ Finset.range 2003, v k) = 2003 :=
   sorry
 
 theorem numbertheory_aneqprodakp4_anmsqrtanp1eq2
   (a : ℕ → ℝ)
   (h₀ : a 0 = 1)
-  (h₁ : ∀ n, a (n + 1) = (∏ k in Finset.range (n + 1), (a k)) + 4) :
+  (h₁ : ∀ n, a (n + 1) = (∏ k ∈ Finset.range (n + 1), (a k)) + 4) :
   ∀ n ≥ 1, a n - Real.sqrt (a (n + 1)) = 2 :=
   sorry
 
@@ -1123,7 +1122,7 @@ theorem algebra_2rootspoly_apatapbeq2asqp2ab
 
 theorem induction_sum_odd
   (n : ℕ) :
-  ∑ k in (Finset.range n), 2 * k + 1 = n^2 :=
+  ∑ k ∈ (Finset.range n), 2 * k + 1 = n^2 :=
   sorry
 
 theorem mathd_algebra_568
@@ -1139,7 +1138,7 @@ theorem mathd_algebra_616
   sorry
 
 theorem mathd_numbertheory_690 :
-  is_least {a : ℕ | 0 < a ∧ a ≡ 2 [MOD 3] ∧ a ≡ 4 [MOD 5] ∧ a ≡ 6 [MOD 7] ∧ a ≡ 8 [MOD 9]} 314 :=
+  IsLeast {a : ℕ | 0 < a ∧ a ≡ 2 [MOD 3] ∧ a ≡ 4 [MOD 5] ∧ a ≡ 6 [MOD 7] ∧ a ≡ 8 [MOD 9]} 314 :=
   sorry
 
 theorem amc12a_2016_p2
@@ -1202,7 +1201,7 @@ theorem mathd_algebra_159
 
 theorem aime_1997_p12
   (x : ℝ)
-  (h₀ : x = (∑ n in Finset.Icc (1 : ℕ) 44, Real.cos (n * π / 180)) / (∑ n in Finset.Icc (1 : ℕ) 44, Real.sin (n * π / 180))) :
+  (h₀ : x = (∑ n ∈ Finset.Icc (1 : ℕ) 44, Real.cos (n * π / 180)) / (∑ n ∈ Finset.Icc (1 : ℕ) 44, Real.sin (n * π / 180))) :
   Int.floor (100 * x) = 241 :=
   sorry
 
@@ -1221,7 +1220,7 @@ theorem aime_1988_p4
   (n : ℕ)
   (a : ℕ → ℝ)
   (h₀ : ∀ n, abs (a n) < 1)
-  (h₁ : ∑ k in Finset.range n, (abs (a k)) = 19 + abs (∑ k in Finset.range n, a k)) :
+  (h₁ : ∑ k ∈ Finset.range n, (abs (a k)) = 19 + abs (∑ k ∈ Finset.range n, a k)) :
   20 ≤ n :=
   sorry
 
@@ -1284,13 +1283,6 @@ theorem imo_1961_p1
   0 < a ∧ b^2 < a^2 ∧ a^2 < 3 * b^2 :=
   sorry
 
-theorem mathd_algebra_31
-  (x : NNReal)
-  (u : ℕ → NNReal)
-  (h₀ : ∀ n, u (n + 1) = NNReal.sqrt (x + u n))
-  (h₁ : filter.tendsto u filter.at_top (𝓝 9)) :
-  9 = NNReal.sqrt (x + 9) :=
-  sorry
 
 theorem algebra_manipexpr_apbeq2cceqiacpbceqm2
   (a b c : ℂ)
@@ -1341,7 +1333,7 @@ theorem imo_1966_p4
   (x : ℝ)
   (h₀ : ∀ k : ℕ, 0 < k → ∀ m : ℤ, x ≠ m * π / (2^k))
   (h₁ : 0 < n) :
-  ∑ k in Finset.Icc 1 n, (1 / Real.sin ((2^k) * x)) = 1 / Real.tan x - 1 / Real.tan ((2^n) * x) :=
+  ∑ k ∈ Finset.Icc 1 n, (1 / Real.sin ((2^k) * x)) = 1 / Real.tan x - 1 / Real.tan ((2^n) * x) :=
   sorry
 
 theorem mathd_algebra_67
@@ -1404,7 +1396,7 @@ theorem imo_1990_p3
 theorem induction_ineq_nsqlefactn
   (n : ℕ)
   (h₀ : 4 ≤ n) :
-  n^2 ≤ n! :=
+  n^2 ≤ n.factorial :=
   sorry
 
 theorem mathd_numbertheory_30 :
@@ -1435,7 +1427,7 @@ theorem amc12a_2002_p12
   (f : ℝ → ℝ)
   (k : ℝ)
   (h₀ : ∀ x, f x = x^2 - 63 * x + k)
-  (h₁ : Set.subset (f ⁻¹' {0}) {x : ℝ | ∃ n : ℕ, ↑n = x ∧ Nat.Prime n}) :
+  (h₁ : Set.Subset (f ⁻¹' {0}) {x : ℝ | ∃ n : ℕ, ↑n = x ∧ Nat.Prime n}) :
   k = 122 :=
   sorry
 
@@ -1489,8 +1481,8 @@ theorem amc12a_2003_p24 :
 theorem amc12a_2002_p1
   (f : ℂ → ℂ)
   (h₀ : ∀ x, f x = (2 * x + 3) * (x - 4) + (2 * x + 3) * (x - 6))
-  (h₁ : fIntype (f ⁻¹' {0})) :
-  ∑ y in (f⁻¹' {0}).to_Finset, y = 7 / 2 :=
+  (h₁ : Fintype (f ⁻¹' {0})) :
+  ∑ y ∈ (f⁻¹' {0}).toFinset, y = 7 / 2 :=
   sorry
 
 theorem mathd_algebra_206
@@ -1571,9 +1563,10 @@ theorem mathd_algebra_247
   (n : ℤ)
   (h₀ : t = 2 * s - s^2)
   (h₁ : s = n^2 - 2^n + 1)
-  (n = 3) :
+  (h₂ : n = 3) :
   t = 0 :=
   sorry
+
 theorem algebra_sqineq_2unitcircatblt1
   (a b : ℝ)
   (h₀ : a^2 + b^2 = 2) :
@@ -1581,7 +1574,7 @@ theorem algebra_sqineq_2unitcircatblt1
   sorry
 
 theorem mathd_numbertheory_629 :
-  is_least {t : ℕ | 0 < t ∧ (Nat.lcm 12 t)^3 = (12 * t)^2} 18 :=
+  IsLeast {t : ℕ | 0 < t ∧ (Nat.lcm 12 t)^3 = (12 * t)^2} 18 :=
   sorry
 
 theorem amc12a_2017_p2
@@ -1605,7 +1598,7 @@ theorem mathd_numbertheory_202 :
 theorem imo_1979_p1
   (p q : ℕ)
   (h₀ : 0 < q)
-  (h₁ : ∑ k in Finset.Icc (1 : ℕ) 1319, ((-1)^(k + 1) * ((1 : ℝ)/k)) = p/q) :
+  (h₁ : ∑ k ∈ Finset.Icc (1 : ℕ) 1319, ((-1)^(k + 1) * ((1 : ℝ)/k)) = p/q) :
   1979 ∣ p :=
   sorry
 
