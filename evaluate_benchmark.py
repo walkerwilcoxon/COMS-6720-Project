@@ -1,4 +1,4 @@
-from llm_utils import load_model, evaluate, get_f2f_problems
+from llm_utils import load_model, produce_proof, get_f2f_problems
 
 problems = get_f2f_problems()
 
@@ -16,7 +16,7 @@ model, tokenizer = load_model(llm_id)
 
 with open("solutions.txt", "a") as f:
     for problem in problems["test"]:
-        output, dt = evaluate(model, tokenizer, problem)
+        output, dt = produce_proof(model, tokenizer, problem)
 
         print([output, dt])
 
