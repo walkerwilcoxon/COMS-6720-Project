@@ -29,6 +29,12 @@ cd Goedel-Prover-V2
 ```
 
 3. **Install required packages**
+Install conda if not installed:
+```sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+
+Create conda virtual environment
 ```sh
 conda env create -f goedelv2.yml
 ```
