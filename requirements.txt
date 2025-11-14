@@ -1,3 +1,5 @@
 transformers
 accelerate
 torch
+tomli-w
+tomli
