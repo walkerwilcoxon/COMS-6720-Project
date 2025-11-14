@@ -31,7 +31,7 @@ else:
 if False:
     pass
 else:
-    proof_producer = produce_proof_benchmark
+    producer_name, proof_producer = "benchmark", produce_proof_benchmark
 
 if "--valid" in sys.argv[1:]:
     problem_set_name = "valid"
@@ -40,7 +40,7 @@ else:
 
 num_gpus = torch.cuda.device_count()
 
-class MultiGPUExecutor:
+class ParallelExecutor:
     def __init__(self, num_gpus):
         self.num_gpus = num_gpus
         self.input_queues = []
@@ -96,8 +96,10 @@ def main():
 
     Path("output").mkdir(exist_ok=True)
 
+    proof_filepath = f"output/{producer_name}_{llm_name}_{problem_set_name}_solutions.txt"
+
     try:
-        with open(f"output/{llm_name}_{problem_set_name}_solutions.txt", "rb") as f:
+        with open(proof_filepath, "rb") as f:
             proofs = tomli.load(f)["proof"]
             # Names of proofs that have already been proven
             all_proved_names = set([proof["name"] for proof in proofs])
@@ -112,7 +114,7 @@ def main():
     
     problems_set = problems[problem_set_name]
 
-    executor = MultiGPUExecutor(num_gpus)
+    executor = ParallelExecutor(num_gpus)
 
     for i, (name, problem) in enumerate(problems_set):
         # Skip proofs that are already in the output file
@@ -130,7 +132,7 @@ def main():
         output_json.append(output)
 
         output_json.sort(key=lambda x: x["iteration"])
-        with open(f"output/{llm_name}_{problem_set_name}_solutions.txt", "wb") as f:
+        with open(proof_filepath, "wb") as f:
             tomli_w.dump({"proof": output_json}, f, multiline_strings=True)
 
 if __name__ == "__main__":
