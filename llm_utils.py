@@ -4,6 +4,8 @@ from functools import reduce
 import re
 import textwrap
 import time
+import multiprocessing as mp
+
 
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, logging
 import torch
