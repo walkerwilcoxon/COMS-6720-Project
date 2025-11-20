@@ -8,7 +8,7 @@ import torch
 import tomli_w
 import tomli
 
-from llm_utils import load_model, get_f2f_problems
+from llm_utils import load_model, get_f2f_problems, ParallelExecutor
 from proof_producers import produce_proof_benchmark
 
 # Usage: 
@@ -40,33 +40,9 @@ else:
 
 num_gpus = torch.cuda.device_count()
 
-class ParallelExecutor:
-    def __init__(self, num_gpus):
-        self.num_gpus = num_gpus
-        self.input_queues = []
-        self.output_queue = mp.Queue()
-        self.workers = []
+def llm_worker(gpu_id, input_q, output_q):
+    print(f"Starting LLM worker {gpu_id}")
 
-        for gpu_id in range(num_gpus):
-            q = mp.Queue()
-            self.input_queues.append(q)
-            p = mp.Process(target=gpu_worker, args=(gpu_id, q, self.output_queue))
-            p.start()
-            self.workers.append(p)
-
-    def submit(self, gpu_id, data):
-        self.input_queues[gpu_id].put(data)
-
-    def gather(self):
-        return self.output_queue.get()
-
-    def shutdown(self):
-        for q in self.input_queues:
-            q.put(None)
-        for p in self.workers:
-            p.join()
-
-def gpu_worker(gpu_id, input_q, output_q):
     os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
 
     device = torch.device("cuda:0")
@@ -114,7 +90,7 @@ def main():
     
     problems_set = problems[problem_set_name]
 
-    executor = ParallelExecutor(num_gpus)
+    executor = ParallelExecutor(num_gpus, worker=llm_worker)
 
     for i, (name, problem) in enumerate(problems_set):
         # Skip proofs that are already in the output file

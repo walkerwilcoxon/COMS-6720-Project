@@ -12,6 +12,15 @@ import getpass
 
 USER = getpass.getuser()
 
+IMPORTS = """
+import Mathlib
+import Aesop
+
+set_option maxHeartbeats 0
+
+open BigOperators Real Nat Topology Rat
+"""
+
 def load_model(llm_id: str):
     logging.set_verbosity_error()
     tokenizer = AutoTokenizer.from_pretrained(llm_id, cache_dir=f"/work/classtmp/{USER}/models")
@@ -97,3 +106,29 @@ def extract_proof_and_outline(output: str) -> (str, str):
     outline = match.group(1)
 
     return proof, outline
+
+class ParallelExecutor:
+    def __init__(self, num_gpus, worker):
+        self.num_gpus = num_gpus
+        self.input_queues = []
+        self.output_queue = mp.Queue()
+        self.workers = []
+
+        for gpu_id in range(num_gpus):
+            q = mp.Queue()
+            self.input_queues.append(q)
+            p = mp.Process(target=worker, args=(gpu_id, q, self.output_queue))
+            p.start()
+            self.workers.append(p)
+
+    def submit(self, gpu_id, data):
+        self.input_queues[gpu_id].put(data)
+
+    def gather(self):
+        return self.output_queue.get()
+
+    def shutdown(self):
+        for q in self.input_queues:
+            q.put(None)
+        for p in self.workers:
+            p.join()
