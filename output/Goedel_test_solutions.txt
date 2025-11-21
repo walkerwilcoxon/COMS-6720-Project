@@ -2,6 +2,7 @@
 name = "mathd_algebra_478"
 iteration = 1
 time = 26
+verified = true
 proof = """
 theorem mathd_algebra_478
 (b h v : ℝ)
@@ -87,6 +88,7 @@ This `have` statement directly reflects the goal `v = 65`, which is derived by s
 name = "numbertheory_4x3m7y3neq2003"
 iteration = 2
 time = 71
+verified = true
 proof = """
 theorem numbertheory_4x3m7y3neq2003
 (x y : ℤ) :
@@ -190,6 +192,7 @@ by
 name = "aime_1983_p1"
 iteration = 3
 time = 208
+verified = false
 proof = """
 theorem aime_1983_p1
 (x y z w : ℕ)
@@ -438,6 +441,7 @@ Real.log w / Real.log z = 60 :=
 name = "amc12_2001_p5"
 iteration = 4
 time = 578
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -738,6 +742,7 @@ Finset.prod (Finset.filter (fun x => ¬ Even x) (Finset.range 10000)) (id : ℕ 
 name = "mathd_algebra_141"
 iteration = 5
 time = 73
+verified = false
 proof = """
 theorem mathd_algebra_141
 (a b : ℝ)
@@ -838,6 +843,7 @@ theorem mathd_algebra_141
 name = "mathd_numbertheory_3"
 iteration = 6
 time = 51
+verified = false
 proof = """
 theorem mathd_numbertheory_3 :
 (∑ x ∈ Finset.range 10, ((x + 1)^2)) % 10 = 5 :=
@@ -935,6 +941,7 @@ theorem mathd_numbertheory_3 :
 name = "imo_1969_p2"
 iteration = 7
 time = 487
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -1455,6 +1462,7 @@ But the Lean statement is true if `k = 1`, because then `y x = cos(a 0 + x)`, so
 name = "mathd_algebra_209"
 iteration = 8
 time = 241
+verified = false
 proof = """
 theorem mathd_algebra_209
 (σ : Equiv ℝ ℝ)
@@ -1664,6 +1672,7 @@ theorem mathd_algebra_209
 name = "mathd_numbertheory_1124"
 iteration = 9
 time = 150
+verified = false
 proof = """
 theorem mathd_numbertheory_1124
 (n : ℕ)
@@ -1783,6 +1792,7 @@ sorry
 name = "imo_1983_p6"
 iteration = 10
 time = 430
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -2466,6 +2476,7 @@ a^2 b (a - b) + b^2 c (b - c) + c^2 a ("""
 name = "mathd_numbertheory_237"
 iteration = 11
 time = 76
+verified = false
 proof = """
 theorem mathd_numbertheory_237 :
 (∑ k ∈ (Finset.range 101), k) % 6 = 4 :=
@@ -2562,6 +2573,7 @@ theorem mathd_numbertheory_237 :
 name = "mathd_algebra_33"
 iteration = 12
 time = 107
+verified = false
 proof = """
 theorem mathd_algebra_33
 (x y z : ℝ)
@@ -2672,6 +2684,7 @@ sorry
 name = "amc12b_2021_p3"
 iteration = 13
 time = 119
+verified = false
 proof = """
 theorem amc12b_2021_p3
 (x : ℝ)
@@ -2811,6 +2824,7 @@ have h₁ : x = 3 / 4 := by
 name = "mathd_numbertheory_299"
 iteration = 14
 time = 50
+verified = true
 proof = """
 theorem mathd_numbertheory_299 :
 (1 * 3 * 5 * 7 * 9 * 11 * 13) % 10 = 5 := by
@@ -2884,6 +2898,7 @@ This `have` statement directly reflects the final result of the computation. The
 name = "amc12b_2020_p2"
 iteration = 15
 time = 569
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -4050,6 +4065,7 @@ have h₁ : ((100 ^ 2 - 7 ^ 2 : ℝ) / (70 ^ 2 - 11 ^ 2)) * (((70 - 11) * (70 + 
 name = "algebra_sqineq_unitcircatbpabsamblt1"
 iteration = 16
 time = 240
+verified = false
 proof = """
 theorem algebra_sqineq_unitcircatbpabsamblt1
 (a b: ℝ)
@@ -4252,6 +4268,7 @@ a * b + |a - b| ≤ 1 := by
 name = "imo_1977_p6"
 iteration = 17
 time = 357
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -4727,6 +4744,7 @@ But the problem states that the conclusion is `f(n) = n` for `n > 0`, so perhaps
 name = "mathd_algebra_419"
 iteration = 18
 time = 53
+verified = true
 proof = """
 theorem mathd_algebra_419
 (a b : ℝ)
@@ -4803,6 +4821,7 @@ The `have` statement directly corresponds to the goal, and its proof is straight
 name = "amc12a_2020_p10"
 iteration = 19
 time = 573
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -5311,6 +5330,7 @@ theorem amc12a_2020_p10
 name = "imo_1960_p2"
 iteration = 20
 time = 304
+verified = false
 proof = """
 theorem imo_1960_p2
 (x : ℝ)
@@ -5528,6 +5548,7 @@ exact ⟨h_x_ge_neg_half, h_x_lt_45_div_8⟩
 name = "mathd_numbertheory_427"
 iteration = 21
 time = 110
+verified = false
 proof = """
 theorem mathd_numbertheory_427
 (a : ℕ)
@@ -5655,6 +5676,7 @@ theorem mathd_numbertheory_427
 name = "numbertheory_x5neqy2p4"
 iteration = 22
 time = 157
+verified = true
 proof = """
 theorem numbertheory_x5neqy2p4
 (x y : ℤ) :
@@ -5768,6 +5790,7 @@ by
 name = "imo_2007_p6"
 iteration = 23
 time = 572
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -6082,6 +6105,7 @@ theorem imo_2007_p6
 name = "mathd_algebra_398"
 iteration = 24
 time = 98
+verified = false
 proof = """
 theorem mathd_algebra_398
 (a b c : ℝ)
@@ -6196,6 +6220,7 @@ theorem mathd_algebra_398
 name = "imo_1963_p5"
 iteration = 25
 time = 376
+verified = false
 proof = """
 theorem imo_1963_p5 :
 Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 :=
@@ -6467,6 +6492,7 @@ Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 :=
 name = "mathd_numbertheory_430"
 iteration = 26
 time = 181
+verified = false
 proof = """
 theorem mathd_numbertheory_430
 (a b c : ℕ)
@@ -6657,6 +6683,7 @@ a + b + c = 8 := by
 name = "mathd_algebra_459"
 iteration = 27
 time = 220
+verified = false
 proof = """
 theorem mathd_algebra_459
 (a b c d : ℚ)
@@ -6858,6 +6885,7 @@ theorem mathd_algebra_459
 name = "induction_12dvd4expnp1p20"
 iteration = 28
 time = 106
+verified = true
 proof = """
 theorem induction_12dvd4expnp1p20
 (n : ℕ) :
@@ -6949,6 +6977,7 @@ theorem induction_12dvd4expnp1p20
 name = "mathd_algebra_320"
 iteration = 29
 time = 580
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -7432,6 +7461,7 @@ a + b + c = 26 :=
 name = "mathd_numbertheory_559"
 iteration = 30
 time = 222
+verified = true
 proof = """
 theorem mathd_numbertheory_559
 (x y : ℕ)
@@ -7585,6 +7615,7 @@ sorry
 name = "mathd_algebra_160"
 iteration = 31
 time = 93
+verified = false
 proof = """
 theorem mathd_algebra_160
 (n x : ℝ)
@@ -7716,6 +7747,7 @@ n + 2 * x = 139 :=
 name = "mathd_algebra_24"
 iteration = 32
 time = 47
+verified = false
 proof = """
 theorem mathd_algebra_24
 (x : ℝ)
@@ -7781,6 +7813,7 @@ The `have` statement `h₁ : x = 2000` directly represents the conclusion of the
 name = "mathd_algebra_176"
 iteration = 33
 time = 42
+verified = false
 proof = """
 theorem mathd_algebra_176
 (x : ℝ) :
@@ -7845,6 +7878,7 @@ theorem mathd_algebra_176
 name = "induction_nfactltnexpnm1ngt3"
 iteration = 34
 time = 317
+verified = false
 proof = """
 theorem induction_nfactltnexpnm1ngt3
 (n : ℕ)
@@ -8099,6 +8133,7 @@ by
 name = "mathd_algebra_208"
 iteration = 35
 time = 146
+verified = false
 proof = """
 theorem mathd_algebra_208 :
 Real.sqrt 1000000 - 1000000^((1:ℝ)/3) = 900 :=
@@ -8219,6 +8254,7 @@ This proof sketch uses `have` statements with `sorry` for each intermediate step
 name = "mathd_numbertheory_353"
 iteration = 36
 time = 104
+verified = false
 proof = """
 theorem mathd_numbertheory_353
 (s : ℕ)
@@ -8316,6 +8352,7 @@ s % 2009 = 0 := by
 name = "numbertheory_notequiv2i2jasqbsqdiv8"
 iteration = 37
 time = 580
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -8750,6 +8787,7 @@ The claim is that these two conditions are not equivalent for all integers `a` a
 name = "mathd_algebra_156"
 iteration = 38
 time = 196
+verified = false
 proof = """
 theorem mathd_algebra_156
 (x y : ℝ)
@@ -8939,6 +8977,7 @@ sorry
 name = "mathd_numbertheory_12"
 iteration = 39
 time = 78
+verified = true
 proof = """
 theorem mathd_numbertheory_12 :
 Finset.card (Finset.filter (fun x => 20∣x) (Finset.Icc 15 85)) = 4 := by
@@ -9010,6 +9049,7 @@ The `have` statement directly reflects the goal, and its proof is straightforwar
 name = "mathd_numbertheory_345"
 iteration = 40
 time = 99
+verified = false
 proof = """
 theorem mathd_numbertheory_345 :
 (2000 + 2001 + 2002 + 2003 + 2004 + 2005 + 2006) % 7 = 0 :=
@@ -9112,6 +9152,7 @@ This proof sketch uses a single `have` statement to assert the result directly, 
 name = "mathd_numbertheory_447"
 iteration = 41
 time = 116
+verified = false
 proof = """
 theorem mathd_numbertheory_447 :
 ∑ k ∈ Finset.filter (fun x => 3∣x) (Finset.Icc 1 49), (k % 10) = 78 := by
@@ -9233,6 +9274,7 @@ theorem mathd_numbertheory_447 :
 name = "mathd_numbertheory_328"
 iteration = 42
 time = 83
+verified = false
 proof = """
 theorem mathd_numbertheory_328 :
 (5^999999) % 7 = 6 :=
@@ -9324,6 +9366,7 @@ This `have` statement directly reflects the final result we derived. The proof c
 name = "mathd_numbertheory_451"
 iteration = 43
 time = 560
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -9629,6 +9672,7 @@ theorem mathd_numbertheory_451
 name = "aime_1997_p9"
 iteration = 44
 time = 582
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -10131,6 +10175,7 @@ a^12 - 144 * (1 / a) = 233 :=
 name = "algebra_sqineq_at2malt1"
 iteration = 45
 time = 62
+verified = false
 proof = """
 theorem algebra_sqineq_at2malt1
 (a : ℝ) :
@@ -10221,6 +10266,7 @@ a * (2 - a) ≤ 1 := by
 name = "algebra_apbmpcneq0_aeq0anbeq0anceq0"
 iteration = 46
 time = 570
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -10608,6 +10654,7 @@ a = 0 ∧ b = 0 ∧ c = 0 :=
 name = "mathd_algebra_171"
 iteration = 47
 time = 40
+verified = true
 proof = """
 theorem mathd_algebra_171
 (f : ℝ → ℝ)
@@ -10670,6 +10717,7 @@ The `have` statement `h₁` directly represents the goal `f 1 = 9`, and its proo
 name = "mathd_numbertheory_227"
 iteration = 48
 time = 556
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -11112,6 +11160,7 @@ But `y` is of type `ℕ+`, and `y / 6` is `(y : ℝ) / 6`."""
 name = "mathd_algebra_188"
 iteration = 49
 time = 101
+verified = false
 proof = """
 theorem mathd_algebra_188
 (σ : Equiv ℝ ℝ)
@@ -11198,6 +11247,7 @@ theorem mathd_algebra_188
 name = "mathd_numbertheory_765"
 iteration = 50
 time = 570
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -11288,6 +11338,7 @@ Now, `545 * 24 = 13080` and `11 * 1199 = 13189`, so `545 * 24 - 11 * 1199 = -109
 name = "imo_1959_p1"
 iteration = 51
 time = 86
+verified = true
 proof = """
 theorem imo_1959_p1
 (n : ℕ)
@@ -11379,6 +11430,7 @@ Nat.gcd (21*n + 4) (14*n + 3) = 1 := by
 name = "mathd_numbertheory_175"
 iteration = 52
 time = 58
+verified = false
 proof = """
 theorem mathd_numbertheory_175 :
 (2^2010) % 10 = 4 :=
@@ -11470,6 +11522,7 @@ sorry
 name = "induction_sumkexp3eqsumksq"
 iteration = 53
 time = 170
+verified = false
 proof = """
 theorem induction_sumkexp3eqsumksq
 (n : ℕ) :
@@ -11613,6 +11666,7 @@ by
 name = "numbertheory_fxeq4powxp6powxp9powx_f2powmdvdf2pown"
 iteration = 54
 time = 429
+verified = false
 proof = """
 theorem numbertheory_fxeq4powxp6powxp9powx_f2powmdvdf2pown
 (m n : ℕ)
@@ -11900,6 +11954,7 @@ The `have` statement `h_main` directly reflects the goal `f (2^m) ∣ f (2^n)`. 
 name = "imo_1992_p1"
 iteration = 55
 time = 556
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -12090,6 +12145,7 @@ We are given integers `p`, `q`, `r` such that `1 < p < q < r` and `(p - 1)(q - 1
 name = "imo_1982_p1"
 iteration = 56
 time = 389
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -12503,6 +12559,7 @@ We will prove that `f(n) = ⌊n/3⌋` for all `n > 0`.
 name = "aime_1987_p5"
 iteration = 57
 time = 581
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -12893,6 +12950,7 @@ theorem aime_1987_p5
 name = "mathd_algebra_346"
 iteration = 58
 time = 72
+verified = false
 proof = """
 theorem mathd_algebra_346
 (f g : ℝ → ℝ)
@@ -12991,6 +13049,7 @@ This sets up the key intermediate steps (`h₂`, `h₃`, `h₄`) that directly c
 name = "mathd_algebra_487"
 iteration = 59
 time = 243
+verified = false
 proof = """
 theorem mathd_algebra_487
 (a b c d : ℝ)
@@ -13210,6 +13269,7 @@ Real.sqrt ((a - c)^2 + (b - d)^2)= Real.sqrt 10 := by
 name = "mathd_numbertheory_728"
 iteration = 60
 time = 159
+verified = false
 proof = """
 theorem mathd_numbertheory_728 :
 (29^13 - 5^13) % 7 = 0 := by
@@ -13429,6 +13489,7 @@ However, since the Lean code is given as `(29^13 - 5^13) % 7 = 0`, we will proce
 name = "mathd_algebra_184"
 iteration = 61
 time = 185
+verified = false
 proof = """
 theorem mathd_algebra_184
 (a b : NNReal)
@@ -13595,6 +13656,7 @@ sorry
 name = "mathd_numbertheory_552"
 iteration = 62
 time = 572
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -13908,6 +13970,7 @@ But earlier, we had"""
 name = "amc12b_2021_p9"
 iteration = 63
 time = 221
+verified = false
 proof = """
 theorem amc12b_2021_p9 :
 (Real.log 80 / Real.log 2) / (Real.log 2 / Real.log 40) - (Real.log 160 / Real.log 2) / (Real.log 2 / Real.log 20) = 2 :=
@@ -14100,6 +14163,7 @@ theorem amc12b_2021_p9 :
 name = "aime_1994_p3"
 iteration = 64
 time = 390
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -14952,6 +15016,7 @@ But to prove it, we can just say that no such `x`"""
 name = "mathd_algebra_44"
 iteration = 65
 time = 75
+verified = false
 proof = """
 theorem mathd_algebra_44
 (s t : ℝ)
@@ -15053,6 +15118,7 @@ sorry
 name = "mathd_algebra_215"
 iteration = 66
 time = 83
+verified = true
 proof = """
 theorem mathd_algebra_215
 (S : Finset ℝ)
@@ -15167,6 +15233,7 @@ This completes the sketch. The actual Lean proof would fill in the `sorry` gaps 
 name = "mathd_numbertheory_293"
 iteration = 67
 time = 94
+verified = true
 proof = """
 theorem mathd_numbertheory_293
 (n : ℕ)
@@ -15268,6 +15335,7 @@ n = 5 := by
 name = "mathd_numbertheory_769"
 iteration = 68
 time = 100
+verified = false
 proof = """
 theorem mathd_numbertheory_769 :
 (129^34 + 96^38) % 11 = 9 :=
@@ -15383,6 +15451,7 @@ theorem mathd_numbertheory_769 :
 name = "mathd_algebra_452"
 iteration = 69
 time = 289
+verified = true
 proof = """
 theorem mathd_algebra_452
 (a : ℕ → ℝ)
@@ -15605,6 +15674,7 @@ a 5 = 11 / 15 := by
 name = "mathd_numbertheory_5"
 iteration = 70
 time = 339
+verified = false
 proof = """
 theorem mathd_numbertheory_5
 (n : ℕ)
@@ -15834,6 +15904,7 @@ theorem mathd_numbertheory_5
 name = "mathd_numbertheory_207"
 iteration = 71
 time = 36
+verified = true
 proof = """
 theorem mathd_numbertheory_207 :
 8 * 9^2 + 5 * 9 + 2 = 695 := by
@@ -15892,6 +15963,7 @@ theorem mathd_numbertheory_207 :
 name = "mathd_numbertheory_342"
 iteration = 72
 time = 25
+verified = false
 proof = """
 theorem mathd_numbertheory_342 :
 54 % 6 = 0 :=
@@ -15946,6 +16018,7 @@ This proof sketch directly uses the fact that `54 % 6 = 0` is true, and we can u
 name = "mathd_numbertheory_483"
 iteration = 73
 time = 120
+verified = false
 proof = """
 theorem mathd_numbertheory_483
 (a : ℕ → ℕ)
@@ -16092,6 +16165,7 @@ theorem mathd_numbertheory_483
 name = "amc12b_2020_p21"
 iteration = 74
 time = 573
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -16490,6 +16564,7 @@ S.card = 6 :=
 name = "amc12a_2003_p5"
 iteration = 75
 time = 341
+verified = false
 proof = """
 theorem amc12a_2003_p5
 (A M C : ℕ)
@@ -16747,6 +16822,7 @@ A + M + C = 14 :=
 name = "mathd_numbertheory_495"
 iteration = 76
 time = 153
+verified = false
 proof = """
 theorem mathd_numbertheory_495
 (a b : ℕ)
@@ -16952,6 +17028,7 @@ This `have` statement directly reflects the main goal, and its proof would mirro
 name = "mathd_algebra_296"
 iteration = 77
 time = 84
+verified = false
 proof = """
 theorem mathd_algebra_296 :
 abs (((3491 - 60) * (3491 + 60) - 3491^2):ℤ) = 3600 :=
@@ -17059,6 +17136,7 @@ abs (((3491 - 60) * (3491 + 60) - 3491^2):ℤ) = 3600 := by
 name = "algebra_abpbcpcageq3_sumaonsqrtapbgeq3onsqrt2"
 iteration = 78
 time = 573
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -17594,6 +17672,7 @@ But this is not obviously helpful.
 name = "algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7"
 iteration = 79
 time = 158
+verified = false
 proof = """
 theorem algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7
 (f z: ℂ)
@@ -17765,6 +17844,7 @@ Each `have` statement corresponds to a key step in the proof, and all are marked
 name = "mathd_numbertheory_247"
 iteration = 80
 time = 393
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -18293,6 +18373,7 @@ n % 11 = 8 :=
 name = "induction_pord1p1on2powklt5on2"
 iteration = 81
 time = 568
+verified = false
 proof = """
 theorem induction_pord1p1on2powklt5on2
 (n : ℕ)
@@ -18648,6 +18729,7 @@ theorem induction_pord1p1on2powklt5on2
 name = "mathd_algebra_107"
 iteration = 82
 time = 89
+verified = true
 proof = """
 theorem mathd_algebra_107
 (x y : ℝ)
@@ -18739,6 +18821,7 @@ Each `have` statement corresponds to a clear logical step in the proof, and all 
 name = "numbertheory_2pownm1prime_nprime"
 iteration = 83
 time = 334
+verified = false
 proof = """
 theorem numbertheory_2pownm1prime_nprime
 (n : ℕ)
@@ -19024,6 +19107,7 @@ Nat.Prime n :=
 name = "mathd_algebra_412"
 iteration = 84
 time = 31
+verified = false
 proof = """
 theorem mathd_algebra_412
 (x y : ℝ)
@@ -19109,6 +19193,7 @@ x = 18 := by
 name = "amc12a_2013_p4"
 iteration = 85
 time = 110
+verified = false
 proof = """
 theorem amc12a_2013_p4 :
 (2^2014 + 2^2012) / (2^2014 - 2^2012) = (5:ℝ) / 3 :=
@@ -19206,6 +19291,7 @@ theorem amc12a_2013_p4 :
 name = "mathd_algebra_392"
 iteration = 86
 time = 424
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
@@ -19687,6 +19773,7 @@ We need to prove that `((n - 2) * n * (n + 2)) / 8 = 32736` (where `/` is intege
 name = "mathd_numbertheory_314"
 iteration = 87
 time = 298
+verified = false
 proof = """
 theorem mathd_numbertheory_314
 (r n : ℕ)
@@ -19980,6 +20067,7 @@ theorem mathd_numbertheory_314
 name = "induction_prod1p1onk3le3m1onn"
 iteration = 88
 time = 280
+verified = false
 proof = """
 theorem induction_prod1p1onk3le3m1onn
 (n : ℕ)
@@ -20298,6 +20386,7 @@ theorem induction_prod1p1onk3le3m1onn
 name = "mathd_numbertheory_343"
 iteration = 89
 time = 88
+verified = false
 proof = """
 theorem mathd_numbertheory_343 :
 (∏ k ∈ Finset.range 6, (2 * k + 1)) % 10 = 5 :=
@@ -20386,6 +20475,7 @@ theorem mathd_numbertheory_343 :
 name = "amc12b_2002_p7"
 iteration = 91
 time = 132
+verified = false
 proof = """
 theorem amc12b_2002_p7
 (a b c : ℕ)
@@ -20558,6 +20648,7 @@ a^2 + (b^2 + c^2) = 77 := by
 name = "mathd_algebra_80"
 iteration = 92
 time = 44
+verified = true
 proof = """
 theorem mathd_algebra_80
 (x : ℝ)
@@ -20637,6 +20728,7 @@ This sketch directly translates the final result `x = -11` into a `have` stateme
 name = "mathd_numbertheory_457"
 iteration = 93
 time = 276
+verified = true
 proof = """
 theorem mathd_numbertheory_457
 (n : ℕ)
@@ -20844,6 +20936,7 @@ by
 name = "mathd_algebra_275"
 iteration = 96
 time = 183
+verified = true
 proof = """
 theorem mathd_algebra_275
 (x : ℝ)
@@ -21213,6 +21306,7 @@ theorem mathd_algebra_275
 name = "mathd_algebra_388"
 iteration = 97
 time = 69
+verified = false
 proof = """
 theorem mathd_algebra_388
 (x y z : ℝ)
@@ -21293,6 +21387,7 @@ x = 14 :=
 name = "mathd_algebra_263"
 iteration = 100
 time = 54
+verified = false
 proof = """
 theorem mathd_algebra_263
 (y : ℝ)
@@ -21387,6 +21482,7 @@ y = 10 :=
 name = "mathd_numbertheory_34"
 iteration = 101
 time = 78
+verified = false
 proof = """
 theorem mathd_numbertheory_34
 (x: ℕ)
@@ -21470,6 +21566,7 @@ This sketch uses `have` to state the main goal (`x = 89`) and marks it with `sor
 name = "imo_1962_p2"
 iteration = 104
 time = 249
+verified = false
 proof = """
 theorem imo_1962_p2
 (x : ℝ)
@@ -21693,6 +21790,7 @@ theorem imo_1962_p2
 name = "mathd_algebra_170"
 iteration = 105
 time = 112
+verified = false
 proof = """
 theorem mathd_algebra_170
 (S : Finset ℤ)
@@ -21828,6 +21926,7 @@ S.card = 11 :=
 name = "algebra_bleqa_apbon2msqrtableqambsqon8b"
 iteration = 108
 time = 500
+verified = false
 proof = """
 theorem algebra_bleqa_apbon2msqrtableqambsqon8b
 (a b : ℝ)
@@ -22158,6 +22257,7 @@ theorem algebra_bleqa_apbon2msqrtableqambsqon8b
 name = "mathd_algebra_276"
 iteration = 109
 time = 425
+verified = false
 proof = ""
 outline = """
 <|im_start|>user
