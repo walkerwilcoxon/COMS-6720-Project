@@ -1,4 +1,3 @@
-from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 import sys
 import os
@@ -84,11 +83,11 @@ def main():
         all_proved_names = {}
         output_json = []
 
-    mp.set_start_method("spawn", force=True)
-
     problems = get_f2f_problems()
     
     problems_set = problems[problem_set_name]
+
+    mp.set_start_method("spawn", force=True)
 
     executor = ParallelExecutor(num_gpus, worker=llm_worker)
 
@@ -106,8 +105,8 @@ def main():
         print(f"Completed proof {output["name"]} in {int(output["time"])} seconds ({output["iteration"]}/{n})")
 
         output_json.append(output)
-
         output_json.sort(key=lambda x: x["iteration"])
+        
         with open(proof_filepath, "wb") as f:
             tomli_w.dump({"proof": output_json}, f, multiline_strings=True)
 

@@ -86,7 +86,7 @@ def initiate_child(imports = DEFAULT_IMPORTS):
     child = pexpect.spawn(f"/bin/bash", cwd=DEFAULT_LEAN_WORKSPACE, encoding='utf-8', maxread=1, echo=False)
     
     # # Uncomment the next line to see the REPL's output for debugging
-    child.logfile = sys.stdout
+    # child.logfile = sys.stderr
 
     child.sendline("stty -icanon")
 
@@ -94,7 +94,7 @@ def initiate_child(imports = DEFAULT_IMPORTS):
 
     child.sendline(f"{DEFAULT_LAKE_PATH} exe repl")
 
-    command = DEFAULT_IMPORTS + code
+    command = DEFAULT_IMPORTS
 
     response = send_command_and_wait(child, command, timeout=IMPORT_TIMEOUT)
 
@@ -122,7 +122,7 @@ def send_command_and_wait(child, command, allTactics=False, ast=False, premises=
     # import pdb; pdb.set_trace()
 
 
-    code = imports + command
+    code = imports
     try:
         # Wait for the output delimiter (double newline)
         child.expect(["\r\n\r\n", "\n\n"], timeout=timeout)
@@ -336,12 +336,15 @@ def scheduler(proofs, num_workers=64, allTactics=False, ast=False, premises=Fals
 def verify_proofs(proofs):
     proofs_list = [{"name": proof["name"], "code": proof["proof"]} for proof in proofs]
 
-    print(scheduler(proofs_list, num_workers=16, allTactics=False, ast=False, premises=False, tactics=False))
+    num_workers = os.cpu_count() - 2
+
+    print(scheduler(proofs_list, num_workers=num_workers, allTactics=False, ast=False, premises=False, tactics=False))
 
 
 if __name__ == '__main__':
+    pass
 
-
-    print(scheduler(proof_code_list_sample, num_workers=16, allTactics=False, ast=False, premises=False, tactics=False))
+    # print(scheduler(proof_code_list_sample, num_workers=16, allTactics=False, ast=False, premises=False, tactics=False))
 
     # scheduler(proof_code_list_sample, num_workers=1, ast=True)
+    # 

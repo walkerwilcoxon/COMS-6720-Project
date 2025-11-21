@@ -1,9 +1,13 @@
 from typing import List, Dict
+from subprocess import Popen, PIPE, STDOUT
+import pexpect
+import os
 from pathlib import Path
 from functools import reduce
 import re
 import textwrap
 import time
+import json
 import multiprocessing as mp
 
 
@@ -11,6 +15,11 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 import torch
 import getpass
 
+HOME_DIR = os.path.expanduser('~')
+
+DEFAULT_LAKE_PATH = f'{HOME_DIR}/.elan/bin/lake'
+
+DEFAULT_LEAN_WORKSPACE="mathlib4/"
 
 USER = getpass.getuser()
 
@@ -33,41 +42,37 @@ def load_model(llm_id: str):
     return model, tokenizer
 
 
-# def revise_proof(model, tokenizer, proof, feedback, instructions=None):
-#     if instructions == None:
-#         instructions = """
-#             Before producing the Lean 4 code to formally prove the given theorem, provide a detailed proof plan outlining the main proof steps and strategies.
-#             The plan should highlight key ideas, intermediate lemmas, and proof structures that will guide the construction of the final formal proof.
-#         """.strip()
-#     prompt = f"""
-#     You are an expert in Lean. Your task is to revise the proof that is provided
+def verify_proof(proof, timeout=30) -> dict[str, object]:
+    child = pexpect.spawn(f"/bin/bash", cwd=DEFAULT_LEAN_WORKSPACE, encoding='utf-8', maxread=1, echo=False)
     
-#     {proof}
-#     '''
+    # Uncomment the next line to see the REPL's output for debugging
+    # child.logfile = sys.stderr
 
-#     {instructions}
-#     """.strip()
+    child.sendline("stty -icanon")
 
-#     chat = [
-#         {"role": "user", "content": prompt},
-#     ]
+    child.sendline(f"{DEFAULT_LAKE_PATH} exe repl")
 
-#     inputs = tokenizer.apply_chat_template(chat, tokenize=True, add_generation_prompt=True, return_tensors="pt", padding=True, truncation=True).to(model.device)
+    full_proof = f"{IMPORTS}\n{proof}"
 
-#     start = time.time()
-#     output_tokens = model.generate(inputs, max_new_tokens=8192)
-#     output = tokenizer.batch_decode(output_tokens)[0]
-#     dt = time.time() - start
-#     return output, dt
+    json_proof = json.dumps({"cmd": full_proof})
 
+    child.sendline(json_proof)
 
-def validate_proof(proof) -> dict[str, object]:
-    proof_evalutation = None # evaluation
+    child.sendline("")
 
-    return {
-        "valid": False,
-        "compiler errors": []
-    }
+    try:
+        child.expect(["\r\n\r\n"], timeout=timeout)
+        
+        response = child.before.strip()
+        response = "{" + response.split("{", 1)[1]
+
+        response_dict = json.loads(response)
+    except pexpect.TIMEOUT as e:
+        response_dict = {"messages": [{"severity": "error"}]}
+    except pexpect.EOF as e:
+        response_dict = {"messages": [{"severity": "error"}]}
+    
+    return response_dict
 
 def extract_problems(file) -> List[str]:
     problems = []
@@ -110,21 +115,21 @@ def extract_proof_and_outline(output: str) -> (str, str):
     return proof, outline
 
 class ParallelExecutor:
-    def __init__(self, num_gpus, worker):
-        self.num_gpus = num_gpus
+    def __init__(self, num_workers, worker):
+        self.num_workers = num_workers
         self.input_queues = []
         self.output_queue = mp.Queue()
         self.workers = []
 
-        for gpu_id in range(num_gpus):
+        for worker_id in range(num_workers):
             q = mp.Queue()
             self.input_queues.append(q)
-            p = mp.Process(target=worker, args=(gpu_id, q, self.output_queue))
+            p = mp.Process(target=worker, args=(worker_id, q, self.output_queue))
             p.start()
             self.workers.append(p)
 
-    def submit(self, gpu_id, data):
-        self.input_queues[gpu_id].put(data)
+    def submit(self, worker_id, data):
+        self.input_queues[worker_id].put(data)
 
     def gather(self):
         return self.output_queue.get()
