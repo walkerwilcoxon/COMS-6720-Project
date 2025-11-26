@@ -6,7 +6,7 @@ import textwrap
 import time
 import textwrap
 
-from llm_utils import extract_proof_and_outline
+from llm_utils import extract_proof_and_outline, PROOF_IMPORTS
 
 # This file contains all of the different proof strategies we will try
 
@@ -18,12 +18,7 @@ def produce_proof_benchmark(model, tokenizer, problem):
     Complete the following Lean 4 code:
 
     ```lean4
-    import Mathlib
-    import Aesop
-
-    set_option maxHeartbeats 0
-
-    open BigOperators Real Nat Topology Rat
+    {PROOF_IMPORTS}
 
     {problem}
     ```

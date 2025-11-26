@@ -1,7 +1,8 @@
 from typing import List, Dict
 from subprocess import Popen, PIPE, STDOUT
-import pexpect
+import subprocess
 import os
+import tempfile
 from pathlib import Path
 from functools import reduce
 import re
@@ -19,14 +20,15 @@ HOME_DIR = os.path.expanduser('~')
 
 DEFAULT_LAKE_PATH = f'{HOME_DIR}/.elan/bin/lake'
 
-DEFAULT_LEAN_WORKSPACE="mathlib4/"
+DEFAULT_LEAN_WORKSPACE="lean_testing"
 
 USER = getpass.getuser()
 
-IMPORTS = """
+PROOF_IMPORTS = """
 import Mathlib
 import Aesop
 
+set_option linter.all false
 set_option maxHeartbeats 0
 
 open BigOperators Real Nat Topology Rat
@@ -43,36 +45,65 @@ def load_model(llm_id: str):
 
 
 def verify_proof(proof, timeout=30) -> dict[str, object]:
-    child = pexpect.spawn(f"/bin/bash", cwd=DEFAULT_LEAN_WORKSPACE, encoding='utf-8', maxread=1, echo=False)
-    
-    # Uncomment the next line to see the REPL's output for debugging
-    # child.logfile = sys.stderr
+    full_proof = f"{PROOF_IMPORTS}\n{proof}"
 
-    child.sendline("stty -icanon")
+    # Write temporary Lean file
+    with tempfile.NamedTemporaryFile(suffix=".lean", delete=False, mode="w") as f:
+        f.write(full_proof)
+        f.flush()
+        tmp_path = f.name
 
-    child.sendline(f"{DEFAULT_LAKE_PATH} exe repl")
-
-    full_proof = f"{IMPORTS}\n{proof}"
-
-    json_proof = json.dumps({"cmd": full_proof})
-
-    child.sendline(json_proof)
-
-    child.sendline("")
+    cwd = f"{os.getcwd()}/{DEFAULT_LEAN_WORKSPACE}"
+    cmd = f"lake env lean --json {tmp_path}"
 
     try:
-        child.expect(["\r\n\r\n"], timeout=timeout)
-        
-        response = child.before.strip()
-        response = "{" + response.split("{", 1)[1]
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            shell=True,
+            cwd=cwd,
+            timeout=timeout
+        )
+    except subprocess.TimeoutExpired:
+        return {
+            "verified": False,
+            "timeout": True,
+            "messages": [],
+        }
 
-        response_dict = json.loads(response)
-    except pexpect.TIMEOUT as e:
-        response_dict = {"messages": [{"severity": "error"}]}
-    except pexpect.EOF as e:
-        response_dict = {"messages": [{"severity": "error"}]}
-    
-    return response_dict
+    output = result.stdout
+
+    json_lines = [
+        line.strip()
+        for line in output.splitlines()
+        if line.strip().startswith("{") and line.strip().endswith("}")
+    ]
+
+    error_list = []
+
+    for json_line in json_lines:
+        message_dict = json.loads(json_line)
+
+        if message_dict["severity"] != "error":
+            continue
+
+        if message_dict["data"] == "No goals to be solved":
+            continue
+
+        error = {
+            "line": message_dict["pos"]["line"],
+            "column": message_dict["pos"]["column"],
+            "feedback": message_dict["data"],
+        }
+        error_list.append(error)
+
+    return {
+        "verified": len(error_list) == 0,
+        "timeout": False,
+        "errors": error_list
+    }
+
 
 def extract_problems(file) -> List[str]:
     problems = []

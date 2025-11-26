@@ -10,7 +10,7 @@ import multiprocessing as mp
 import tomli
 import tomli_w
 
-from llm_utils import verify_proof, IMPORTS, ParallelExecutor
+from llm_utils import verify_proof, ParallelExecutor
 
 
 
@@ -29,23 +29,20 @@ def proof_verifier_worker(worker_id, input_q, output_q):
             verified = True
 
             if proof == "":
-                verified = False
+                proof_verification = {
+                    "verified": False,
+                    "timeout": False,
+                }
             else:
                 proof_verification = verify_proof(input["proof"])
-
-                if "messages" not in proof_verification:
-                    verified = False
-                else:
-                    for message in proof_verification["messages"]:
-                        if message["severity"] == "error":
-                            verified = False
 
             output = {}
 
             output["name"] = input["name"]
             output["iteration"] = input["iteration"]
             output["time"] = input["time"]
-            output["verified"] = verified
+            output["verified"] = proof_verification["verified"]
+            output["timeout"] = proof_verification["timeout"]
             output["proof"] = input["proof"]
             output["outline"] = input["outline"]
 
