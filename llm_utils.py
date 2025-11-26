@@ -20,7 +20,7 @@ HOME_DIR = os.path.expanduser('~')
 
 DEFAULT_LAKE_PATH = f'{HOME_DIR}/.elan/bin/lake'
 
-DEFAULT_LEAN_WORKSPACE="lean_testing"
+DEFAULT_LEAN_WORKSPACE="/work/classtmp/wpw/COMS-6720-Project/mathlib4"
 
 USER = getpass.getuser()
 
@@ -53,7 +53,6 @@ def verify_proof(proof, timeout=30) -> dict[str, object]:
         f.flush()
         tmp_path = f.name
 
-    cwd = f"{os.getcwd()}/{DEFAULT_LEAN_WORKSPACE}"
     cmd = f"lake env lean --json {tmp_path}"
 
     try:
@@ -62,7 +61,7 @@ def verify_proof(proof, timeout=30) -> dict[str, object]:
             capture_output=True,
             text=True,
             shell=True,
-            cwd=cwd,
+            cwd=DEFAULT_LEAN_WORKSPACE,
             timeout=timeout
         )
     except subprocess.TimeoutExpired:
