@@ -83,8 +83,6 @@ def verify_proof(proof, timeout=DEFAULT_TIMEOUT) -> dict[str, object]:
 
     output = result.stdout 
 
-    print(output)
-
     json_lines = [
         line.strip()
         for line in output.splitlines()
