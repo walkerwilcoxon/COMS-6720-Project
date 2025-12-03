@@ -20,7 +20,9 @@ HOME_DIR = os.path.expanduser('~')
 
 DEFAULT_LAKE_PATH = f'{HOME_DIR}/.elan/bin/lake'
 
-DEFAULT_LEAN_WORKSPACE="/work/classtmp/wpw/COMS-6720-Project/mathlib4"
+DEFAULT_LEAN_WORKSPACE="lean_testing"
+
+DEFAULT_TIMEOUT = 60
 
 USER = getpass.getuser()
 
@@ -44,7 +46,7 @@ def load_model(llm_id: str):
     return model, tokenizer
 
 
-def verify_proof(proof, timeout=30) -> dict[str, object]:
+def verify_proof(proof, timeout=DEFAULT_TIMEOUT) -> dict[str, object]:
     full_proof = f"{PROOF_IMPORTS}\n{proof}"
 
     # Write temporary Lean file
@@ -67,11 +69,21 @@ def verify_proof(proof, timeout=30) -> dict[str, object]:
     except subprocess.TimeoutExpired:
         return {
             "verified": False,
-            "timeout": True,
-            "messages": [],
+            "error": "Timed out",
+            "feedback": []
         }
 
-    output = result.stdout
+
+    if result.stderr != "":
+        return {
+            "verified": False,
+            "error": f"Compiler error: {result.stderr}",
+            "feedback": []
+        }
+
+    output = result.stdout 
+
+    print(output)
 
     json_lines = [
         line.strip()
@@ -79,28 +91,28 @@ def verify_proof(proof, timeout=30) -> dict[str, object]:
         if line.strip().startswith("{") and line.strip().endswith("}")
     ]
 
-    error_list = []
+    feedback_list = []
 
     for json_line in json_lines:
-        message_dict = json.loads(json_line)
+        feedback_dict = json.loads(json_line)
 
-        if message_dict["severity"] != "error":
+        if feedback_dict["severity"] != "error":
             continue
 
-        if message_dict["data"] == "No goals to be solved":
+        if feedback_dict["data"] == "No goals to be solved":
             continue
 
-        error = {
-            "line": message_dict["pos"]["line"],
-            "column": message_dict["pos"]["column"],
-            "feedback": message_dict["data"],
+        feedback = {
+            "line": feedback_dict["pos"]["line"],
+            "column": feedback_dict["pos"]["column"],
+            "message": feedback_dict["data"],
         }
-        error_list.append(error)
+        feedback_list.append(feedback)
 
     return {
-        "verified": len(error_list) == 0,
-        "timeout": False,
-        "errors": error_list
+        "verified": len(feedback_list) == 0,
+        "error": "",
+        "feedback": feedback_list,
     }
 
 

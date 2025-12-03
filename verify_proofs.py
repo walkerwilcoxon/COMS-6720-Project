@@ -31,7 +31,8 @@ def proof_verifier_worker(worker_id, input_q, output_q):
             if proof == "":
                 proof_verification = {
                     "verified": False,
-                    "timeout": False,
+                    "error": "Proof cut off",
+                    "feedback": [],
                 }
             else:
                 proof_verification = verify_proof(input["proof"])
@@ -42,7 +43,10 @@ def proof_verifier_worker(worker_id, input_q, output_q):
             output["iteration"] = input["iteration"]
             output["time"] = input["time"]
             output["verified"] = proof_verification["verified"]
-            output["timeout"] = proof_verification["timeout"]
+            if proof_verification["error"]:
+                output["error"] = proof_verification["error"]
+            if proof_verification["feedback"]:
+                output["feedback"] = proof_verification["feedback"]
             output["proof"] = input["proof"]
             output["outline"] = input["outline"]
 
