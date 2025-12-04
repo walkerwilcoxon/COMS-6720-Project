@@ -2,7 +2,7 @@
 name = "mathd_algebra_478"
 iteration = 1
 time = 27
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_478
 (b h v : ℝ)
@@ -98,7 +98,7 @@ This `have` statement directly encodes our goal, and its proof will mirror the d
 name = "numbertheory_4x3m7y3neq2003"
 iteration = 2
 time = 75
-verified = false
+verified = true
 proof = """
 theorem numbertheory_4x3m7y3neq2003
 (x y : ℤ) :
@@ -638,11 +638,32 @@ Real.log w / Real.log z = 60 :=
 
 """
 
+[[proof.feedback]]
+line = 225
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 30
+column = 65
+message = """
+Application type mismatch: The argument
+  h₆
+has type
+  ↑w < 0
+but is expected to have type
+  ↑w < 1
+in the application
+  log_neg ?m.453 h₆"""
+
 [[proof]]
 name = "amc12_2001_p5"
 iteration = 4
 time = 106
 verified = false
+feedback = [
+    { line = 13, column = 101, message = "unexpected token 'in'; expected ','" },
+]
 proof = """
 theorem amc12_2001_p5 :
 Finset.prod (Finset.filter (fun x => ¬ Even x) (Finset.range 10000)) (id : ℕ → ℕ) = (10000!) / ((2^5000) * 5000!) :=
@@ -762,6 +783,9 @@ name = "mathd_algebra_141"
 iteration = 5
 time = 45
 verified = false
+feedback = [
+    { line = 41, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_141
 (a b : ℝ)
@@ -858,6 +882,9 @@ name = "mathd_numbertheory_3"
 iteration = 6
 time = 120
 verified = false
+feedback = [
+    { line = 20, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_numbertheory_3 :
 (∑ x ∈ Finset.range 10, ((x + 1)^2)) % 10 = 5 :=
@@ -1178,6 +1205,7 @@ name = "imo_1969_p2"
 iteration = 7
 time = 276
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -1669,7 +1697,7 @@ by
 name = "mathd_algebra_209"
 iteration = 8
 time = 75
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_209
 (σ : Equiv ℝ ℝ)
@@ -1794,6 +1822,9 @@ name = "mathd_numbertheory_1124"
 iteration = 9
 time = 41
 verified = false
+feedback = [
+    { line = 38, column = 0, message = "unexpected end of input" },
+]
 proof = """
 theorem mathd_numbertheory_1124
 (n : ℕ)
@@ -1876,6 +1907,7 @@ name = "imo_1983_p6"
 iteration = 10
 time = 272
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -3104,6 +3136,9 @@ name = "mathd_numbertheory_237"
 iteration = 11
 time = 37
 verified = false
+feedback = [
+    { line = 12, column = 19, message = "unexpected token 'in'; expected ','" },
+]
 proof = """
 theorem mathd_numbertheory_237 :
 (∑ k ∈ (Finset.range 101), k) % 6 = 4 :=
@@ -3208,6 +3243,9 @@ name = "mathd_algebra_33"
 iteration = 12
 time = 43
 verified = false
+feedback = [
+    { line = 43, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_33
 (x y z : ℝ)
@@ -3585,11 +3623,74 @@ x = 3 / 4 :=
 
 """
 
+[[proof.feedback]]
+line = 199
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 55
+column = 8
+message = """
+linarith failed to find a contradiction
+case h1.h
+x : ℝ
+h₀ : 2 + 1 / (1 + 1 / (2 + 2 / (3 + x))) = 144 / 53
+h₂ : 3 + x ≠ 0
+h₃ : 2 + 2 / (3 + x) ≠ 0
+h h₅ : 1 + 1 / (2 + 2 / (3 + x)) = 0
+h₇ : 2 + 2 / (3 + x) ≠ 0
+h₆ : (3 + x) / (3 + x + 1) = -2
+a✝ : 1 < -1 * (2 + 2 / (3 + x))
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 109
+column = 77
+message = """
+unsolved goals
+x : ℝ
+h₀ : 2 + 1 / (1 + 1 / (2 + 2 / (3 + x))) = 144 / 53
+h₂ : 3 + x ≠ 0
+h₃ : 2 + 2 / (3 + x) ≠ 0
+h₄ : 1 + 1 / (2 + 2 / (3 + x)) ≠ 0
+h₅₂ : 2 + 2 / (3 + x) = (8 + 2 * x) / (3 + x)
+h₅₄ : 1 / (2 + 2 / (3 + x)) = (3 + x) / (8 + 2 * x)
+h₅₅ : 1 + 1 / (2 + 2 / (3 + x)) = 1 + (3 + x) / (8 + 2 * x)
+h₅₇ : 8 + 2 * x ≠ 0
+⊢ 1 + x * (8 + x * 2)⁻¹ + (8 + x * 2)⁻¹ * 3 = x * (8 + x * 2)⁻¹ * 3 + (8 + x * 2)⁻¹ * 11"""
+
+[[proof.feedback]]
+line = 197
+column = 6
+message = """
+linarith failed to find a contradiction
+case h1.h
+x : ℝ
+h₀ : 2 + 1 / (1 + 1 / (2 + 2 / (3 + x))) = 144 / 53
+h₂ : 3 + x ≠ 0
+h₃ : 2 + 2 / (3 + x) ≠ 0
+h₄ : 1 + 1 / (2 + 2 / (3 + x)) ≠ 0
+h₅ : 1 / (1 + 1 / (2 + 2 / (3 + x))) = (8 + 2 * x) / (11 + 3 * x)
+h₆ : 2 + (8 + 2 * x) / (11 + 3 * x) = 144 / 53
+h₇ : 11 + 3 * x ≠ 0
+h₈ : 8 + 2 * x ≠ 0
+h₉₂ : 11 + 3 * x ≠ 0
+h₉₃ : 8 + 2 * x ≠ 0
+h₉₁ : 106 + x * (11 + x * 3)⁻¹ * 106 + (11 + x * 3)⁻¹ * 424 = 144
+a✝ : x < 3 / 4
+⊢ False
+failed"""
+
 [[proof]]
 name = "mathd_numbertheory_299"
 iteration = 14
 time = 53
 verified = false
+feedback = [
+    { line = 18, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_299 :
 (1 * 3 * 5 * 7 * 9 * 11 * 13) % 10 = 5 :=
@@ -3694,7 +3795,7 @@ theorem mathd_numbertheory_299 :
 name = "amc12b_2020_p2"
 iteration = 15
 time = 33
-verified = false
+verified = true
 proof = """
 theorem amc12b_2020_p2 :
 ((100 ^ 2 - 7 ^ 2):ℝ) / (70 ^ 2 - 11 ^ 2) * ((70 - 11) * (70 + 11) / ((100 - 7) * (100 + 7))) = 1 :=
@@ -3759,6 +3860,9 @@ name = "algebra_sqineq_unitcircatbpabsamblt1"
 iteration = 16
 time = 108
 verified = false
+feedback = [
+    { line = 21, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem algebra_sqineq_unitcircatbpabsamblt1
 (a b: ℝ)
@@ -3964,6 +4068,7 @@ name = "imo_1977_p6"
 iteration = 17
 time = 272
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -4454,7 +4559,7 @@ But we have no direct contradiction here, so this approach might not work.
 name = "mathd_algebra_419"
 iteration = 18
 time = 21
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_419
 (a b : ℝ)
@@ -4524,6 +4629,7 @@ name = "amc12a_2020_p10"
 iteration = 19
 time = 273
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -5204,6 +5310,55 @@ theorem imo_1960_p2
 
 """
 
+[[proof.feedback]]
+line = 61
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 34
+column = 8
+message = """
+linarith failed to find a contradiction
+case h
+x : ℝ
+h₀ : 0 ≤ 1 + 2 * x
+h₁ : (1 - √(1 + 2 * x)) ^ 2 ≠ 0
+h₂ : 4 * x ^ 2 / (1 - √(1 + 2 * x)) ^ 2 < 2 * x + 9
+h_lower_bound : -(1 / 2) ≤ x
+h : 45 / 8 ≤ x
+h₃ : x ≥ 45 / 8
+h₄ : 1 + 2 * x ≥ 49 / 4
+h₅ h₇ : √(1 + 2 * x) ≥ 7 / 2
+a✝ : -(7 / 2) < 1 - √(1 + 2 * x)
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 50
+column = 14
+message = "Unknown identifier `le_div_iff`"
+
+[[proof.feedback]]
+line = 57
+column = 4
+message = """
+linarith failed to find a contradiction
+x : ℝ
+h₀ : 0 ≤ 1 + 2 * x
+h₁ : (1 - √(1 + 2 * x)) ^ 2 ≠ 0
+h₂ : 4 * x ^ 2 / (1 - √(1 + 2 * x)) ^ 2 < 2 * x + 9
+h_lower_bound : -(1 / 2) ≤ x
+h : 45 / 8 ≤ x
+h₃ : x ≥ 45 / 8
+h₄ : 1 + 2 * x ≥ 49 / 4
+h₅ : √(1 + 2 * x) ≥ 7 / 2
+h₆ : (1 - √(1 + 2 * x)) ^ 2 ≥ 25 / 4
+h₇ : 4 * x ^ 2 / (1 - √(1 + 2 * x)) ^ 2 ≥ 81 / 4
+h₈ : 4 * x ^ 2 / (1 - √(1 + 2 * x)) ^ 2 < 2 * x + 9
+⊢ False
+failed"""
+
 [[proof]]
 name = "mathd_numbertheory_427"
 iteration = 21
@@ -5376,11 +5531,41 @@ sorry
 
 """
 
+[[proof.feedback]]
+line = 40
+column = 0
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 16
+column = 4
+message = """
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information"""
+
+[[proof.feedback]]
+line = 30
+column = 4
+message = """
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information"""
+
+[[proof.feedback]]
+line = 34
+column = 4
+message = """
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information"""
+
 [[proof]]
 name = "numbertheory_x5neqy2p4"
 iteration = 22
 time = 270
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -5778,6 +5963,7 @@ name = "imo_2007_p6"
 iteration = 23
 time = 279
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -6175,7 +6361,7 @@ But in Lean, `a : ℕ → NNReal`, and `∑ x ∈ Finset.range 100, ((a (x + 1))
 name = "mathd_algebra_398"
 iteration = 24
 time = 41
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_398
 (a b c : ℝ)
@@ -6274,6 +6460,9 @@ name = "imo_1963_p5"
 iteration = 25
 time = 100
 verified = false
+feedback = [
+    { line = 101, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem imo_1963_p5 :
 Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 :=
@@ -6440,6 +6629,9 @@ name = "mathd_numbertheory_430"
 iteration = 26
 time = 123
 verified = false
+feedback = [
+    { line = 62, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_430
 (a b c : ℕ)
@@ -6926,11 +7118,36 @@ sorry
 
 """
 
+[[proof.feedback]]
+line = 103
+column = 0
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 101
+column = 2
+message = """
+Tactic `rfl` failed: The left-hand side
+  ↑(13 / 15).den + (13 / 15).num
+is not definitionally equal to the right-hand side
+  28
+
+a b c d : ℚ
+h₀ : 3 * a = b + c + d
+h₁ : 4 * b = a + c + d
+h₂ : 2 * c = a + b + d
+h₃ : 8 * a + 10 * b + 6 * c = 24
+h₄ : a = 1
+h₅ : b = 4 / 5
+h₆ : c = 4 / 3
+h₇ : d = 13 / 15
+⊢ ↑(13 / 15).den + (13 / 15).num = 28"""
+
 [[proof]]
 name = "induction_12dvd4expnp1p20"
 iteration = 28
 time = 39
-verified = false
+verified = true
 proof = """
 theorem induction_12dvd4expnp1p20
 (n : ℕ) :
@@ -7006,6 +7223,7 @@ name = "mathd_algebra_320"
 iteration = 29
 time = 274
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -7351,6 +7569,7 @@ name = "mathd_numbertheory_559"
 iteration = 30
 time = 270
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -8453,7 +8672,7 @@ have h_main : 14 ≤ x := by
 name = "mathd_algebra_160"
 iteration = 31
 time = 37
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_160
 (n x : ℝ)
@@ -8569,6 +8788,9 @@ name = "mathd_algebra_24"
 iteration = 32
 time = 21
 verified = false
+feedback = [
+    { line = 26, column = 0, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_24
 (x : ℝ)
@@ -8640,7 +8862,7 @@ sorry
 name = "mathd_algebra_176"
 iteration = 33
 time = 26
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_176
 (x : ℝ) :
@@ -8877,6 +9099,21 @@ by
 
 """
 
+[[proof.feedback]]
+line = 35
+column = 23
+message = """
+unsolved goals
+case step.succ.succ.succ
+n✝¹ : ℕ
+h₀ : 3 ≤ n✝¹
+k n✝ n : ℕ
+h₂ : 3 ≤ k
+IH :
+  n * n ! * 11 + n ^ 2 * n ! * 6 + n ^ 3 * n ! + n ! * 6 < n * (3 + n) ^ n * 6 + n ^ 2 * (3 + n) ^ n + (3 + n) ^ n * 9
+⊢ n * n ! * 50 + n ^ 2 * n ! * 35 + n ^ 3 * n ! * 10 + n ^ 4 * n ! + n ! * 24 <
+    n * (4 + n) ^ n * 48 + n ^ 2 * (4 + n) ^ n * 12 + n ^ 3 * (4 + n) ^ n + (4 + n) ^ n * 64"""
+
 [[proof]]
 name = "mathd_algebra_208"
 iteration = 35
@@ -9013,6 +9250,28 @@ Real.sqrt 1000000 - 1000000^((1:ℝ)/3) = 900 :=
 ```
 
 """
+
+[[proof.feedback]]
+line = 39
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 13
+column = 8
+message = "Unknown constant `Real.sqrt_eq_iff_sq_eq`"
+
+[[proof.feedback]]
+line = 12
+column = 40
+message = """
+unsolved goals
+⊢ √1000000 = 1000"""
+
+[[proof.feedback]]
+line = 24
+column = 14
+message = "Unknown constant `Real.rpow_nat_cast`"
 
 [[proof]]
 name = "mathd_numbertheory_353"
@@ -9193,11 +9452,25 @@ s % 2009 = 0 :=
 
 """
 
+[[proof.feedback]]
+line = 23
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 16
+column = 4
+message = """
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information"""
+
 [[proof]]
 name = "numbertheory_notequiv2i2jasqbsqdiv8"
 iteration = 37
 time = 275
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -9795,11 +10068,29 @@ sorry
 
 """
 
+[[proof.feedback]]
+line = 68
+column = 0
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 48
+column = 27
+message = """
+Application type mismatch: The argument
+  h₇₄
+has type
+  x ^ 2 ≠ y ^ 2
+but is expected to have type
+  ?m.852 ≠ 0
+in the application
+  mul_left_cancel₀ h₇₄"""
+
 [[proof]]
 name = "mathd_numbertheory_12"
 iteration = 39
 time = 29
-verified = false
+verified = true
 proof = """
 theorem mathd_numbertheory_12 :
 Finset.card (Finset.filter (fun x => 20∣x) (Finset.Icc 15 85)) = 4 := by
@@ -9860,6 +10151,9 @@ name = "mathd_numbertheory_345"
 iteration = 40
 time = 35
 verified = false
+feedback = [
+    { line = 15, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_345 :
 (2000 + 2001 + 2002 + 2003 + 2004 + 2005 + 2006) % 7 = 0 :=
@@ -9936,6 +10230,9 @@ name = "mathd_numbertheory_447"
 iteration = 41
 time = 45
 verified = false
+feedback = [
+    { line = 23, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_447 :
 ∑ k ∈ Finset.filter (fun x => 3∣x) (Finset.Icc 1 49), (k % 10) = 78 :=
@@ -10114,11 +10411,20 @@ This `have` statement directly corresponds to the final result. The proof relies
 
 """
 
+[[proof.feedback]]
+line = 16
+column = 8
+message = """
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information"""
+
 [[proof]]
 name = "mathd_numbertheory_451"
 iteration = 43
 time = 270
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -10547,6 +10853,9 @@ name = "aime_1997_p9"
 iteration = 44
 time = 231
 verified = false
+feedback = [
+    { line = 132, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem aime_1997_p9
 (a : ℝ)
@@ -10881,6 +11190,9 @@ name = "algebra_sqineq_at2malt1"
 iteration = 45
 time = 30
 verified = false
+feedback = [
+    { line = 21, column = 0, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem algebra_sqineq_at2malt1
 (a : ℝ) :
@@ -10955,6 +11267,7 @@ name = "algebra_apbmpcneq0_aeq0anbeq0anceq0"
 iteration = 46
 time = 273
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -11431,6 +11744,9 @@ name = "mathd_algebra_171"
 iteration = 47
 time = 17
 verified = false
+feedback = [
+    { line = 20, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_171
 (f : ℝ → ℝ)
@@ -11807,11 +12123,95 @@ n = 5 :=
 
 """
 
+[[proof.feedback]]
+line = 223
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 24
+column = 23
+message = """
+Type mismatch
+  Subtype.prop x
+has type
+  (0 : ℕ) < ↑x
+but is expected to have type
+  (0 : ℝ) < ↑↑x"""
+
+[[proof.feedback]]
+line = 55
+column = 21
+message = """
+unsolved goals
+case «1»
+x y n : ℕ+
+h₀ : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑1
+h₁ : ↑1 ≠ 0
+h₂ : 3 * ↑↑x * ↑1 + 2 * ↑↑y * ↑1 = 12 * ↑↑x + 12 * ↑↑y
+h₅ h₅₁ : 1 ≤ 6
+h₅₂ : 1 ≥ 1
+h₃ : 3 * ↑x + 2 * ↑y = 12 * ↑x + 12 * ↑y
+⊢ n = 5
+
+case «2»
+x y n : ℕ+
+h₀ : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑2
+h₁ : ↑2 ≠ 0
+h₂ : 3 * ↑↑x * ↑2 + 2 * ↑↑y * ↑2 = 12 * ↑↑x + 12 * ↑↑y
+h₃ : 3 * ↑x * 2 + 2 * ↑y * 2 = 12 * ↑x + 12 * ↑y
+h₅ h₅₁ : 2 ≤ 6
+h₅₂ : 2 ≥ 1
+⊢ n = 5
+
+case «3»
+x y n : ℕ+
+h₀ : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑3
+h₁ : ↑3 ≠ 0
+h₂ : 3 * ↑↑x * ↑3 + 2 * ↑↑y * ↑3 = 12 * ↑↑x + 12 * ↑↑y
+h₃ : 3 * ↑x * 3 + 2 * ↑y * 3 = 12 * ↑x + 12 * ↑y
+h₅ h₅₁ : 3 ≤ 6
+h₅₂ : 3 ≥ 1
+⊢ n = 5
+
+case «4»
+x y n : ℕ+
+h₀ : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑4
+h₁ : ↑4 ≠ 0
+h₂ : 3 * ↑↑x * ↑4 + 2 * ↑↑y * ↑4 = 12 * ↑↑x + 12 * ↑↑y
+h₃ : 3 * ↑x * 4 + 2 * ↑y * 4 = 12 * ↑x + 12 * ↑y
+h₅ h₅₁ : 4 ≤ 6
+h₅₂ : 4 ≥ 1
+⊢ n = 5
+
+case «5»
+x y n : ℕ+
+h₀ : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑5
+h₁ : ↑5 ≠ 0
+h₂ : 3 * ↑↑x * ↑5 + 2 * ↑↑y * ↑5 = 12 * ↑↑x + 12 * ↑↑y
+h₃ : 3 * ↑x * 5 + 2 * ↑y * 5 = 12 * ↑x + 12 * ↑y
+h₅ h₅₁ : 5 ≤ 6
+h₅₂ : 5 ≥ 1
+⊢ n = 5
+
+case «6»
+x y n : ℕ+
+h₀ : ↑↑x / 4 + ↑↑y / 6 = (↑↑x + ↑↑y) / ↑6
+h₁ : ↑6 ≠ 0
+h₂ : 3 * ↑↑x * ↑6 + 2 * ↑↑y * ↑6 = 12 * ↑↑x + 12 * ↑↑y
+h₃ : 3 * ↑x * 6 + 2 * ↑y * 6 = 12 * ↑x + 12 * ↑y
+h₅ h₅₁ : 6 ≤ 6
+h₅₂ : 6 ≥ 1
+⊢ n = 5"""
+
 [[proof]]
 name = "mathd_algebra_188"
 iteration = 49
 time = 35
 verified = false
+feedback = [
+    { line = 33, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_188
 (σ : Equiv ℝ ℝ)
@@ -11894,6 +12294,9 @@ name = "mathd_numbertheory_765"
 iteration = 50
 time = 165
 verified = false
+feedback = [
+    { line = 97, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_765
 (x : ℤ)
@@ -12108,6 +12511,9 @@ name = "imo_1959_p1"
 iteration = 51
 time = 57
 verified = false
+feedback = [
+    { line = 59, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem imo_1959_p1
 (n : ℕ)
@@ -12237,6 +12643,10 @@ name = "mathd_numbertheory_175"
 iteration = 52
 time = 31
 verified = false
+feedback = [
+    { line = 12, column = 0, message = "Unknown identifier `begin`" },
+    { line = 13, column = 2, message = "unexpected token 'have'; expected command" },
+]
 proof = """
 theorem mathd_numbertheory_175 :
 (2^2010) % 10 = 4 :=
@@ -12472,11 +12882,23 @@ by
 
 """
 
+[[proof.feedback]]
+line = 21
+column = 18
+message = """
+unsolved goals
+case succ
+n✝ n : ℕ
+ih : ∑ x ∈ Finset.range n, x * (x * x) = (∑ k ∈ Finset.range n, k) * ∑ k ∈ Finset.range n, k
+⊢ (∑ k ∈ Finset.range n, k) * ∑ k ∈ Finset.range n, k + n * (n * n) =
+    (∑ k ∈ Finset.range n, k + n) * (∑ k ∈ Finset.range n, k + n)"""
+
 [[proof]]
 name = "numbertheory_fxeq4powxp6powxp9powx_f2powmdvdf2pown"
 iteration = 54
 time = 320
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -12976,6 +13398,7 @@ name = "imo_1992_p1"
 iteration = 55
 time = 272
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -13244,6 +13667,7 @@ name = "imo_1982_p1"
 iteration = 56
 time = 286
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -13714,6 +14138,7 @@ name = "aime_1987_p5"
 iteration = 57
 time = 389
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -14290,7 +14715,7 @@ From `y² + 3x²y² = 30x² + 517`, we can write:
 name = "mathd_algebra_346"
 iteration = 58
 time = 36
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_346
 (f g : ℝ → ℝ)
@@ -14376,6 +14801,7 @@ name = "mathd_algebra_487"
 iteration = 59
 time = 321
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -15282,6 +15708,16 @@ theorem mathd_numbertheory_728 :
 
 """
 
+[[proof.feedback]]
+line = 14
+column = 8
+message = """
+Tactic `rfl` failed: Expected the goal to be a binary relation
+
+Hint: Reflexivity tactics can only be used on goals of the form `x ~ x` or `R x x`
+
+⊢ False"""
+
 [[proof]]
 name = "mathd_algebra_184"
 iteration = 61
@@ -15432,6 +15868,26 @@ sorry
 2. `h_a : a = 3 * NNReal.sqrt 2`: This corresponds to Step 3 of the proof. We substitute `b = 3` into `a² = 6b` to find `a = 3 * sqrt(2)`.
 
 """
+
+[[proof.feedback]]
+line = 84
+column = 0
+message = "unexpected end of input"
+
+[[proof.feedback]]
+line = 60
+column = 40
+message = """
+unsolved goals
+case h.h
+a b : NNReal
+h₀ : 0 < a
+h₁ : 54 / 3 = 3 * 6
+h₂ : a ^ 2 = 3 * 6
+h_b : b = 3
+h₈ : 54 / 3 = 18
+h₁₁ : ↑a = 3 * √2
+⊢ a = 3 * NNReal.sqrt 2"""
 
 [[proof]]
 name = "mathd_numbertheory_552"
@@ -15791,11 +16247,39 @@ theorem mathd_numbertheory_552
 
 """
 
+[[proof.feedback]]
+line = 94
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 24
+column = 21
+message = "Tactic `rcases` failed: `hk : Quot.lift (fun l => k ∈ l) ⋯ (Set.range h).toFinset.val` is not an inductive datatype"
+
+[[proof.feedback]]
+line = 74
+column = 12
+message = """
+numerals are data in Lean, but the expected type is a proposition
+  1 ∈ (Set.range h).toFinset : Prop"""
+
+[[proof.feedback]]
+line = 81
+column = 12
+message = """
+numerals are data in Lean, but the expected type is a proposition
+  11 ∈ (Set.range h).toFinset : Prop"""
+
 [[proof]]
 name = "amc12b_2021_p9"
 iteration = 63
 time = 332
 verified = false
+feedback = [
+    { line = 194, column = 2, message = "Unknown identifier `rw`" },
+    { line = 195, column = 2, message = "unexpected token '<;>'; expected command" },
+]
 proof = """
 theorem amc12b_2021_p9 :
 (Real.log 80 / Real.log 2) / (Real.log 2 / Real.log 40) - (Real.log 160 / Real.log 2) / (Real.log 2 / Real.log 20) = 2 :=
@@ -16106,6 +16590,7 @@ name = "aime_1994_p3"
 iteration = 64
 time = 307
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -16782,6 +17267,9 @@ name = "mathd_algebra_44"
 iteration = 65
 time = 73
 verified = false
+feedback = [
+    { line = 36, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_44
 (s t : ℝ)
@@ -16884,7 +17372,7 @@ s = 1 ∧ t = 4 := by
 name = "mathd_algebra_215"
 iteration = 66
 time = 50
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_215
 (S : Finset ℝ)
@@ -16994,6 +17482,9 @@ name = "mathd_numbertheory_293"
 iteration = 67
 time = 82
 verified = false
+feedback = [
+    { line = 30, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_293
 (n : ℕ)
@@ -17112,6 +17603,9 @@ name = "mathd_numbertheory_769"
 iteration = 68
 time = 57
 verified = false
+feedback = [
+    { line = 49, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_numbertheory_769 :
 (129^34 + 96^38) % 11 = 9 :=
@@ -17224,6 +17718,9 @@ name = "mathd_algebra_452"
 iteration = 69
 time = 109
 verified = false
+feedback = [
+    { line = 29, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_452
 (a : ℕ → ℝ)
@@ -17337,6 +17834,9 @@ name = "mathd_numbertheory_5"
 iteration = 70
 time = 175
 verified = false
+feedback = [
+    { line = 41, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_5
 (n : ℕ)
@@ -17596,6 +18096,9 @@ name = "mathd_numbertheory_207"
 iteration = 71
 time = 29
 verified = false
+feedback = [
+    { line = 35, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_numbertheory_207 :
 8 * 9^2 + 5 * 9 + 2 = 695 :=
@@ -17676,6 +18179,7 @@ name = "mathd_numbertheory_342"
 iteration = 72
 time = 298
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -18907,6 +19411,9 @@ name = "mathd_numbertheory_483"
 iteration = 73
 time = 275
 verified = false
+feedback = [
+    { line = 150, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_numbertheory_483
 (a : ℕ → ℕ)
@@ -19240,6 +19747,7 @@ name = "amc12b_2020_p21"
 iteration = 74
 time = 310
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -19811,6 +20319,16 @@ A + M + C = 14 := by
 
 """
 
+[[proof.feedback]]
+line = 31
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 23
+column = 67
+message = "maximum number of errors (100; from option `maxErrors`) reached, exiting"
+
 [[proof]]
 name = "mathd_numbertheory_495"
 iteration = 76
@@ -20141,11 +20659,24 @@ theorem mathd_numbertheory_495
 
 """
 
+[[proof.feedback]]
+line = 205
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 174
+column = 50
+message = "maximum number of errors (100; from option `maxErrors`) reached, exiting"
+
 [[proof]]
 name = "mathd_algebra_296"
 iteration = 77
 time = 40
 verified = false
+feedback = [
+    { line = 24, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_algebra_296 :
 abs (((3491 - 60) * (3491 + 60) - 3491^2):ℤ) = 3600 :=
@@ -20231,6 +20762,7 @@ name = "algebra_abpbcpcageq3_sumaonsqrtapbgeq3onsqrt2"
 iteration = 78
 time = 311
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -20635,6 +21167,9 @@ name = "algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7"
 iteration = 79
 time = 83
 verified = false
+feedback = [
+    { line = 84, column = 0, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem algebra_2varlineareq_fp3zeq11_3tfm1m5zeqn68_feqn10_zeq7
 (f z: ℂ)
@@ -20793,6 +21328,9 @@ name = "mathd_numbertheory_247"
 iteration = 80
 time = 163
 verified = false
+feedback = [
+    { line = 28, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_247
 (n : ℕ)
@@ -20985,6 +21523,7 @@ name = "induction_pord1p1on2powklt5on2"
 iteration = 81
 time = 317
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -21702,7 +22241,7 @@ Alternatively, we can note that:
 name = "mathd_algebra_107"
 iteration = 82
 time = 47
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_107
 (x y : ℝ)
@@ -21791,6 +22330,13 @@ name = "numbertheory_2pownm1prime_nprime"
 iteration = 83
 time = 157
 verified = false
+feedback = [
+    { line = 120, column = 2, message = "Unknown identifier `exact`" },
+    { line = 83, column = 14, message = "Unknown constant `Nat.pow_le_pow_of_le_right`" },
+    { line = 91, column = 34, message = "Unknown constant `Nat.pow_lt_pow_of_lt_right`" },
+    { line = 100, column = 38, message = "Unknown constant `Nat.pow_le_pow_of_le_right`" },
+    { line = 104, column = 38, message = "Unknown constant `Nat.pow_le_pow_of_le_right`" },
+]
 proof = """
 theorem numbertheory_2pownm1prime_nprime
 (n : ℕ)
@@ -22027,7 +22573,7 @@ Nat.Prime n :=
 name = "mathd_algebra_412"
 iteration = 84
 time = 22
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_412
 (x y : ℝ)
@@ -22113,6 +22659,7 @@ name = "amc12a_2013_p4"
 iteration = 85
 time = 318
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -22638,6 +23185,9 @@ name = "mathd_algebra_392"
 iteration = 86
 time = 87
 verified = false
+feedback = [
+    { line = 71, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_392
 (n : ℕ)
@@ -23010,11 +23560,22 @@ theorem mathd_numbertheory_314
 
 """
 
+[[proof.feedback]]
+line = 49
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 35
+column = 33
+message = "maximum number of errors (100; from option `maxErrors`) reached, exiting"
+
 [[proof]]
 name = "induction_prod1p1onk3le3m1onn"
 iteration = 88
 time = 300
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -23313,6 +23874,9 @@ name = "mathd_numbertheory_343"
 iteration = 89
 time = 45
 verified = false
+feedback = [
+    { line = 26, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_numbertheory_343 :
 (∏ k ∈ Finset.range 6, (2 * k + 1)) % 10 = 5 :=
@@ -23392,6 +23956,9 @@ name = "mathd_algebra_756"
 iteration = 90
 time = 269
 verified = false
+feedback = [
+    { line = 70, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_756
 (a b : ℝ)
@@ -23921,11 +24488,37 @@ a^2 + (b^2 + c^2) = 77 := by
 
 """
 
+[[proof.feedback]]
+line = 59
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 29
+column = 10
+message = """
+linarith failed to find a contradiction
+case h
+a b c : ℕ
+h₀ : 0 < a ∧ 0 < b ∧ 0 < c
+h₁ : b = a + 1
+h₂ : c = b + 1
+h₃ : a * b * c = 8 * (a + b + c)
+h₄ : b = a + 1
+h₅ : c = b + 1
+h₆ : a * (a + 1) * (b + 1) = 8 * (a + (a + 1) + (b + 1))
+h₇ : a > 0
+h : 10 < a
+h₉ h₁₁ : a ≥ 11
+a✝ : a * (a + 1) * (a + 2) ≤ 8 * (a + (a + 1) + (a + 2))
+⊢ False
+failed"""
+
 [[proof]]
 name = "mathd_algebra_80"
 iteration = 92
 time = 30
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_80
 (x : ℝ)
@@ -24018,6 +24611,9 @@ name = "mathd_numbertheory_457"
 iteration = 93
 time = 130
 verified = false
+feedback = [
+    { line = 29, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_457
 (n : ℕ)
@@ -24173,7 +24769,7 @@ theorem mathd_numbertheory_457
 name = "amc12_2000_p12"
 iteration = 94
 time = 103
-verified = false
+verified = true
 proof = """
 theorem amc12_2000_p12
 (a m c : ℕ)
@@ -24286,6 +24882,7 @@ name = "mathd_numbertheory_135"
 iteration = 95
 time = 326
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -25046,6 +25643,9 @@ name = "mathd_algebra_275"
 iteration = 96
 time = 137
 verified = false
+feedback = [
+    { line = 32, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_275
 (x : ℝ)
@@ -25291,6 +25891,7 @@ name = "mathd_algebra_388"
 iteration = 97
 time = 316
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -25673,11 +26274,80 @@ theorem amc12a_2020_p7
 
 """
 
+[[proof.feedback]]
+line = 199
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 27
+column = 16
+message = "Unknown constant `Nat.pow_le_pow_of_le_left`"
+
+[[proof.feedback]]
+line = 49
+column = 16
+message = "Unknown constant `Nat.pow_le_pow_of_le_left`"
+
+[[proof.feedback]]
+line = 77
+column = 16
+message = "Unknown constant `Nat.pow_le_pow_of_le_left`"
+
+[[proof.feedback]]
+line = 99
+column = 16
+message = "Unknown constant `Nat.pow_le_pow_of_le_left`"
+
+[[proof.feedback]]
+line = 121
+column = 16
+message = "Unknown constant `Nat.pow_le_pow_of_le_left`"
+
+[[proof.feedback]]
+line = 143
+column = 16
+message = "Unknown constant `Nat.pow_le_pow_of_le_left`"
+
+[[proof.feedback]]
+line = 165
+column = 16
+message = "Unknown constant `Nat.pow_le_pow_of_le_left`"
+
+[[proof.feedback]]
+line = 195
+column = 16
+message = """
+Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  2 * ↑(∑ k ∈ Finset.range 6, a k ^ 2)
+in the target expression
+  840 - ↑(2 * ∑ k ∈ Finset.range 6, a k ^ 2) = 658
+
+a : ℕ → ℕ
+h₀ : a 0 ^ 3 = 1
+h₁ : a 1 ^ 3 = 8
+h₂ : a 2 ^ 3 = 27
+h₃ : a 3 ^ 3 = 64
+h₄ : a 4 ^ 3 = 125
+h₅ : a 5 ^ 3 = 216
+h₆ : a 6 ^ 3 = 343
+h_a0 : a 0 = 1
+h_a1 : a 1 = 2
+h_a2 : a 2 = 3
+h_a3 : a 3 = 4
+h_a4 : a 4 = 5
+h_a5 : a 5 = 6
+h_a6 : a 6 = 7
+h_sum1 : ∑ k ∈ Finset.range 7, 6 * ↑(a k) ^ 2 = 840
+h_sum2 : 2 * ↑(∑ k ∈ Finset.range 6, a k ^ 2) = 182
+⊢ 840 - ↑(2 * ∑ k ∈ Finset.range 6, a k ^ 2) = 658"""
+
 [[proof]]
 name = "imo_1981_p6"
 iteration = 99
 time = 324
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -26120,6 +26790,9 @@ name = "mathd_algebra_263"
 iteration = 100
 time = 39
 verified = false
+feedback = [
+    { line = 25, column = 0, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_263
 (y : ℝ)
@@ -26204,6 +26877,9 @@ name = "mathd_numbertheory_34"
 iteration = 101
 time = 78
 verified = false
+feedback = [
+    { line = 29, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_34
 (x: ℕ)
@@ -26322,6 +26998,7 @@ name = "mathd_numbertheory_764"
 iteration = 102
 time = 315
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -26761,7 +27438,7 @@ theorem mathd_numbertheory_764
 name = "amc12b_2021_p4"
 iteration = 103
 time = 100
-verified = false
+verified = true
 proof = """
 theorem amc12b_2021_p4
 (m a : ℕ)
@@ -26948,6 +27625,9 @@ name = "imo_1962_p2"
 iteration = 104
 time = 185
 verified = false
+feedback = [
+    { line = 62, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem imo_1962_p2
 (x : ℝ)
@@ -27242,6 +27922,9 @@ name = "mathd_algebra_170"
 iteration = 105
 time = 156
 verified = false
+feedback = [
+    { line = 58, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_170
 (S : Finset ℤ)
@@ -27559,7 +28242,7 @@ S.card = 11 :=
 name = "mathd_algebra_432"
 iteration = 106
 time = 34
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_432
 (x : ℝ) :
@@ -27645,6 +28328,9 @@ name = "mathd_algebra_598"
 iteration = 107
 time = 254
 verified = false
+feedback = [
+    { line = 189, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_598
 (a b c d : ℝ)
@@ -28028,6 +28714,10 @@ name = "algebra_bleqa_apbon2msqrtableqambsqon8b"
 iteration = 108
 time = 162
 verified = false
+feedback = [
+    { line = 56, column = 2, message = "Unknown identifier `exact`" },
+    { line = 43, column = 10, message = "Unknown identifier `le_div_iff`" },
+]
 proof = """
 theorem algebra_bleqa_apbon2msqrtableqambsqon8b
 (a b : ℝ)
@@ -28329,6 +29019,7 @@ name = "mathd_algebra_276"
 iteration = 109
 time = 320
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -28991,6 +29682,9 @@ name = "amc12a_2021_p14"
 iteration = 110
 time = 183
 verified = false
+feedback = [
+    { line = 12, column = 16, message = "unexpected token 'in'; expected ','" },
+]
 proof = """
 theorem amc12a_2021_p14 :
 (∑ k ∈ (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (∑ k ∈ (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000 :=
@@ -29270,6 +29964,9 @@ name = "algebra_sum1onsqrt2to1onsqrt10000lt198"
 iteration = 111
 time = 224
 verified = false
+feedback = [
+    { line = 12, column = 19, message = "unexpected token 'in'; expected ','" },
+]
 proof = """
 theorem algebra_sum1onsqrt2to1onsqrt10000lt198 :
 ∑ k ∈ (Finset.Icc (2 : ℕ) 10000), (1 / Real.sqrt k) < 198 :=
@@ -29530,6 +30227,7 @@ name = "mathd_numbertheory_618"
 iteration = 112
 time = 303
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -29952,6 +30650,7 @@ name = "amc12a_2020_p4"
 iteration = 113
 time = 315
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -30391,6 +31090,7 @@ name = "amc12b_2020_p6"
 iteration = 114
 time = 316
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -30791,7 +31491,7 @@ But"""
 name = "mathd_numbertheory_435"
 iteration = 115
 time = 220
-verified = false
+verified = true
 proof = """
 theorem mathd_numbertheory_435
 (k : ℕ)
@@ -31126,6 +31826,7 @@ name = "algebra_others_exirrpowirrrat"
 iteration = 116
 time = 300
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -31416,6 +32117,7 @@ name = "mathd_algebra_427"
 iteration = 117
 time = 317
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -31450,7 +32152,7 @@ First, we are given three equations:
 name = "mathd_algebra_76"
 iteration = 118
 time = 37
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_76
 (f : ℤ → ℤ)
@@ -31538,6 +32240,9 @@ name = "mathd_numbertheory_99"
 iteration = 119
 time = 43
 verified = false
+feedback = [
+    { line = 23, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_99
 (n : ℕ)
@@ -31821,6 +32526,31 @@ theorem algebra_9onxpypzleqsum2onxpy
 
 """
 
+[[proof.feedback]]
+line = 29
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 22
+column = 8
+message = "Unknown identifier `div_le_div_iff`"
+
+[[proof.feedback]]
+line = 14
+column = 77
+message = """
+unsolved goals
+x y z : ℝ
+h₀ : 0 < x ∧ 0 < y ∧ 0 < z
+h₁ : 0 < x
+h₂ : 0 < y
+h₃ : 0 < z
+h₄ : 0 < x * y
+h₅ : 0 < y * z
+h₆ : 0 < z * x
+⊢ 9 * (x + y) * (y + z) * (z + x) ≤ (x + y + z) * 2 * ((y + z + (x + y)) * (z + x) + (x + y) * (y + z))"""
+
 [[proof]]
 name = "mathd_numbertheory_233"
 iteration = 121
@@ -31943,11 +32673,25 @@ b = 116 := by
 
 """
 
+[[proof.feedback]]
+line = 20
+column = 4
+message = """
+Tactic `rfl` failed: The left-hand side
+  24⁻¹
+is not definitionally equal to the right-hand side
+  116
+
+b : ZMod (11 ^ 2)
+h₀ : b = 24⁻¹
+⊢ 24⁻¹ = 116"""
+
 [[proof]]
 name = "algebra_absapbon1pabsapbleqsumabsaon1pabsa"
 iteration = 122
 time = 311
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -32635,6 +33379,7 @@ name = "imo_1984_p6"
 iteration = 123
 time = 322
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -33130,6 +33875,7 @@ name = "imo_2001_p6"
 iteration = 124
 time = 352
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -33611,6 +34357,7 @@ name = "mathd_numbertheory_321"
 iteration = 125
 time = 317
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -34280,11 +35027,77 @@ sorry
 
 """
 
+[[proof.feedback]]
+line = 236
+column = 0
+message = "unexpected end of input"
+
+[[proof.feedback]]
+line = 33
+column = 14
+message = "Unknown constant `Real.sqrt_eq_iff_sq_eq`"
+
+[[proof.feedback]]
+line = 135
+column = 20
+message = "Unknown constant `Real.sqrt_eq_iff_sq_eq`"
+
+[[proof.feedback]]
+line = 179
+column = 12
+message = """
+linarith failed to find a contradiction
+case h1.h
+a : ℝ
+h₀ : √(4 + √(16 + 16 * a)) + √(1 + √(1 + a)) = 6
+h₂ : √(1 + a) ≥ 0
+h₃ : √(16 + 16 * a) ≥ 0
+h₄ : √(4 + √(16 + 16 * a)) ≥ 0
+h₅ : √(1 + √(1 + a)) ≥ 0
+h₆ : √(4 + √(16 + 16 * a)) + √(1 + √(1 + a)) = 6
+h₇ : √(16 + 16 * a) = 4 * √(1 + a)
+h₈ : √(4 + √(16 + 16 * a)) = 4 + √(1 + a)
+h₉₁ : 4 + √(1 + a) + √(1 + √(1 + a)) = 6
+h₉₂ : √(4 + √(16 + 16 * a)) = 4 + √(1 + a)
+h₉₃ : 4 + √(1 + a) + √(1 + √(1 + a)) = 6
+h : ¬0 ≤ 1 + a
+h₉₅ : 1 + a < 0
+h₉₆ : √(1 + a) = 0
+h₉₇ : √(4 + √(16 + 16 * a)) + √(1 + 0) = 6
+a✝ : √(4 + √(16 + 16 * a)) < 6
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 169
+column = 6
+message = """
+linarith failed to find a contradiction
+case h1.h
+a : ℝ
+h₀ : √(4 + √(16 + 16 * a)) + √(1 + √(1 + a)) = 6
+h₂ : √(1 + a) ≥ 0
+h₃ : √(16 + 16 * a) ≥ 0
+h₄ : √(4 + √(16 + 16 * a)) ≥ 0
+h₅ : √(1 + √(1 + a)) ≥ 0
+h₆ : √(4 + √(16 + 16 * a)) + √(1 + √(1 + a)) = 6
+h₇ : √(16 + 16 * a) = 4 * √(1 + a)
+h₈ : √(4 + √(16 + 16 * a)) = 4 + √(1 + a)
+h₉₁ : 4 + √(1 + a) + √(1 + √(1 + a)) = 6
+h₉₂ : √(4 + √(16 + 16 * a)) = 4 + √(1 + a)
+h₉₃ : 4 + √(1 + a) + √(1 + √(1 + a)) = 6
+a✝ : √(1 + √(1 + a)) < 2
+⊢ False
+failed"""
+
 [[proof]]
 name = "mathd_algebra_153"
 iteration = 127
 time = 134
 verified = false
+feedback = [
+    { line = 59, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_153
 (n : ℝ)
@@ -34416,6 +35229,9 @@ name = "algebra_sqineq_unitcircatbpamblt1"
 iteration = 128
 time = 117
 verified = false
+feedback = [
+    { line = 18, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem algebra_sqineq_unitcircatbpamblt1
 (a b: ℝ)
@@ -34797,6 +35613,28 @@ f (25 /. 11) < 0 :=
 
 """
 
+[[proof.feedback]]
+line = 91
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 86
+column = 55
+message = """
+unsolved goals
+f : ℚ → ℝ
+h₀ : ∀ x > 0, ∀ y > 0, f (x * y) = f x + f y
+h₁ : ∀ (p : ℕ), Nat.Prime p → f ↑p = ↑p
+h₂ : f 1 = 0
+h₃ : f (1 / 11) = -f 11
+h₄ : f (5 / 11) = f 5 + f (1 / 11)
+h₅ : f (25 / 11) = f 5 + f (5 / 11)
+h₆ : f (25 / 11) = 2 * f 5 + f (1 / 11)
+h₇ : f (25 / 11) = 2 * f 5 - f 11
+h₈ : f (25 / 11) = -1
+⊢ f (25 /. 11) = f (25 / 11)"""
+
 [[proof]]
 name = "mathd_algebra_329"
 iteration = 130
@@ -34906,6 +35744,26 @@ x + y = 4 := by
 This sets up the proof by first finding `y = 1`, then `x = 3`, and finally `x + y = 4`. Each `have` statement corresponds to a key step in the proof, and all are marked with `sorry` for now.
 
 """
+
+[[proof.feedback]]
+line = 45
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 20
+column = 10
+message = """
+Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  3 * y
+in the target expression
+  2 * x + 5 * y = 11
+
+x y : ℝ
+h₀ : 3 * y = x
+h₁ h₂ : 2 * x + 5 * y = 11
+h₃ : 3 * y = x
+⊢ 2 * (3 * y) + 5 * y = 11"""
 
 [[proof]]
 name = "induction_pprime_pdvdapowpma"
@@ -35020,11 +35878,50 @@ This `have` statement directly reflects the main goal, and its proof will follow
 
 """
 
+[[proof.feedback]]
+line = 58
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 20
+column = 29
+message = "Unknown constant `ZMod.nat_cast_self`"
+
+[[proof.feedback]]
+line = 20
+column = 29
+message = "Unknown constant `ZMod.nat_cast_self`"
+
+[[proof.feedback]]
+line = 15
+column = 33
+message = """
+unsolved goals
+case inl
+p a : ℕ
+h₀ : 0 < a
+h₁ : Nat.Prime p
+this : Fact True
+h : p ∣ a
+⊢ ↑(a ^ p - a) = 0
+
+case inr
+p a : ℕ
+h₀ : 0 < a
+h₁ : Nat.Prime p
+this : Fact True
+h : ¬p ∣ a
+⊢ ↑(a ^ p - a) = 0"""
+
 [[proof]]
 name = "amc12a_2021_p9"
 iteration = 132
 time = 231
 verified = false
+feedback = [
+    { line = 15, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem amc12a_2021_p9 :
 ∏ k ∈ Finset.range 7, (2^(2^k) + 3^(2^k)) = 3^128 - 2^128 :=
@@ -35364,11 +36261,45 @@ theorem aime_1984_p1
 
 """
 
+[[proof.feedback]]
+line = 31
+column = 18
+message = "unexpected token 'in'; expected ','"
+
+[[proof.feedback]]
+line = 31
+column = 15
+message = """
+failed to synthesize
+  AddCommMonoid (Sort ?u.1581)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command."""
+
+[[proof.feedback]]
+line = 30
+column = 32
+message = """
+unsolved goals
+case h₃₁
+u : ℕ → ℚ
+h₀ : ∀ (n : ℕ), u (n + 1) = u n + 1
+h₁ : ∑ k ∈ Finset.range 98, u k.succ = 137
+h₂ : ∀ (n : ℕ), u n = u 0 + ↑n
+⊢ sorry
+
+u : ℕ → ℚ
+h₀ : ∀ (n : ℕ), u (n + 1) = u n + 1
+h₁ : ∑ k ∈ Finset.range 98, u k.succ = 137
+h₂ : ∀ (n : ℕ), u n = u 0 + ↑n
+h₃₁ : sorry
+⊢ u 0 = -2357 / 49"""
+
 [[proof]]
 name = "amc12a_2021_p22"
 iteration = 134
 time = 312
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -35861,7 +36792,7 @@ theorem amc12a_2021_p22
 name = "mathd_numbertheory_229"
 iteration = 135
 time = 69
-verified = false
+verified = true
 proof = """
 theorem mathd_numbertheory_229 :
 (5^30) % 7 = 1 := by
@@ -36096,11 +37027,16 @@ n = 70 := by
 
 """
 
+[[proof.feedback]]
+line = 35
+column = 27
+message = "maximum number of errors (100; from option `maxErrors`) reached, exiting"
+
 [[proof]]
 name = "mathd_algebra_313"
 iteration = 137
 time = 78
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_313
 (v i z : ℂ)
@@ -36257,6 +37193,7 @@ name = "amc12b_2002_p4"
 iteration = 138
 time = 314
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -36796,7 +37733,7 @@ But `n = 42` is not a solution because `1 /. 42 = 0`, so the sum is `0 +"""
 name = "amc12a_2002_p6"
 iteration = 139
 time = 84
-verified = false
+verified = true
 proof = """
 theorem amc12a_2002_p6
 (n : ℕ)
@@ -36881,6 +37818,7 @@ name = "amc12a_2003_p23"
 iteration = 140
 time = 392
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -37455,6 +38393,9 @@ name = "mathd_algebra_129"
 iteration = 141
 time = 43
 verified = false
+feedback = [
+    { line = 35, column = 0, message = "unexpected end of input" },
+]
 proof = """
 theorem mathd_algebra_129
 (a : ℝ)
@@ -37558,6 +38499,7 @@ name = "amc12b_2021_p18"
 iteration = 142
 time = 311
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -37802,6 +38744,9 @@ name = "mathd_algebra_484"
 iteration = 143
 time = 56
 verified = false
+feedback = [
+    { line = 29, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_484 :
 Real.log 27 / Real.log 3 = 3 :=
@@ -37870,6 +38815,9 @@ name = "mathd_numbertheory_551"
 iteration = 144
 time = 36
 verified = false
+feedback = [
+    { line = 19, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_551 :
 1529 % 6 = 5 :=
@@ -37936,6 +38884,9 @@ name = "mathd_algebra_304"
 iteration = 145
 time = 24
 verified = false
+feedback = [
+    { line = 25, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_algebra_304 :
 91^2 = 8281 :=
@@ -38014,6 +38965,7 @@ name = "amc12a_2021_p8"
 iteration = 146
 time = 312
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -38143,6 +39095,7 @@ name = "algebra_ineq_nto1onlt2m1on"
 iteration = 147
 time = 568
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -39249,6 +40202,7 @@ name = "amc12b_2002_p19"
 iteration = 148
 time = 376
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -39821,6 +40775,12 @@ name = "mathd_numbertheory_341"
 iteration = 149
 time = 271
 verified = false
+feedback = [
+    { line = 124, column = 2, message = "Unknown identifier `exact`" },
+    { line = 31, column = 38, message = "Unknown constant `List.get?`" },
+    { line = 35, column = 38, message = "Unknown constant `List.get?`" },
+    { line = 39, column = 38, message = "Unknown constant `List.get?`" },
+]
 proof = """
 theorem mathd_numbertheory_341
 (a b c : ℕ)
@@ -40109,6 +41069,7 @@ name = "mathd_numbertheory_711"
 iteration = 150
 time = 316
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -41084,6 +42045,7 @@ name = "amc12b_2020_p22"
 iteration = 151
 time = 566
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -41350,6 +42312,9 @@ name = "mathd_algebra_113"
 iteration = 152
 time = 46
 verified = false
+feedback = [
+    { line = 25, column = 0, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_113
 (x : ℝ) :
@@ -41432,6 +42397,7 @@ name = "amc12a_2020_p9"
 iteration = 153
 time = 318
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -41875,6 +42841,7 @@ name = "amc12_2000_p1"
 iteration = 154
 time = 311
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -44609,11 +45576,217 @@ S.card = 2 :=
 
 """
 
+[[proof.feedback]]
+line = 216
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 52
+column = 16
+message = """
+linarith failed to find a contradiction
+case h
+S : Finset ℝ
+h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+x : ℝ
+h : 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₂ : 0 ≤ x
+h₃ : x ≤ π
+h₄ : sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₅₁ h₅₄ : sin (π / 2 * cos x) = sin (π / 2 - π / 2 * sin x)
+h₅₅ : π / 2 * cos x ∈ Set.Icc (-(π / 2)) (π / 2)
+h₅₆₁ : sin x ≥ 0
+a✝ : π / 2 - π / 2 * sin x < -(π / 2)
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 57
+column = 16
+message = """
+linarith failed to find a contradiction
+case h
+S : Finset ℝ
+h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+x : ℝ
+h : 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₂ : 0 ≤ x
+h₃ : x ≤ π
+h₄ : sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₅₁ h₅₄ : sin (π / 2 * cos x) = sin (π / 2 - π / 2 * sin x)
+h₅₅ : π / 2 * cos x ∈ Set.Icc (-(π / 2)) (π / 2)
+h₅₆₁ : sin x ≤ 1
+a✝ : π / 2 < π / 2 - π / 2 * sin x
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 66
+column = 10
+message = """
+linarith failed to find a contradiction
+case h1.h
+S : Finset ℝ
+h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+x : ℝ
+h : 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₂ : 0 ≤ x
+h₃ : x ≤ π
+h₄ : sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₅₁ : sin (π / 2 * cos x) = sin (π / 2 - π / 2 * sin x)
+h₅₃ h₅₉ : π / 2 * cos x = π / 2 - π / 2 * sin x
+a✝ : cos x + sin x < 1
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 114
+column = 68
+message = """
+linarith failed to find a contradiction
+case h
+S : Finset ℝ
+h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+x : ℝ
+h✝ : 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₂ : 0 ≤ x
+h₃ : x ≤ π
+h₄ : sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₅ h₆₁ : cos x + sin x = 1
+h₆₂ h₆₃ h₆₅ h₆₇ h₆₉ : sin (2 * x) = 0
+k : ℤ
+hk : ↑k * π = 2 * x
+h₆₁₃ : 2 * x = ↑k * π
+h₆₁₅ : 0 ≤ x
+h₆₁₆ : x ≤ π
+h₆₁₇ : 0 ≤ 2 * x
+h₆₁₈ : 2 * x ≤ 2 * π
+h₆₁₉ : ↑k * π ≥ 0
+h₆₂₀ : ↑k * π ≤ 2 * π
+h : ¬k ≤ 2
+h₆₂₃ : k ≥ 3
+a✝ : ↑k * π < 3 * π
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 119
+column = 65
+message = """
+linarith failed to find a contradiction
+case h
+S : Finset ℝ
+h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+x : ℝ
+h : 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₂ : 0 ≤ x
+h₃ : x ≤ π
+h₄ : sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₅ h₆₁ : cos x + sin x = 1
+h₆₂ h₆₃ h₆₅ h₆₇ h₆₉ : sin (2 * x) = 0
+k : ℤ
+hk : ↑k * π = 2 * x
+h₆₁₃ : 2 * x = ↑k * π
+h₆₁₅ : 0 ≤ x
+h₆₁₆ : x ≤ π
+h₆₁₇ : 0 ≤ 2 * x
+h₆₁₈ : 2 * x ≤ 2 * π
+h₆₁₉ : ↑k * π ≥ 0
+h₆₂₀ : ↑k * π ≤ 2 * π
+h₆₂₂ : k ≤ 2
+h' : ¬k ≥ 0
+h₆₃₀ : k ≤ -1
+a✝ : -π < ↑k * π
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 102
+column = 49
+message = """
+unsolved goals
+case «2»
+S : Finset ℝ
+h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+x : ℝ
+h : 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₂ : 0 ≤ x
+h₃ : x ≤ π
+h₄ : sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₅ h₆₁ : cos x + sin x = 1
+h₆₂ h₆₃ h₆₅ h₆₇ h₆₉ : sin (2 * x) = 0
+k : ℤ
+h₆₁₅ : 0 ≤ x
+h₆₁₆ : x ≤ π
+h₆₁₇ : 0 ≤ 2 * x
+h₆₁₈ : 2 * x ≤ 2 * π
+h₆₁₃ : 2 * x = ↑2 * π
+h₆₁₉ : ↑2 * π ≥ 0
+h₆₂₀ : ↑2 * π ≤ 2 * π
+h₆₂₂ : 2 ≤ 2
+h₆₂₉ : 2 ≥ 0
+hk : π = x
+⊢ False"""
+
+[[proof.feedback]]
+line = 128
+column = 22
+message = """
+linarith failed to find a contradiction
+case h2.h
+S : Finset ℝ
+h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+x : ℝ
+h : 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₂ : 0 ≤ x
+h₃ : x ≤ π
+h₄ : sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₅ h₆₁ : cos x + sin x = 1
+h₆₂ h₆₃ h₆₅ h₆₇ h₆₉ : sin (2 * x) = 0
+k : ℤ
+hk : ↑0 * π = 2 * x
+h₆₁₃ : 2 * x = ↑k * π
+h₆₁₄ h₆₂₂ : k = 0
+a✝ : 0 < 2 * x
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 134
+column = 22
+message = """
+linarith failed to find a contradiction
+case h1.h
+S : Finset ℝ
+h₀ : ∀ (x : ℝ), x ∈ S ↔ 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+x : ℝ
+h : 0 ≤ x ∧ x ≤ π ∧ sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₂ : 0 ≤ x
+h₃ : x ≤ π
+h₄ : sin (π / 2 * cos x) = cos (π / 2 * sin x)
+h₅ h₆₁ : cos x + sin x = 1
+h₆₂ h₆₃ h₆₅ h₆₇ h₆₉ : sin (2 * x) = 0
+k : ℤ
+hk : ↑1 * π = 2 * x
+h₆₁₃ : 2 * x = ↑k * π
+h₆₁₄ h₆₂₂ : k = 1
+a✝ : 2 * x < π
+⊢ False
+failed"""
+
 [[proof]]
 name = "algebra_amgm_sumasqdivbgeqsuma"
 iteration = 156
 time = 131
 verified = false
+feedback = [
+    { line = 84, column = 2, message = "Unknown identifier `exact`" },
+    { line = 22, column = 12, message = "Unknown identifier `le_div_iff`" },
+    { line = 36, column = 12, message = "Unknown identifier `le_div_iff`" },
+    { line = 50, column = 12, message = "Unknown identifier `le_div_iff`" },
+    { line = 64, column = 12, message = "Unknown identifier `le_div_iff`" },
+]
 proof = """
 theorem algebra_amgm_sumasqdivbgeqsuma
 (a b c d : ℝ)
@@ -44784,7 +45957,7 @@ a^2 / b + b^2 / c + c^2 / d + d^2 / a ≥ a + b + c + d :=
 name = "mathd_numbertheory_212"
 iteration = 157
 time = 47
-verified = false
+verified = true
 proof = """
 theorem mathd_numbertheory_212 :
 (16^17 * 17^18 * 18^19) % 10 = 8 := by
@@ -44875,6 +46048,9 @@ name = "mathd_numbertheory_320"
 iteration = 158
 time = 52
 verified = false
+feedback = [
+    { line = 42, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_320
 (n : ℕ)
@@ -44970,6 +46146,9 @@ name = "mathd_algebra_125"
 iteration = 159
 time = 166
 verified = false
+feedback = [
+    { line = 47, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_125
 (x y : ℕ)
@@ -45109,6 +46288,9 @@ name = "induction_1pxpownlt1pnx"
 iteration = 160
 time = 117
 verified = false
+feedback = [
+    { line = 88, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem induction_1pxpownlt1pnx
 (x : ℝ)
@@ -45294,7 +46476,7 @@ theorem induction_1pxpownlt1pnx
 name = "mathd_algebra_148"
 iteration = 161
 time = 40
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_148
 (c : ℝ)
@@ -45383,6 +46565,7 @@ name = "amc12a_2019_p12"
 iteration = 162
 time = 330
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -45717,6 +46900,9 @@ name = "induction_11div10tonmn1ton"
 iteration = 163
 time = 311
 verified = false
+feedback = [
+    { line = 54, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem induction_11div10tonmn1ton
 (n : ℕ) :
@@ -45919,6 +47105,7 @@ name = "algebra_amgm_sum1toneqn_prod1tonleq1"
 iteration = 164
 time = 382
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -46512,6 +47699,23 @@ theorem imo_1985_p6
 
 """
 
+[[proof.feedback]]
+line = 57
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 15
+column = 21
+message = """
+unsolved goals
+f : ℕ → NNReal → ℝ
+h₀ : ∀ (x : NNReal), f 1 x = ↑x
+h₁ : ∀ (x : NNReal) (n : ℕ), f (n + 1) x = f n x * (f n x + 1 / ↑n)
+h₃ : f 0 0 = 0
+h₄ h₅ h₆ h₇ h₈ : True
+⊢ False"""
+
 [[proof]]
 name = "amc12a_2020_p15"
 iteration = 166
@@ -46673,6 +47877,39 @@ theorem amc12a_2020_p15
 ```
 
 """
+
+[[proof.feedback]]
+line = 66
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 27
+column = 65
+message = "Unknown constant `Complex.abs`"
+
+[[proof.feedback]]
+line = 60
+column = 6
+message = """
+linarith failed to find a contradiction
+case h
+a b : ℂ
+h₀ : a ^ 3 - 8 = 0
+h₁ : b ^ 3 - 8 * b ^ 2 - 8 * b + 64 = 0
+h₂ : a ^ 3 = 8
+h₃ : b ^ 3 - 8 * b ^ 2 - 8 * b + 64 = 0
+h₄ : b ^ 3 = 8 * b ^ 2 + 8 * b - 64
+h₆ :
+  a.re * (a.re * a.re - a.im * a.im) - a.im * (a.re * a.im + a.im * a.re) = 8 ∧
+    a.re * (a.re * a.im + a.im * a.re) + a.im * (a.re * a.re - a.im * a.im) = 0
+h₇ :
+  b.re * (b.re * b.re - b.im * b.im) - b.im * (b.re * b.im + b.im * b.re) =
+      8 * (b.re * b.re - b.im * b.im) + 8 * b.re - 64 ∧
+    b.re * (b.re * b.im + b.im * b.re) + b.im * (b.re * b.re - b.im * b.im) = 8 * (b.re * b.im + b.im * b.re) + 8 * b.im
+a✝ : 2 * (√21 * (2 * √21)) < (a.re - b.re) * (a.re - b.re) + (a.im - b.im) * (a.im - b.im)
+⊢ False
+failed"""
 
 [[proof]]
 name = "mathd_algebra_332"
@@ -47017,11 +48254,32 @@ But in practice, the theorem is false, and no meaningful proof is possible.
 
 """
 
+[[proof.feedback]]
+line = 81
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 74
+column = 10
+message = """
+linarith failed to find a contradiction
+x y : NNReal
+h₆₁ : ↑x ^ 2 * ↑y ^ 2 = 361
+h₂ : x * y = 19
+h₃ : x + y = 14
+h₄ : x ^ 2 + y ^ 2 = 158
+h₅ : x ^ 2 * y ^ 2 = 361
+h₀ : True
+⊢ False
+failed"""
+
 [[proof]]
 name = "algebra_cubrtrp1oncubrtreq3_rcubp1onrcubeq5778"
 iteration = 168
 time = 336
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -47299,6 +48557,10 @@ name = "mathd_algebra_293"
 iteration = 169
 time = 113
 verified = false
+feedback = [
+    { line = 82, column = 2, message = "Unknown identifier `exact`" },
+    { line = 51, column = 16, message = "Unknown constant `Real.sqrt_eq_iff_sq_eq`" },
+]
 proof = """
 theorem mathd_algebra_293
 (x : NNReal) :
@@ -47481,6 +48743,9 @@ name = "mathd_algebra_440"
 iteration = 170
 time = 43
 verified = false
+feedback = [
+    { line = 42, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_440
 (x : ℝ)
@@ -47585,6 +48850,9 @@ name = "mathd_numbertheory_254"
 iteration = 171
 time = 35
 verified = false
+feedback = [
+    { line = 19, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_254 :
 (239 + 174 + 83) % 10 = 6 :=
@@ -47772,11 +49040,22 @@ sorry
 
 """
 
+[[proof.feedback]]
+line = 59
+column = 0
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 25
+column = 44
+message = "maximum number of errors (100; from option `maxErrors`) reached, exiting"
+
 [[proof]]
 name = "aime_1988_p8"
 iteration = 173
 time = 315
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -48213,6 +49492,9 @@ name = "mathd_algebra_114"
 iteration = 174
 time = 141
 verified = false
+feedback = [
+    { line = 98, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_114
 (a : ℝ)
@@ -48872,11 +50154,82 @@ theorem imo_2019_p1
 
 """
 
+[[proof.feedback]]
+line = 16
+column = 25
+message = """
+unsolved goals
+f : ℤ → ℤ
+h : ∀ (a b : ℤ), f (2 * a) + 2 * f b = f (f (a + b))
+h₂ : f 0 + 2 * f 0 = f (f 0)
+h₃ : f 2 + 2 * f 0 = f (f 1)
+h₄ : f (-2) + 2 * f 0 = f (f (-1))
+h₅ : f 0 + 2 * f 1 = f (f 1)
+h₆ : f 2 + 2 * f 1 = f (f 2)
+h₇ : f (-2) + 2 * f 1 = f (f 0)
+h₈ : f 0 + 2 * f (-1) = f (f (-1))
+h₉ : f 2 + 2 * f (-1) = f (f 0)
+h₁₀ : f (-2) + 2 * f (-1) = f (f (-2))
+h₁₁ : f 4 + 2 * f 0 = f (f 2)
+h₁₂ : f (-4) + 2 * f 0 = f (f (-2))
+h₁₃ : f 0 + 2 * f 2 = f (f 2)
+h₁₄ : f 2 + 2 * f 2 = f (f 3)
+h₁₅ : f (-2) + 2 * f 2 = f (f 1)
+h₁₆ : f 4 + 2 * f 1 = f (f 3)
+h₁₇ : f (-4) + 2 * f 1 = f (f (-1))
+h₁₈ : f 4 + 2 * f (-1) = f (f 1)
+h₁₉ : f (-4) + 2 * f (-1) = f (f (-3))
+⊢ f 0 = 0"""
+
+[[proof.feedback]]
+line = 61
+column = 30
+message = """
+unsolved goals
+f : ℤ → ℤ
+h : ∀ (a b : ℤ), f (2 * a) + 2 * f b = f (f (a + b))
+h₁ : f 0 = 0
+z : ℤ
+h₅ : f (2 * z) + 2 * f z = f (f (z + z))
+h₃ : f 0 + 2 * f z = f (f z)
+h₄ : f (2 * z) + 2 * f 0 = f (f z)
+h₆ : f (-(2 * z)) + 2 * f z = f (f 0)
+h₇ : f (2 * z) + 2 * f (-z) = f (f 0)
+h₈ : f 0 + 2 * f 0 = f (f 0)
+h₉ : f 2 + 2 * f 0 = f (f 1)
+h₁₀ : f (-2) + 2 * f 0 = f (f (-1))
+h₁₁ : f 0 + 2 * f 1 = f (f 1)
+h₁₂ : f 2 + 2 * f 1 = f (f 2)
+h₁₃ : f (-2) + 2 * f 1 = f (f 0)
+h₁₄ : f 0 + 2 * f (-1) = f (f (-1))
+h₁₅ : f 2 + 2 * f (-1) = f (f 0)
+h₁₆ : f (-2) + 2 * f (-1) = f (f (-2))
+h₁₇ : f 4 + 2 * f 0 = f (f 2)
+h₁₈ : f (-4) + 2 * f 0 = f (f (-2))
+h₁₉ : f 0 + 2 * f 2 = f (f 2)
+h₂₀ : f 2 + 2 * f 2 = f (f 3)
+h₂₁ : f (-2) + 2 * f 2 = f (f 1)
+h₂₂ : f 4 + 2 * f 1 = f (f 3)
+h₂₃ : f (-4) + 2 * f 1 = f (f (-1))
+h₂₄ : f 4 + 2 * f (-1) = f (f 1)
+h₂₅ : f (-4) + 2 * f (-1) = f (f (-3))
+⊢ f z = 0"""
+
+[[proof.feedback]]
+line = 112
+column = 4
+message = """
+Tactic `constructor` failed: target is not an inductive datatype
+
+f : ℤ → ℤ
+h_main : (∀ (a b : ℤ), f (2 * a) + 2 * f b = f (f (a + b))) → ∀ (z : ℤ), f z = 0
+⊢ ∀ (a b : ℤ), f (2 * a) + 2 * f b = f (f (a + b)) ↔ ∀ (z : ℤ), f z = 0 ∨ ∃ c, ∀ (z : ℤ), f z = 2 * z + c"""
+
 [[proof]]
 name = "mathd_algebra_513"
 iteration = 176
 time = 37
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_513
 (a b : ℝ)
@@ -48982,7 +50335,7 @@ Each `have` statement is marked with `sorry` and corresponds to a key step in th
 name = "mathd_algebra_143"
 iteration = 177
 time = 29
-verified = false
+verified = true
 proof = """
 theorem mathd_algebra_143
 (f g : ℝ → ℝ)
@@ -49063,6 +50416,9 @@ name = "mathd_algebra_354"
 iteration = 178
 time = 75
 verified = false
+feedback = [
+    { line = 38, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_354
 (a d : ℝ)
@@ -49199,6 +50555,7 @@ name = "aime_1984_p7"
 iteration = 179
 time = 404
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -49544,6 +50901,9 @@ name = "mathd_algebra_246"
 iteration = 180
 time = 38
 verified = false
+feedback = [
+    { line = 40, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_algebra_246
 (a b : ℝ)
@@ -49636,6 +50996,7 @@ name = "aime_1983_p3"
 iteration = 181
 time = 398
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -50555,11 +51916,93 @@ theorem numbertheory_3pow2pownm1mod2pownp3eq2pownp2
 
 """
 
+[[proof.feedback]]
+line = 108
+column = 2
+message = "Unknown identifier `exact`"
+
+[[proof.feedback]]
+line = 23
+column = 19
+message = """
+unsolved goals
+case step.succ
+n : ℕ
+h₀ : 0 < n
+k✝ k : ℕ
+hk : (succ 0).le (k + 1)
+IH : ((3 % (2 ^ k * 16) % (2 ^ k * 16)) ^ 2 ^ k % (2 ^ k * 16) % (2 ^ k * 16)) ^ 2 % (2 ^ k * 16) = 1 + 2 ^ k * 8
+⊢ (((3 % (2 ^ k * 32) % (2 ^ k * 32)) ^ 2 ^ k % (2 ^ k * 32) % (2 ^ k * 32)) ^ 2 % (2 ^ k * 32) % (2 ^ k * 32)) ^ 2 %
+      (2 ^ k * 32) =
+    1 + 2 ^ k * 16"""
+
+[[proof.feedback]]
+line = 90
+column = 14
+message = """
+Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?n * (?m / ?n) + ?m % ?n
+in the target expression
+  3 ^ 2 ^ n = 3 ^ 2 ^ n % 2 ^ (n + 3) + 2 ^ (n + 3) * (3 ^ 2 ^ n / 2 ^ (n + 3))
+
+n : ℕ
+h₀ : 0 < n
+h₁ h₃ : 3 ^ 2 ^ n % 2 ^ (n + 3) = 1 + 2 ^ (n + 2)
+h₄ : 3 ^ 2 ^ n ≥ 1
+h₆ : 3 ^ 2 ^ n % 2 ^ (n + 3) = 1 + 2 ^ (n + 2)
+⊢ 3 ^ 2 ^ n = 3 ^ 2 ^ n % 2 ^ (n + 3) + 2 ^ (n + 3) * (3 ^ 2 ^ n / 2 ^ (n + 3))"""
+
+[[proof.feedback]]
+line = 94
+column = 12
+message = """
+omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 1
+  c ≥ 0
+  b ≥ 0
+  2*b + c ≥ 0
+  a ≥ 1
+where
+ a := ↑n
+ b := ↑(3 ^ 2 ^ n / (2 ^ n * 8)) * ↑(2 ^ n)
+ c := ↑2 ^ n
+ d := ↑((2 % (2 ^ n * 8) % (2 ^ n * 8)) ^ 2 * (2 % (2 ^ n * 8) % (2 ^ n * 8)) ^ n) % ↑(2 ^ n * 8)
+ e := ↑((1 + 3 ^ 2 ^ n / (2 ^ n * 8) * 2 ^ n * 8 + 2 ^ n * 4) % (2 ^ n * 8) +
+        (1 + 3 ^ 2 ^ n / (2 ^ n * 8) * 2 ^ n * 8 + 2 ^ n * 4) / (2 ^ n * 8) * 2 ^ n * 8 -
+      1) %
+  ↑(2 ^ n * 8)"""
+
+[[proof.feedback]]
+line = 105
+column = 12
+message = """
+omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c ≥ 0
+  4*c - e ≥ 1
+  b ≥ 1
+  a ≥ 1
+where
+ a := ↑n
+ b := ↑3 ^ 2 ^ n
+ c := ↑2 ^ n
+ d := ↑(1 + 2 ^ n * 4 - 1) % ↑(2 ^ n * 8)
+ e := ↑((2 % (2 ^ n * 8) % (2 ^ n * 8)) ^ 2 * (2 % (2 ^ n * 8) % (2 ^ n * 8)) ^ n) % ↑(2 ^ n * 8)"""
+
 [[proof]]
 name = "mathd_numbertheory_85"
 iteration = 183
 time = 30
 verified = false
+feedback = [
+    { line = 19, column = 2, message = "Unknown identifier `apply`" },
+]
 proof = """
 theorem mathd_numbertheory_85 :
 1 * 3^3 + 2 * 3^2 + 2*3 + 2 = 53 :=
@@ -50634,6 +52077,7 @@ name = "amc12_2001_p21"
 iteration = 184
 time = 301
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -50907,7 +52351,7 @@ We now combine all the possibilities for `(a, b)`, `(b, c)`, and `(c, d)` to fin
 name = "mathd_numbertheory_239"
 iteration = 185
 time = 29
-verified = false
+verified = true
 proof = """
 theorem mathd_numbertheory_239 :
 (∑ k ∈ Finset.Icc 1 12, k) % 4 = 2 := by
@@ -50984,7 +52428,7 @@ Both steps are straightforward given the calculations above. The `have` statemen
 name = "amc12b_2002_p2"
 iteration = 186
 time = 76
-verified = false
+verified = true
 proof = """
 theorem amc12b_2002_p2
 (x : ℤ)
@@ -51094,6 +52538,9 @@ name = "mathd_algebra_342"
 iteration = 188
 time = 66
 verified = false
+feedback = [
+    { line = 38, column = 0, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_342
 (a d: ℝ)
@@ -51218,6 +52665,9 @@ name = "mathd_numbertheory_517"
 iteration = 189
 time = 31
 verified = false
+feedback = [
+    { line = 15, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_numbertheory_517 :
 (121 * 122 * 123) % 4 = 2 :=
@@ -51284,6 +52734,7 @@ name = "amc12a_2009_p7"
 iteration = 190
 time = 400
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -51667,6 +53118,7 @@ name = "amc12a_2021_p12"
 iteration = 192
 time = 314
 verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -52214,6 +53666,12 @@ name = "mathd_algebra_362"
 iteration = 193
 time = 177
 verified = false
+feedback = [
+    { line = 148, column = 2, message = "Unknown identifier `exact`" },
+    { line = 59, column = 22, message = "Unknown identifier `pow_le_pow_of_le_left`" },
+    { line = 92, column = 22, message = "Unknown identifier `pow_lt_pow_of_lt_left`" },
+    { line = 125, column = 22, message = "Unknown identifier `pow_lt_pow_of_lt_left`" },
+]
 proof = """
 theorem mathd_algebra_362
 (a b : ℝ)
@@ -52498,6 +53956,9 @@ name = "imo_1964_p2"
 iteration = 196
 time = 192
 verified = false
+feedback = [
+    { line = 24, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem imo_1964_p2
 (a b c : ℝ)
@@ -52764,6 +54225,9 @@ name = "mathd_algebra_289"
 iteration = 197
 time = 300
 verified = false
+feedback = [
+    { line = 296, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem mathd_algebra_289
 (k t m n : ℕ)
@@ -53224,6 +54688,9 @@ name = "mathd_numbertheory_66"
 iteration = 201
 time = 39
 verified = false
+feedback = [
+    { line = 18, column = 0, message = "unexpected end of input" },
+]
 proof = """
 theorem mathd_numbertheory_66 :
 194 % 11 = 7 :=
@@ -53304,6 +54771,9 @@ name = "aime_1990_p15"
 iteration = 205
 time = 274
 verified = false
+feedback = [
+    { line = 37, column = 2, message = "Unknown identifier `exact`" },
+]
 proof = """
 theorem aime_1990_p15
 (a b x y : ℝ)
@@ -53585,6 +55055,11 @@ name = "mathd_numbertheory_234"
 iteration = 209
 time = 119
 verified = false
+feedback = [
+    { line = 59, column = 2, message = "Unknown identifier `exact`" },
+    { line = 24, column = 14, message = "Unknown constant `Nat.pow_le_pow_of_le_left`" },
+    { line = 32, column = 14, message = "Unknown constant `Nat.pow_le_pow_of_le_left`" },
+]
 proof = """
 theorem mathd_numbertheory_234
 (a b : ℕ)
@@ -53714,6 +55189,9 @@ name = "mathd_algebra_359"
 iteration = 213
 time = 29
 verified = false
+feedback = [
+    { line = 23, column = 0, message = "unexpected end of input" },
+]
 proof = """
 theorem mathd_algebra_359
 (y : ℝ)

@@ -1,6 +1,7 @@
 from subprocess import Popen, PIPE, STDOUT
 from pathlib import Path
 import os
+import subprocess
 import pexpect
 import sys
 import json
@@ -12,7 +13,8 @@ import tomli_w
 
 from llm_utils import verify_proof, ParallelExecutor
 
-
+# Either a filepath of the proof file or "output" to verify all files inside of the "output" directory
+VERIFY_PATH = "output/benchmark_Goedel_incorrect_subset_solutions.txt"
 
 def proof_verifier_worker(worker_id, input_q, output_q):
     print(f"Starting worker {worker_id}")
@@ -25,6 +27,8 @@ def proof_verifier_worker(worker_id, input_q, output_q):
                 return
 
             proof = input["proof"]
+
+            print(f"Verifying Proof {input["name"]} ({input["iteration"]})")
 
             verified = True
 
@@ -65,16 +69,15 @@ def verify_file(proof_filepath):
     except FileNotFoundError:
         output_json = []
 
-    num_workers = 15
-
-    mp.set_start_method("spawn", force=True)
+    # num_workers = number of cpus
+    num_workers = int(subprocess.run(["nproc"], capture_output=True, text=True).stdout.strip())
 
     executor = ParallelExecutor(num_workers, worker=proof_verifier_worker)
 
     for i, proof in enumerate(proofs):
         executor.submit(i % num_workers, proof)
 
-    n = len(proofs)
+    num_proofs = len(proofs)
 
     for i in range(len(proofs)):
         output = executor.gather()
@@ -84,7 +87,7 @@ def verify_file(proof_filepath):
                 output_json[j] = output
                 break
 
-        print(f"Verified proof {output["name"]} ({i + 1}/{n})")
+        print(f"Verified proof {output["name"]} ({i + 1}/{num_proofs})")
 
         with open(proof_filepath, "wb") as f:
             tomli_w.dump({"proof": output_json}, f, multiline_strings=True)
@@ -92,10 +95,15 @@ def verify_file(proof_filepath):
     executor.shutdown()
 
 def main():
-    path = Path("output")
-    files = [f for f in path.iterdir()]
-    for file in files:
-        verify_file(file)
+    path = Path(VERIFY_PATH)
+    if not path.exists():
+        raise ValueError(f"File not found: {path}")
+    if path.is_dir():
+        files = [f for f in path.iterdir()]
+        for file in files:
+            verify_file(file)
+    else:
+        verify_file(VERIFY_PATH)
 
 
 if __name__ == "__main__":

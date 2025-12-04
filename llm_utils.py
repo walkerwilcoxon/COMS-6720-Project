@@ -33,7 +33,7 @@ import Aesop
 set_option linter.all false
 set_option maxHeartbeats 0
 
-open BigOperators Real Nat Topology Rat
+open BigOperators Real Nat Topology Rat Finset
 """
 
 def load_model(llm_id: str):
@@ -127,19 +127,6 @@ def extract_problems(file) -> List[str]:
         problems = [(match.group(1), match.group(0)) for match in matches]
 
     return problems
-
-def get_f2f_problems() -> Dict[str, List[str]]:
-    data_dir = Path(__file__).parent.resolve()
-    test_file = Path(f"{data_dir}/datasets/miniF2F/test.lean")
-    valid_file = Path(f"{data_dir}/datasets/miniF2F/valid.lean")
-
-    test_problems = extract_problems(test_file)
-    valid_problems = extract_problems(valid_file)
-
-    return {
-        "test": test_problems,
-        "valid": valid_problems
-    }
 
 def extract_proof_and_outline(output: str) -> (str, str):
     match = re.search(r"(### Detailed Proof[\s\S]*)### Complete Lean 4 Proof\s*```lean4\s*(theorem[\s\S]*)```", output)

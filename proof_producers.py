@@ -8,6 +8,8 @@ import textwrap
 
 from llm_utils import extract_proof_and_outline, PROOF_IMPORTS
 
+max_new_tokens=8192
+
 # This file contains all of the different proof strategies we will try
 
 
@@ -35,7 +37,7 @@ def produce_proof_benchmark(model, tokenizer, problem):
     inputs = tokenizer.apply_chat_template(chat, tokenize=True, add_generation_prompt=True, return_tensors="pt", padding=True, truncation=True).to(model.device)
 
     start = time.time()
-    output_tokens = model.generate(inputs, max_new_tokens=8192)
+    output_tokens = model.generate(inputs)
     output = tokenizer.batch_decode(output_tokens)[0]
     dt = time.time() - start
 
