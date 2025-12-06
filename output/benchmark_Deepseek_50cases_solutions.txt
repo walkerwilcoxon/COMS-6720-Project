@@ -2,6 +2,7 @@
 name = "mathd_algebra_478"
 iteration = 1
 time = 23
+verified = true
 proof = """
 theorem mathd_algebra_478
 (b h v : ℝ)
@@ -100,6 +101,7 @@ v = 65 := by
 name = "numbertheory_4x3m7y3neq2003"
 iteration = 2
 time = 116
+verified = true
 proof = """
 theorem numbertheory_4x3m7y3neq2003
 (x y : ℤ) :
@@ -344,6 +346,7 @@ theorem numbertheory_4x3m7y3neq2003
 name = "aime_1983_p1"
 iteration = 3
 time = 113
+verified = true
 proof = """
 theorem aime_1983_p1
 (x y z w : ℕ)
@@ -646,6 +649,8 @@ Real.log w / Real.log z = 60 := by
 name = "amc12_2001_p5"
 iteration = 4
 time = 184
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -930,6 +935,7 @@ This is false because:
 name = "mathd_algebra_141"
 iteration = 5
 time = 22
+verified = true
 proof = """
 theorem mathd_algebra_141
 (a b : ℝ)
@@ -1023,6 +1029,7 @@ theorem mathd_algebra_141
 name = "mathd_numbertheory_3"
 iteration = 6
 time = 23
+verified = true
 proof = """
 theorem mathd_numbertheory_3 :
 (∑ x ∈ Finset.range 10, ((x + 1)^2)) % 10 = 5 := by
@@ -1095,6 +1102,8 @@ theorem mathd_numbertheory_3 :
 name = "imo_1969_p2"
 iteration = 7
 time = 188
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -1804,6 +1813,7 @@ But the problem is that the `a_"""
 name = "mathd_algebra_209"
 iteration = 8
 time = 62
+verified = true
 proof = """
 theorem mathd_algebra_209
 (σ : Equiv ℝ ℝ)
@@ -1976,6 +1986,7 @@ theorem mathd_algebra_209
 name = "mathd_numbertheory_1124"
 iteration = 9
 time = 38
+verified = true
 proof = """
 theorem mathd_numbertheory_1124
 (n : ℕ)
@@ -2079,6 +2090,8 @@ This `have` statement directly reflects that `n = 4` is the unique solution unde
 name = "imo_1983_p6"
 iteration = 10
 time = 183
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -2706,6 +2719,7 @@ a^2 b (a - b) + b^2 c (b - c) + c^2 a (c - a) = (a - b)(b - c)(c - a)(a + b + c)
 name = "mathd_numbertheory_237"
 iteration = 11
 time = 17
+verified = true
 proof = """
 theorem mathd_numbertheory_237 :
 (∑ k ∈ (Finset.range 101), k) % 6 = 4 := by
@@ -2775,6 +2789,7 @@ theorem mathd_numbertheory_237 :
 name = "mathd_algebra_33"
 iteration = 12
 time = 38
+verified = true
 proof = """
 theorem mathd_algebra_33
 (x y z : ℝ)
@@ -2896,6 +2911,8 @@ z / x = 7 / 25 := by
 name = "amc12b_2021_p3"
 iteration = 13
 time = 183
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -3583,6 +3600,7 @@ x = 3 / 4 := by
 name = "mathd_numbertheory_299"
 iteration = 14
 time = 26
+verified = true
 proof = """
 theorem mathd_numbertheory_299 :
 (1 * 3 * 5 * 7 * 9 * 11 * 13) % 10 = 5 := by
@@ -3667,6 +3685,7 @@ This `have` statement directly reflects the final result we derived. The `sorry`
 name = "amc12b_2020_p2"
 iteration = 15
 time = 30
+verified = true
 proof = """
 theorem amc12b_2020_p2 :
 ((100 ^ 2 - 7 ^ 2):ℝ) / (70 ^ 2 - 11 ^ 2) * ((70 - 11) * (70 + 11) / ((100 - 7) * (100 + 7))) = 1 := by
@@ -3759,6 +3778,8 @@ theorem amc12b_2020_p2 :
 name = "algebra_sqineq_unitcircatbpabsamblt1"
 iteration = 16
 time = 181
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -4197,6 +4218,8 @@ Alternatively, we can use the"""
 name = "imo_1977_p6"
 iteration = 17
 time = 188
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -4932,6 +4955,7 @@ But we can use the condition for `n = 1` to get `"""
 name = "mathd_algebra_419"
 iteration = 18
 time = 17
+verified = true
 proof = """
 theorem mathd_algebra_419
 (a b : ℝ)
@@ -5008,6 +5032,8 @@ theorem mathd_algebra_419
 name = "amc12a_2020_p10"
 iteration = 19
 time = 185
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -5435,6 +5461,8 @@ theorem amc12a_2020_p10
 name = "imo_1960_p2"
 iteration = 20
 time = 183
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -5644,6 +5672,7 @@ But the denominator is \\((1 - \\sqrt{1 + 2x})^2 \\geq 0\\) and \\((1 - \\sqrt{1
 name = "mathd_numbertheory_427"
 iteration = 21
 time = 36
+verified = true
 proof = """
 theorem mathd_numbertheory_427
 (a : ℕ)
@@ -5780,6 +5809,7 @@ theorem mathd_numbertheory_427
 name = "numbertheory_x5neqy2p4"
 iteration = 22
 time = 52
+verified = true
 proof = """
 theorem numbertheory_x5neqy2p4
 (x y : ℤ) :
@@ -5877,6 +5907,8 @@ This `have` statement directly reflects the main goal, and its proof will requir
 name = "imo_2007_p6"
 iteration = 23
 time = 189
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -6403,6 +6435,8 @@ Suppose `a_1 = t`, and all other `a_i`"""
 name = "mathd_algebra_398"
 iteration = 24
 time = 183
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -6985,6 +7019,8 @@ Multiply both sides by 2:
 name = "imo_1963_p5"
 iteration = 25
 time = 182
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -7373,6 +7409,7 @@ Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 := by
 name = "mathd_numbertheory_430"
 iteration = 26
 time = 45
+verified = true
 proof = """
 theorem mathd_numbertheory_430
 (a b c : ℕ)
@@ -7531,6 +7568,7 @@ a + b + c = 8 := by
 name = "mathd_algebra_459"
 iteration = 27
 time = 60
+verified = true
 proof = """
 theorem mathd_algebra_459
 (a b c d : ℚ)
@@ -7713,6 +7751,7 @@ theorem mathd_algebra_459
 name = "induction_12dvd4expnp1p20"
 iteration = 28
 time = 39
+verified = true
 proof = """
 theorem induction_12dvd4expnp1p20
 (n : ℕ) :
@@ -7816,6 +7855,8 @@ theorem induction_12dvd4expnp1p20
 name = "mathd_algebra_320"
 iteration = 29
 time = 184
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -8313,6 +8354,8 @@ But `sqrt"""
 name = "mathd_numbertheory_559"
 iteration = 30
 time = 182
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -8390,6 +8433,7 @@ For each `x`, we can find `y` such that `x ≡ y mod 10` and `y ≡ 4 mod 5`.
 name = "mathd_algebra_160"
 iteration = 31
 time = 27
+verified = true
 proof = """
 theorem mathd_algebra_160
 (n x : ℝ)
@@ -8492,6 +8536,7 @@ Each `have` statement corresponds to a key step in the proof, and all of them ar
 name = "mathd_algebra_24"
 iteration = 32
 time = 17
+verified = true
 proof = """
 theorem mathd_algebra_24
 (x : ℝ)
@@ -8568,6 +8613,7 @@ x = 2000 := by
 name = "mathd_algebra_176"
 iteration = 33
 time = 20
+verified = true
 proof = """
 theorem mathd_algebra_176
 (x : ℝ) :
@@ -8642,6 +8688,7 @@ theorem mathd_algebra_176
 name = "induction_nfactltnexpnm1ngt3"
 iteration = 34
 time = 77
+verified = false
 proof = """
 theorem induction_nfactltnexpnm1ngt3
 (n : ℕ)
@@ -8823,10 +8870,23 @@ n.factorial < n^(n - 1) := by
 
 """
 
+[[proof.feedback]]
+line = 31
+column = 23
+message = """
+unsolved goals
+case step.succ.succ.succ
+n✝¹ n✝ n : ℕ
+h₁ : 3 ≤ n✝¹
+IH : n ! * ((n + 1) * ((n + 1 + 1) * (n + 2 + 1))) < (n + 1 + 1 + 1) * ((n + 1 + 1 + 1) * (n + 1 + 1 + 1) ^ n)
+⊢ n ! * ((n + 1) * ((n + 1 + 1) * ((n + 2 + 1) * (n + 3 + 1)))) <
+    (n + 3 + 1) * ((n + 3 + 1) * ((n + 3 + 1) * (n + 3 + 1) ^ n))"""
+
 [[proof]]
 name = "mathd_algebra_208"
 iteration = 35
 time = 35
+verified = true
 proof = """
 theorem mathd_algebra_208 :
 Real.sqrt 1000000 - 1000000^((1:ℝ)/3) = 900 := by
@@ -8932,6 +8992,7 @@ Each `have` statement is marked with `sorry` and will need to be replaced with t
 name = "mathd_numbertheory_353"
 iteration = 36
 time = 127
+verified = true
 proof = """
 theorem mathd_numbertheory_353
 (s : ℕ)
@@ -9266,6 +9327,8 @@ s % 2009 = 0 := by
 name = "numbertheory_notequiv2i2jasqbsqdiv8"
 iteration = 37
 time = 181
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -9688,6 +9751,7 @@ But the Lean statement is `¬ (∀ a b, (P ↔ Q))`, i.e., `∃ a b, ¬(P"""
 name = "mathd_algebra_156"
 iteration = 38
 time = 113
+verified = true
 proof = """
 theorem mathd_algebra_156
 (x y : ℝ)
@@ -9960,6 +10024,7 @@ y^2 - x^2 = 1 := by
 name = "mathd_numbertheory_12"
 iteration = 39
 time = 28
+verified = true
 proof = """
 theorem mathd_numbertheory_12 :
 Finset.card (Finset.filter (fun x => 20∣x) (Finset.Icc 15 85)) = 4 := by
@@ -10030,6 +10095,7 @@ Finset.card (Finset.filter (fun x => 20∣x) (Finset.Icc 15 85)) = 4 := by
 name = "mathd_numbertheory_345"
 iteration = 40
 time = 54
+verified = true
 proof = """
 theorem mathd_numbertheory_345 :
 (2000 + 2001 + 2002 + 2003 + 2004 + 2005 + 2006) % 7 = 0 := by
@@ -10191,6 +10257,8 @@ theorem mathd_numbertheory_345 :
 name = "mathd_numbertheory_447"
 iteration = 41
 time = 181
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -10881,6 +10949,7 @@ But the Lean code is correct"""
 name = "mathd_numbertheory_328"
 iteration = 42
 time = 23
+verified = true
 proof = """
 theorem mathd_numbertheory_328 :
 (5^999999) % 7 = 6 := by
@@ -10964,6 +11033,8 @@ This `have` statement directly reflects the final result, and its proof is strai
 name = "mathd_numbertheory_451"
 iteration = 43
 time = 190
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -11153,6 +11224,8 @@ But we need to check if all of these are achievable.
 name = "aime_1997_p9"
 iteration = 44
 time = 184
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -11442,6 +11515,7 @@ But Lean's `Int.floor` is defined for real numbers, and we can use the fact that
 name = "algebra_sqineq_at2malt1"
 iteration = 45
 time = 27
+verified = true
 proof = """
 theorem algebra_sqineq_at2malt1
 (a : ℝ) :
@@ -11519,6 +11593,7 @@ a * (2 - a) ≤ 1 := by
 name = "algebra_apbmpcneq0_aeq0anbeq0anceq0"
 iteration = 46
 time = 118
+verified = false
 proof = """
 theorem algebra_apbmpcneq0_aeq0anbeq0anceq0
 (a b c : ℚ)
@@ -11754,10 +11829,91 @@ a = 0 ∧ b = 0 ∧ c = 0 := by
 
 """
 
+[[proof.feedback]]
+line = 35
+column = 48
+message = "unknown identifier 'h₄₁'"
+
+[[proof.feedback]]
+line = 36
+column = 35
+message = """
+unsolved goals
+a b c : ℚ
+m n : ℝ
+h₀ : 0 < m ∧ 0 < n
+h₁ : m ^ 3 = 2
+h₂ : n ^ 3 = 4
+h₃ : ↑a + ↑b * m + ↑c * n = 0
+h₄ h₅₁ : ↑a = -↑b * m - ↑c * n
+h₅₃ : 0 < m
+h₅₄ : 0 < n
+h₅₅ : 0 < m * n
+h₅₆ : 0 < m * n * m
+h₅₇ : 0 < m * n * n
+h₅₈ : 0 < m * n * m * n
+h₅₉ : 0 < m * n * m * n * m
+h₅₁₀ : 0 < m * n * m * n * n
+h₅₁₁ : ↑a = -(↑b * m) - ↑c * n
+⊢ a = 0"""
+
+[[proof.feedback]]
+line = 67
+column = 8
+message = """
+linarith failed to find a contradiction
+case h1.h
+a b c : ℚ
+m n : ℝ
+h₀ : 0 < m ∧ 0 < n
+h₁ : m ^ 3 = 2
+h₂ : n ^ 3 = 4
+h₃ : ↑a + ↑b * m + ↑c * n = 0
+h₄ : ↑a = -↑b * m - ↑c * n
+h₅ : a = 0
+h₆₁ : ↑a = -↑b * m - ↑c * n
+h₆₂ : ↑a = 0
+h₆₃ : ↑b * m + ↑c * n = 0
+h₆₅ : 0 < m
+h₆₆ : 0 < n
+h₆₇ : 0 < m * n
+h₆₈ : 0 < m * n * m
+h₆₉ : 0 < m * n * n
+h₆₁₀ : 0 < m * n * m * n
+h₆₁₁ : 0 < m * n * m * n * m
+h₆₁₂ : 0 < m * n * m * n * n
+a✝ : ↑b < 0
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 75
+column = 39
+message = """
+linarith failed to find a contradiction
+case h1.h
+a b c : ℚ
+m n : ℝ
+h₀ : 0 < m ∧ 0 < n
+h₁ : m ^ 3 = 2
+h₂ : n ^ 3 = 4
+h₃ : ↑a + ↑b * m + ↑c * n = 0
+h₄ : ↑a = -↑b * m - ↑c * n
+h₅ : a = 0
+h₆ : b = 0
+h₇₁ : ↑a = -↑b * m - ↑c * n
+h₇₂ : ↑a = 0
+h₇₃ : ↑b = 0
+h₇₄ : ↑b * m + ↑c * n = 0
+a✝ : ↑c * n < 0
+⊢ False
+failed"""
+
 [[proof]]
 name = "mathd_algebra_171"
 iteration = 47
 time = 12
+verified = true
 proof = """
 theorem mathd_algebra_171
 (f : ℝ → ℝ)
@@ -11816,6 +11972,7 @@ This `have` statement directly corresponds to the goal, and its proof is straigh
 name = "mathd_numbertheory_227"
 iteration = 48
 time = 84
+verified = false
 proof = """
 theorem mathd_numbertheory_227
 (x y n : ℕ+)
@@ -12176,10 +12333,91 @@ n = 5 := by
 
 """
 
+[[proof.feedback]]
+line = 38
+column = 28
+message = """
+omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  a ≥ 1
+where
+ a := ↑↑n"""
+
+[[proof.feedback]]
+line = 42
+column = 33
+message = """
+omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 1
+  b ≥ 1
+  a ≥ 7
+where
+ a := ↑↑n
+ b := ↑↑x
+ c := ↑↑y"""
+
+[[proof.feedback]]
+line = 43
+column = 34
+message = """
+omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 1
+  b ≥ 1
+  a ≥ 7
+where
+ a := ↑↑n
+ b := ↑↑x
+ c := ↑↑y"""
+
+[[proof.feedback]]
+line = 45
+column = 8
+message = """
+omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 1
+  4 ≤ a ≤ 8
+  b ≥ 1
+  a ≥ 7
+where
+ a := ↑↑n
+ b := ↑↑x
+ c := ↑↑y"""
+
+[[proof.feedback]]
+line = 48
+column = 72
+message = """
+unsolved goals
+x y n : ℕ+
+h₁ : ↑n ≠ 0
+h₂ : ↑n ≥ 1
+h₃ : ↑↑n ≠ 0
+h₀ : x * n * 6 + y * n * 4 = x * 24 + y * 24
+h : 6 < n
+h₅ : n ≥ 7
+h₆ : ↑n ≥ 7
+h₇ : ↑x ≥ 1
+h₈ : ↑y ≥ 1
+h₉ : 3 * n ≥ 21
+h₁₀ : 2 * n ≥ 14
+h₁₁ : 3 * ↑n - 12 ≥ 15
+h₁₂ : 2 * ↑n - 12 ≥ 2
+⊢ ↑x * (↑n * 3 - 12) + ↑y * (↑n * 2 - 12) = 0"""
+
+[[proof.feedback]]
+line = 80
+column = 4
+message = "interval_cases failed: unsupported type ℕ+"
+
 [[proof]]
 name = "mathd_algebra_188"
 iteration = 49
 time = 181
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <｜begin▁of▁sentence｜><｜User｜>Complete the following Lean 4 code:
@@ -12468,6 +12706,7 @@ But we can use the hypothesis `h` to get `σ.1 2 = σ."""
 name = "mathd_numbertheory_765"
 iteration = 50
 time = 77
+verified = true
 proof = """
 theorem mathd_numbertheory_765
 (x : ℤ)

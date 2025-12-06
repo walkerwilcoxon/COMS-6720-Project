@@ -2,6 +2,7 @@
 name = "mathd_algebra_478"
 iteration = 1
 time = 25
+verified = true
 proof = """
 theorem mathd_algebra_478
 (b h v : ℝ)
@@ -71,6 +72,7 @@ This `have` statement directly reflects the final result we need to prove. The p
 name = "numbertheory_4x3m7y3neq2003"
 iteration = 2
 time = 129
+verified = false
 proof = """
 theorem numbertheory_4x3m7y3neq2003
 (x y : ℤ) :
@@ -303,10 +305,47 @@ theorem numbertheory_4x3m7y3neq2003
 
 """
 
+[[proof.feedback]]
+line = 114
+column = 21
+message = """
+unsolved goals
+x y : ℤ
+h : 4 * x ^ 3 - 7 * y ^ 3 = 2003
+h₁ : 4 * x ^ 3 % 7 = 1
+h₂ h₄ : x % 7 = 3
+h₅ : x ^ 3 % 7 = 6
+⊢ False"""
+
+[[proof.feedback]]
+line = 154
+column = 21
+message = """
+unsolved goals
+x y : ℤ
+h : 4 * x ^ 3 - 7 * y ^ 3 = 2003
+h₁ : 4 * x ^ 3 % 7 = 1
+h₂ h₄ : x % 7 = 5
+h₅ : x ^ 3 % 7 = 6
+⊢ False"""
+
+[[proof.feedback]]
+line = 174
+column = 21
+message = """
+unsolved goals
+x y : ℤ
+h : 4 * x ^ 3 - 7 * y ^ 3 = 2003
+h₁ : 4 * x ^ 3 % 7 = 1
+h₂ h₄ : x % 7 = 6
+h₅ : x ^ 3 % 7 = 6
+⊢ False"""
+
 [[proof]]
 name = "aime_1983_p1"
 iteration = 3
 time = 186
+verified = false
 proof = """
 theorem aime_1983_p1
 (x y z w : ℕ)
@@ -571,10 +610,69 @@ Real.log w / Real.log z = 60 := by
 
 """
 
+[[proof.feedback]]
+line = 148
+column = 2
+message = "unknown identifier 'exact'"
+
+[[proof.feedback]]
+line = 145
+column = 10
+message = """
+linarith failed to find a contradiction
+case h1.h
+x y z w : ℕ
+ht : 1 < x ∧ 1 < y ∧ 1 < z
+hw : 0 ≤ w
+h0 : (↑w).log / (↑x).log = 24
+h1 : (↑w).log / (↑y).log = 40
+h2 : (↑w).log / (↑x * ↑y * ↑z).log = 12
+h3 : (↑w).log = 24 * (↑x).log
+h4 : (↑w).log = 40 * (↑y).log
+h5 : (↑x).log = 5 / 3 * (↑y).log
+h6 : (↑w).log = 12 * (↑x * ↑y * ↑z).log
+h7 : (↑x * ↑y * ↑z).log = (↑x).log + (↑y).log + (↑z).log
+h8 : 2 * (↑x).log = (↑x).log + (↑y).log + (↑z).log
+h9 : (↑x).log = (↑y).log + (↑z).log
+h10 : (↑z).log = 2 / 3 * (↑y).log
+h11 : (↑w).log = 40 * (↑y).log
+h12₁ : (↑z).log = 2 / 3 * (↑y).log
+h12₂ : (↑w).log = 40 * (↑y).log
+h12₃ : (↑z).log ≠ 0
+a✝ : (↑y).log * 60 / (↑y).log < 60
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 140
+column = 48
+message = """
+unsolved goals
+x y z w : ℕ
+ht : 1 < x ∧ 1 < y ∧ 1 < z
+hw : 0 ≤ w
+h0 : (↑w).log / (↑x).log = 24
+h1 : (↑w).log / (↑y).log = 40
+h2 : (↑w).log / (↑x * ↑y * ↑z).log = 12
+h3 : (↑w).log = 24 * (↑x).log
+h4 : (↑w).log = 40 * (↑y).log
+h5 : (↑x).log = 5 / 3 * (↑y).log
+h6 : (↑w).log = 12 * (↑x * ↑y * ↑z).log
+h7 : (↑x * ↑y * ↑z).log = (↑x).log + (↑y).log + (↑z).log
+h8 : 2 * (↑x).log = (↑x).log + (↑y).log + (↑z).log
+h9 : (↑x).log = (↑y).log + (↑z).log
+h10 : (↑z).log = 2 / 3 * (↑y).log
+h11 : (↑w).log = 40 * (↑y).log
+h12₁ : (↑z).log = 2 / 3 * (↑y).log
+h12₂ : (↑w).log = 40 * (↑y).log
+h12₃ : (↑z).log ≠ 0
+⊢ (↑y).log * 60 / (↑y).log = 60"""
+
 [[proof]]
 name = "amc12_2001_p5"
 iteration = 4
 time = 195
+verified = false
 proof = """
 theorem amc12_2001_p5 :
 Finset.prod (Finset.filter (fun x => ¬ Even x) (Finset.range 10000)) (id : ℕ → ℕ) = (10000!) / ((2^5000) * 5000!) :=
@@ -725,10 +823,122 @@ Finset.prod (Finset.filter (fun x => ¬ Even x) (Finset.range 10000)) (id : ℕ 
 
 """
 
+[[proof.feedback]]
+line = 19
+column = 2
+message = "unknown identifier 'exact'"
+
+[[proof.feedback]]
+line = 14
+column = 6
+message = """
+The rfl tactic failed. Possible reasons:
+- The goal is not a reflexive relation (neither `=` nor a relation with a @[refl] lemma).
+- The arguments of the relation are not equal.
+Try using the reflexivitiy lemma for your relation explicitly, e.g. `exact Eq.rfl`.
+⊢ (filter (fun x => ¬Even x) (range 10000)).prod id =
+    1 * 3 * 5 * 7 * 9 * 11 * 13 * 15 * 17 * 19 * 21 * 23 * 25 * 27 * 29 * 31 * 33 * 35 * 37 * 39 * 41 * 43 * 45 * 47 *
+                                                        49 *
+                                                      51 *
+                                                    53 *
+                                                  55 *
+                                                57 *
+                                              59 *
+                                            61 *
+                                          63 *
+                                        65 *
+                                      67 *
+                                    69 *
+                                  71 *
+                                73 *
+                              75 *
+                            77 *
+                          79 *
+                        81 *
+                      83 *
+                    85 *
+                  87 *
+                89 *
+              91 *
+            93 *
+          95 *
+        97 *
+      99"""
+
+[[proof.feedback]]
+line = 17
+column = 6
+message = """
+The rfl tactic failed. Possible reasons:
+- The goal is not a reflexive relation (neither `=` nor a relation with a @[refl] lemma).
+- The arguments of the relation are not equal.
+Try using the reflexivitiy lemma for your relation explicitly, e.g. `exact Eq.rfl`.
+h₁ :
+  (filter (fun x => ¬Even x) (range 10000)).prod id =
+    1 * 3 * 5 * 7 * 9 * 11 * 13 * 15 * 17 * 19 * 21 * 23 * 25 * 27 * 29 * 31 * 33 * 35 * 37 * 39 * 41 * 43 * 45 * 47 *
+                                                        49 *
+                                                      51 *
+                                                    53 *
+                                                  55 *
+                                                57 *
+                                              59 *
+                                            61 *
+                                          63 *
+                                        65 *
+                                      67 *
+                                    69 *
+                                  71 *
+                                73 *
+                              75 *
+                            77 *
+                          79 *
+                        81 *
+                      83 *
+                    85 *
+                  87 *
+                89 *
+              91 *
+            93 *
+          95 *
+        97 *
+      99
+⊢ 10000! / (2 ^ 5000 * 5000!) =
+    1 * 3 * 5 * 7 * 9 * 11 * 13 * 15 * 17 * 19 * 21 * 23 * 25 * 27 * 29 * 31 * 33 * 35 * 37 * 39 * 41 * 43 * 45 * 47 *
+                                                        49 *
+                                                      51 *
+                                                    53 *
+                                                  55 *
+                                                57 *
+                                              59 *
+                                            61 *
+                                          63 *
+                                        65 *
+                                      67 *
+                                    69 *
+                                  71 *
+                                73 *
+                              75 *
+                            77 *
+                          79 *
+                        81 *
+                      83 *
+                    85 *
+                  87 *
+                89 *
+              91 *
+            93 *
+          95 *
+        97 *
+      99"""
+
 [[proof]]
 name = "mathd_algebra_141"
 iteration = 5
 time = 35
+verified = false
+feedback = [
+    { line = 29, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_algebra_141
 (a b : ℝ)
@@ -818,6 +1028,7 @@ theorem mathd_algebra_141
 name = "mathd_numbertheory_3"
 iteration = 6
 time = 48
+verified = true
 proof = """
 theorem mathd_numbertheory_3 :
 (∑ x ∈ Finset.range 10, ((x + 1)^2)) % 10 = 5 := by
@@ -910,6 +1121,8 @@ theorem mathd_numbertheory_3 :
 name = "imo_1969_p2"
 iteration = 7
 time = 270
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -1420,6 +1633,10 @@ This does not satisfy `y n"""
 name = "mathd_algebra_209"
 iteration = 8
 time = 88
+verified = false
+feedback = [
+    { line = 29, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_algebra_209
 (σ : Equiv ℝ ℝ)
@@ -1558,6 +1775,8 @@ theorem mathd_algebra_209
 name = "mathd_numbertheory_1124"
 iteration = 9
 time = 269
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -3493,6 +3712,7 @@ have h_main : n = 4 := by
 name = "imo_1983_p6"
 iteration = 10
 time = 118
+verified = false
 proof = """
 theorem imo_1983_p6
 (a b c : ℝ)
@@ -3696,10 +3916,34 @@ theorem imo_1983_p6
 
 """
 
+[[proof.feedback]]
+line = 28
+column = 2
+message = "unknown identifier 'exact'"
+
+[[proof.feedback]]
+line = 18
+column = 4
+message = """
+linarith failed to find a contradiction
+case a
+a b c : ℝ
+h₀ : 0 < a ∧ 0 < b ∧ 0 < c
+h₁ : c < a + b
+h₂ : b < a + c
+h₃ : a < b + c
+a✝ : 0 > a ^ 2 * b * (a - b) + b ^ 2 * c * (b - c) + c ^ 2 * a * (c - a)
+⊢ False
+failed"""
+
 [[proof]]
 name = "mathd_numbertheory_237"
 iteration = 11
 time = 29
+verified = false
+feedback = [
+    { line = 22, column = 2, message = "unknown identifier 'apply'" },
+]
 proof = """
 theorem mathd_numbertheory_237 :
 (∑ k ∈ (Finset.range 101), k) % 6 = 4 :=
@@ -3782,6 +4026,10 @@ theorem mathd_numbertheory_237 :
 name = "mathd_algebra_33"
 iteration = 12
 time = 42
+verified = false
+feedback = [
+    { line = 43, column = 0, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_algebra_33
 (x y z : ℝ)
@@ -3883,6 +4131,7 @@ sorry
 name = "amc12b_2021_p3"
 iteration = 13
 time = 65
+verified = false
 proof = """
 theorem amc12b_2021_p3
 (x : ℝ)
@@ -4030,10 +4279,29 @@ have h₁ : x = 3 / 4 := by
 
 """
 
+[[proof.feedback]]
+line = 71
+column = 0
+message = "unexpected end of input"
+
+[[proof.feedback]]
+line = 18
+column = 59
+message = """
+unsolved goals
+x : ℝ
+h₀ h₂ : 2 + 1 / (1 + 1 / (2 + 2 / (3 + x))) = 144 / 53
+h₄ : (2 + 1 / (1 + 1 / (2 + 2 / (3 + x)))) * 53 = 144
+⊢ 53 / (1 + 1 / (2 + 2 / (3 + x))) = 38"""
+
 [[proof]]
 name = "mathd_numbertheory_299"
 iteration = 14
 time = 35
+verified = false
+feedback = [
+    { line = 15, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_numbertheory_299 :
 (1 * 3 * 5 * 7 * 9 * 11 * 13) % 10 = 5 :=
@@ -4117,6 +4385,11 @@ theorem mathd_numbertheory_299 :
 name = "amc12b_2020_p2"
 iteration = 15
 time = 68
+verified = false
+feedback = [
+    { line = 44, column = 2, message = "unknown identifier 'rw'" },
+    { line = 45, column = 2, message = "unexpected token '<;>'; expected command" },
+]
 proof = """
 theorem amc12b_2020_p2 :
 ((100 ^ 2 - 7 ^ 2):ℝ) / (70 ^ 2 - 11 ^ 2) * ((70 - 11) * (70 + 11) / ((100 - 7) * (100 + 7))) = 1 :=
@@ -4239,6 +4512,10 @@ theorem amc12b_2020_p2 :
 name = "algebra_sqineq_unitcircatbpabsamblt1"
 iteration = 16
 time = 195
+verified = false
+feedback = [
+    { line = 39, column = 0, message = "unexpected end of input" },
+]
 proof = """
 theorem algebra_sqineq_unitcircatbpabsamblt1
 (a b: ℝ)
@@ -4696,6 +4973,7 @@ sorry
 name = "imo_1977_p6"
 iteration = 17
 time = 250
+verified = false
 proof = """
 theorem imo_1977_p6
 (f : ℕ → ℕ)
@@ -5053,10 +5331,83 @@ sorry
 
 """
 
+[[proof.feedback]]
+line = 61
+column = 6
+message = """
+omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e - g ≥ 1
+  c ≥ 1
+  g ≥ 1
+  e ≥ 0
+  d ≥ 1
+  b ≥ 0
+  c - d ≤ -1
+  a ≥ 2
+  b - c ≥ 1
+where
+ a := ↑(f 1)
+ b := ↑(f (1 + 1))
+ c := ↑(f (f 1))
+ d := ↑(f 2)
+ e := ↑(f (f 1 + 1))
+ g := ↑(f (f (f 1)))"""
+
+[[proof.feedback]]
+line = 102
+column = 50
+message = """
+unsolved goals
+f : ℕ → ℕ
+h₀ : ∀ (n : ℕ), 0 < f n
+h₁ : ∀ (n : ℕ), 0 < n → f (f n) < f (n + 1)
+h₂ : f 1 = 1
+n✝¹ : ℕ
+hn✝ : 0 < n✝¹
+n✝ n : ℕ
+ih : ∀ m < n + 2, 0 < m → f m = m
+hn : 0 < n + 2
+h₅₁ : f (f (n + 1)) < f (n + 1 + 1)
+h₅₂ : f (n + 1) = n + 1
+h₅₃ : f (f (n + 1)) < f (n + 1 + 1)
+h₅₄ : f (n + 1) = n + 1
+⊢ f (n + 1) = n + 1"""
+
+[[proof.feedback]]
+line = 111
+column = 50
+message = """
+linarith failed to find a contradiction
+case h
+f : ℕ → ℕ
+h₀ : ∀ (n : ℕ), 0 < f n
+h₁ : ∀ (n : ℕ), 0 < n → f (f n) < f (n + 1)
+h₂ : f 1 = 1
+n✝¹ : ℕ
+hn✝ : 0 < n✝¹
+n✝ n : ℕ
+ih : ∀ m < n + 2, 0 < m → f m = m
+hn : 0 < n + 2
+h₅₁ : f (f (n + 1)) < f (n + 1 + 1)
+h₅₂ : f (n + 1) = n + 1
+h₅₃ : f (f (n + 1)) < f (n + 1 + 1)
+h₅₄ : f (n + 1) = n + 1
+h₅₅ : f (f (n + 1)) = f (n + 1)
+h₅₆ : f (n + 1) < f (n + 1 + 1)
+h₅₉ : 0 < n + 1 + 1
+a✝ : n + 1 + 1 ≥ n + 2
+⊢ False
+failed"""
+
 [[proof]]
 name = "mathd_algebra_419"
 iteration = 18
 time = 25
+verified = false
+feedback = [
+    { line = 27, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_algebra_419
 (a b : ℝ)
@@ -5133,6 +5484,8 @@ theorem mathd_algebra_419
 name = "amc12a_2020_p10"
 iteration = 19
 time = 273
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -5630,6 +5983,10 @@ theorem amc1"""
 name = "imo_1960_p2"
 iteration = 20
 time = 171
+verified = false
+feedback = [
+    { line = 98, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem imo_1960_p2
 (x : ℝ)
@@ -5860,6 +6217,8 @@ theorem imo_1960_p2
 name = "mathd_numbertheory_427"
 iteration = 21
 time = 42
+verified = false
+error = "Timed out"
 proof = """
 theorem mathd_numbertheory_427
 (a : ℕ)
@@ -5958,6 +6317,7 @@ theorem mathd_numbertheory_427
 name = "numbertheory_x5neqy2p4"
 iteration = 22
 time = 202
+verified = false
 proof = """
 theorem numbertheory_x5neqy2p4
 (x y : ℤ) :
@@ -6123,10 +6483,49 @@ by
 
 """
 
+[[proof.feedback]]
+line = 40
+column = 4
+message = """
+omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants."""
+
+[[proof.feedback]]
+line = 40
+column = 4
+message = """
+omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants."""
+
+[[proof.feedback]]
+line = 14
+column = 33
+message = """
+unsolved goals
+case inl.inl
+x y : ℤ
+h : x ^ 5 = y ^ 2 + 4
+h₂ : x % 2 = 0
+h₃ : y % 2 = 0
+h₁ : (x / 2) ^ 5 * 32 = 4 + (y / 2) ^ 2 * 4
+⊢ False
+
+case inr.inr
+x y : ℤ
+h : x ^ 5 = y ^ 2 + 4
+h₂ : x % 2 = 1
+h₃ : y % 2 = 1
+h₁ :
+  (x / 2) ^ 4 * 80 + (x / 2) ^ 3 * 80 + (x / 2) ^ 2 * 40 + x / 2 * 10 + 1 + (x / 2) ^ 5 * 32 =
+    4 + y / 2 * 4 + 1 + (y / 2) ^ 2 * 4
+⊢ False"""
+
 [[proof]]
 name = "imo_2007_p6"
 iteration = 23
 time = 274
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -6282,6 +6681,10 @@ However, there is a discrepancy in indexing:
 name = "mathd_algebra_398"
 iteration = 24
 time = 50
+verified = false
+feedback = [
+    { line = 49, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_algebra_398
 (a b c : ℝ)
@@ -6399,6 +6802,7 @@ theorem mathd_algebra_398
 name = "imo_1963_p5"
 iteration = 25
 time = 123
+verified = false
 proof = """
 theorem imo_1963_p5 :
 Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 :=
@@ -6596,10 +7000,1086 @@ Real.cos (π / 7) - Real.cos (2 * π / 7) + Real.cos (3 * π / 7) = 1 / 2 :=
 
 """
 
+[[proof.feedback]]
+line = 11
+column = 10
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 11
+column = 33
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 11
+column = 56
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 13
+column = 22
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 15
+column = 6
+message = """
+linarith failed to find a contradiction
+case h0x.h
+a✝ : 0 ≥ sorryAx ℝ true / 7
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 16
+column = 6
+message = """
+linarith failed to find a contradiction
+case hxp.h
+a✝ : sorryAx ℝ true / 7 ≥ π
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 18
+column = 26
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 18
+column = 46
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 18
+column = 69
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 18
+column = 92
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 18
+column = 112
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 19
+column = 28
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 19
+column = 47
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 19
+column = 70
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 20
+column = 30
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 20
+column = 53
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 20
+column = 72
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 21
+column = 32
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 21
+column = 56
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 23
+column = 33
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 23
+column = 57
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 23
+column = 76
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 29
+column = 29
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 29
+column = 52
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 29
+column = 78
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 29
+column = 97
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 30
+column = 30
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 30
+column = 49
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 30
+column = 72
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 30
+column = 95
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 31
+column = 32
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 31
+column = 51
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 31
+column = 79
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 31
+column = 87
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 31
+column = 116
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 31
+column = 124
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 32
+column = 34
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 32
+column = 53
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 32
+column = 81
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 32
+column = 89
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 32
+column = 118
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 32
+column = 126
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 39
+column = 33
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 39
+column = 41
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 39
+column = 69
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 41
+column = 33
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 41
+column = 41
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 41
+column = 65
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 46
+column = 28
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 46
+column = 51
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 46
+column = 74
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 46
+column = 97
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 47
+column = 30
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 47
+column = 53
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 47
+column = 76
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 47
+column = 99
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 48
+column = 32
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 48
+column = 55
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 48
+column = 83
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 48
+column = 95
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 48
+column = 124
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 48
+column = 136
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 49
+column = 34
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 49
+column = 57
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 49
+column = 85
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 49
+column = 97
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 49
+column = 126
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 49
+column = 138
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 56
+column = 33
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 56
+column = 45
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 56
+column = 73
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 58
+column = 33
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 58
+column = 45
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 58
+column = 69
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 63
+column = 28
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 63
+column = 51
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 64
+column = 30
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 64
+column = 49
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 64
+column = 57
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 67
+column = 26
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 67
+column = 34
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 67
+column = 57
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 68
+column = 12
+message = """
+tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  (π - ?x).sin
+h₀ : (sorryAx ℝ true / 7).sin > 0
+h₂ : 2 * (sorryAx ℝ true / 7).sin * (sorryAx ℝ true / 7).cos = (2 * sorryAx ℝ true / 7).sin
+h₃ :
+  -2 * (sorryAx ℝ true / 7).sin * (2 * sorryAx ℝ true / 7).cos =
+    -((3 * sorryAx ℝ true / 7).sin - (sorryAx ℝ true / 7).sin)
+h₄ :
+  2 * (sorryAx ℝ true / 7).sin * (3 * sorryAx ℝ true / 7).cos =
+    (4 * sorryAx ℝ true / 7).sin - (2 * sorryAx ℝ true / 7).sin
+h₆ : (4 * sorryAx ℝ true / 7).sin = (sorryAx ℝ true - 3 * sorryAx ℝ true / 7).sin
+⊢ (sorryAx ℝ true - 3 * sorryAx ℝ true / 7).sin = (3 * sorryAx ℝ true / 7).sin"""
+
+[[proof.feedback]]
+line = 70
+column = 28
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 70
+column = 48
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 70
+column = 71
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 70
+column = 94
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 70
+column = 114
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 72
+column = 22
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 72
+column = 42
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 72
+column = 65
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 72
+column = 88
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 73
+column = 26
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 73
+column = 45
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 73
+column = 68
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 73
+column = 91
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 73
+column = 114
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 73
+column = 137
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 75
+column = 26
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 75
+column = 50
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 75
+column = 69
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 75
+column = 94
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 75
+column = 117
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 78
+column = 22
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 82
+column = 22
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 85
+column = 22
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 85
+column = 45
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 85
+column = 68
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 86
+column = 28
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 86
+column = 48
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 86
+column = 71
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 86
+column = 94
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 86
+column = 114
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 87
+column = 24
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 88
+column = 24
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 88
+column = 47
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 88
+column = 70
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
+[[proof.feedback]]
+line = 89
+column = 50
+message = """
+ambiguous, possible interpretations 
+  π : ℕ → ℕ
+  
+  π : ℝ"""
+
 [[proof]]
 name = "mathd_numbertheory_430"
 iteration = 26
 time = 101
+verified = false
+feedback = [
+    { line = 117, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_numbertheory_430
 (a b c : ℕ)
@@ -6821,6 +8301,10 @@ a + b + c = 8 := by
 name = "mathd_algebra_459"
 iteration = 27
 time = 105
+verified = false
+feedback = [
+    { line = 81, column = 0, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_algebra_459
 (a b c d : ℚ)
@@ -7029,6 +8513,10 @@ sorry
 name = "induction_12dvd4expnp1p20"
 iteration = 28
 time = 62
+verified = false
+feedback = [
+    { line = 22, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem induction_12dvd4expnp1p20
 (n : ℕ) :
@@ -7120,6 +8608,8 @@ theorem induction_12dvd4expnp1p20
 name = "mathd_algebra_320"
 iteration = 29
 time = 269
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -7541,6 +9031,7 @@ Therefore, `4 a - 4 c = 0` and `4 a c + 9 c² - 2 a² - """
 name = "mathd_numbertheory_559"
 iteration = 30
 time = 155
+verified = true
 proof = """
 theorem mathd_numbertheory_559
 (x y : ℕ)
@@ -7742,6 +9233,8 @@ by
 name = "mathd_algebra_160"
 iteration = 31
 time = 286
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -7775,6 +9268,7 @@ We are given the following system of equations:
 name = "mathd_algebra_24"
 iteration = 32
 time = 22
+verified = true
 proof = """
 theorem mathd_algebra_24
 (x : ℝ)
@@ -7854,6 +9348,8 @@ The `have` statement `h₁ : x = 2000` directly represents the conclusion we nee
 name = "mathd_algebra_176"
 iteration = 33
 time = 269
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -9617,6 +11113,7 @@ have h_main : (x + 1)^2 * x = x^3 + 2 * x^2 + x := by
 name = "induction_nfactltnexpnm1ngt3"
 iteration = 34
 time = 111
+verified = false
 proof = """
 theorem induction_nfactltnexpnm1ngt3
 (n : ℕ)
@@ -9811,10 +11308,42 @@ n.factorial < n^(n - 1) :=
 
 """
 
+[[proof.feedback]]
+line = 15
+column = 24
+message = """
+failed to synthesize
+  OfScientific (Sort ?u.184)
+use `set_option diagnostics true` to get diagnostic information"""
+
+[[proof.feedback]]
+line = 14
+column = 2
+message = """
+unsolved goals
+case h_base
+n : ℕ
+h₀ : 3 ≤ n
+⊢ 3 ≤ n → sorryAx (Sort ?u.184) true
+
+n : ℕ
+h₀ : 3 ≤ n
+h_base : 3 ≤ n → sorryAx (Sort ?u.184) true
+⊢ n ! < n ^ (n - 1)"""
+
+[[proof.feedback]]
+line = 15
+column = 26
+message = "unexpected identifier; expected command"
+
 [[proof]]
 name = "mathd_algebra_208"
 iteration = 35
 time = 48
+verified = false
+feedback = [
+    { line = 36, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_algebra_208 :
 Real.sqrt 1000000 - 1000000^((1:ℝ)/3) = 900 :=
@@ -9913,6 +11442,10 @@ Real.sqrt 1000000 - 1000000^((1:ℝ)/3) = 900 :=
 name = "mathd_numbertheory_353"
 iteration = 36
 time = 51
+verified = false
+feedback = [
+    { line = 26, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_numbertheory_353
 (s : ℕ)
@@ -10024,6 +11557,8 @@ s % 2009 = 0 := by
 name = "numbertheory_notequiv2i2jasqbsqdiv8"
 iteration = 37
 time = 272
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -10469,6 +12004,7 @@ We need to prove that the statement `(∃ i j, a = 2*i ∧ b=2*j) ↔ (∃ k, a�
 name = "mathd_algebra_156"
 iteration = 38
 time = 100
+verified = true
 proof = """
 theorem mathd_algebra_156
 (x y : ℝ)
@@ -10661,6 +12197,7 @@ This `have` statement directly reflects the final goal `y² - x² = 1`. The actu
 name = "mathd_numbertheory_12"
 iteration = 39
 time = 30
+verified = true
 proof = """
 theorem mathd_numbertheory_12 :
 Finset.card (Finset.filter (fun x => 20∣x) (Finset.Icc 15 85)) = 4 := by
@@ -10728,6 +12265,10 @@ Finset.card (Finset.filter (fun x => 20∣x) (Finset.Icc 15 85)) = 4 := by
 name = "mathd_numbertheory_345"
 iteration = 40
 time = 66
+verified = false
+feedback = [
+    { line = 15, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_numbertheory_345 :
 (2000 + 2001 + 2002 + 2003 + 2004 + 2005 + 2006) % 7 = 0 :=
@@ -10842,6 +12383,10 @@ theorem mathd_numbertheory_345 :
 name = "mathd_numbertheory_447"
 iteration = 41
 time = 35
+verified = false
+feedback = [
+    { line = 14, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_numbertheory_447 :
 ∑ k ∈ Finset.filter (fun x => 3∣x) (Finset.Icc 1 49), (k % 10) = 78 :=
@@ -10914,6 +12459,7 @@ This proof sketch uses a `have` statement to assert the main result, which can b
 name = "mathd_numbertheory_328"
 iteration = 42
 time = 40
+verified = true
 proof = """
 theorem mathd_numbertheory_328 :
 (5^999999) % 7 = 6 := by
@@ -11006,6 +12552,8 @@ This proof sketch directly uses the main result derived from the cycle of powers
 name = "mathd_numbertheory_451"
 iteration = 43
 time = 277
+verified = false
+error = "Proof cut off"
 proof = ""
 outline = """
 <|im_start|>user
@@ -11323,6 +12871,7 @@ theorem mathd_numbertheory_451
 name = "aime_1997_p9"
 iteration = 44
 time = 258
+verified = false
 proof = """
 theorem aime_1997_p9
 (a : ℝ)
@@ -11678,10 +13227,38 @@ a^12 - 144 * (1 / a) = 233 :=
 
 """
 
+[[proof.feedback]]
+line = 134
+column = 2
+message = "unknown identifier 'exact'"
+
+[[proof.feedback]]
+line = 93
+column = 6
+message = """
+linarith failed to find a contradiction
+case h1.h
+a : ℝ
+h₀ : 0 < a
+h₁ : 1 / a - ↑⌊1 / a⌋ = a ^ 2 - ↑⌊a ^ 2⌋
+h₂ : 2 < a ^ 2
+h₃ : a ^ 2 < 3
+h₄ : ⌊a ^ 2⌋ = 2
+h₅ : ⌊1 / a⌋ = 0
+h₆ : 1 / a = a ^ 2 - 2
+h₇ : a ^ 3 - 2 * a - 1 = 0
+h₈ : a ^ 2 - a - 1 = 0
+h₉ h₁₀₁ : a ^ 2 = a + 1
+h₁₀₂ : a ^ 3 = 2 * a + 1
+a✝ : a ^ 4 < 3 * a ^ 2 + 2 * a
+⊢ False
+failed"""
+
 [[proof]]
 name = "algebra_sqineq_at2malt1"
 iteration = 45
 time = 30
+verified = true
 proof = """
 theorem algebra_sqineq_at2malt1
 (a : ℝ) :
@@ -11752,6 +13329,7 @@ a * (2 - a) ≤ 1 := by
 name = "algebra_apbmpcneq0_aeq0anbeq0anceq0"
 iteration = 46
 time = 145
+verified = false
 proof = """
 theorem algebra_apbmpcneq0_aeq0anbeq0anceq0
 (a b c : ℚ)
@@ -11962,10 +13540,68 @@ a = 0 ∧ b = 0 ∧ c = 0 := by
 
 """
 
+[[proof.feedback]]
+line = 44
+column = 6
+message = """
+linarith failed to find a contradiction
+a b c : ℚ
+m n : ℝ
+h₀ : 0 < m ∧ 0 < n
+h₁ : m ^ 3 = 2
+h₂ : n ^ 3 = 4
+h₃ : ↑a + ↑b * m + ↑c * n = 0
+h₄ h₅ h₆ : ↑a = -↑b * m - ↑c * n
+h : ¬↑b = 0
+h₈ : ↑b ≠ 0
+h₉ : m > 0
+h₁₀ : n > 0
+h₁₁ : m ^ 3 = 2
+h₁₂ : n ^ 3 = 4
+h₁₃ : ↑b * m + ↑c * n = -↑a
+h₁₄ : ↑b ≠ 0
+h₁₅ : m ^ 2 > 0
+h₁₆ : n ^ 2 > 0
+h₁₇ : m ^ 3 = 2
+h₁₈ : n ^ 3 = 4
+h₁₉ : ↑b * m + ↑c * n = -↑a
+⊢ False
+failed"""
+
+[[proof.feedback]]
+line = 68
+column = 6
+message = """
+linarith failed to find a contradiction
+a b c : ℚ
+m n : ℝ
+h₀ : 0 < m ∧ 0 < n
+h₁ : m ^ 3 = 2
+h₂ : n ^ 3 = 4
+h₃ : ↑a + ↑b * m + ↑c * n = 0
+h₄ h₅ h₆ : ↑a = -↑b * m - ↑c * n
+h₇ : ↑b = 0
+h : ¬↑c = 0
+h₉ : ↑c ≠ 0
+h₁₀ : m > 0
+h₁₁ : n > 0
+h₁₂ : m ^ 3 = 2
+h₁₃ : n ^ 3 = 4
+h₁₄ : ↑b = 0
+h₁₅ : ↑a = -↑b * m - ↑c * n
+h₁₆ : ↑a = -↑c * n
+h₁₇ : ↑a = -(↑c * n)
+⊢ False
+failed"""
+
 [[proof]]
 name = "mathd_algebra_171"
 iteration = 47
 time = 18
+verified = false
+feedback = [
+    { line = 20, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_algebra_171
 (f : ℝ → ℝ)
@@ -12026,6 +13662,7 @@ f 1 = 9 :=
 name = "mathd_numbertheory_227"
 iteration = 48
 time = 148
+verified = false
 proof = """
 theorem mathd_numbertheory_227
 (x y n : ℕ+)
@@ -12218,10 +13855,36 @@ sorry
 
 """
 
+[[proof.feedback]]
+line = 78
+column = 0
+message = "unknown identifier 'exact'"
+
+[[proof.feedback]]
+line = 51
+column = 8
+message = """
+omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 0
+where
+ a := ↑↑x
+ b := ↑↑y"""
+
+[[proof.feedback]]
+line = 60
+column = 4
+message = "interval_cases failed: unsupported type ℕ+"
+
 [[proof]]
 name = "mathd_algebra_188"
 iteration = 49
 time = 48
+verified = false
+feedback = [
+    { line = 28, column = 2, message = "unknown identifier 'apply'" },
+]
 proof = """
 theorem mathd_algebra_188
 (σ : Equiv ℝ ℝ)
@@ -12326,6 +13989,10 @@ theorem mathd_algebra_188
 name = "mathd_numbertheory_765"
 iteration = 50
 time = 128
+verified = false
+feedback = [
+    { line = 25, column = 2, message = "unknown identifier 'exact'" },
+]
 proof = """
 theorem mathd_numbertheory_765
 (x : ℤ)
