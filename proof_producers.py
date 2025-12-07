@@ -37,7 +37,7 @@ def produce_proof_benchmark(model, tokenizer, problem):
     inputs = tokenizer.apply_chat_template(chat, tokenize=True, add_generation_prompt=True, return_tensors="pt", padding=True, truncation=True).to(model.device)
 
     start = time.time()
-    output_tokens = model.generate(inputs)
+    output_tokens = model.generate(inputs, max_new_tokens=max_new_tokens)
     output = tokenizer.batch_decode(output_tokens)[0]
     dt = time.time() - start
 
