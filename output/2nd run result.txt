@@ -1,0 +1,28 @@
+=== deepseek ===
+Total Problems: 241
+Pass 1 Success: 111
+Pass 2 Improved: 7
+Total Success: 118
+Total Accuracy: 48.96%
+Absolute Improvement: +2.90%
+Total Generation Time (sum of dt for Pass 2): 32113s
+
+=== deepseek with feedback ===
+Total Problems: 241
+Pass 1 Success: 111
+Pass 2 Improved: 20
+Total Success: 131
+Total Accuracy: 54.36%
+Absolute Improvement: +8.30%
+Relative Improvement: +18.02%
+Total Generation Time (sum of dt for Pass 2): 23072s
+
+=== deepseek with guidance ===
+Total Problems: 241
+Pass 1 Success: 111
+Pass 2 Improved: 23
+Total Success: 134
+Total Accuracy: 55.60%
+Absolute Improvement: +9.54%
+Relative Improvement: +20.72%
+Total Generation Time (sum of dt for Pass 2): 45533s
