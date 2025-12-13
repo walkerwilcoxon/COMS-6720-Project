@@ -142,16 +142,17 @@ def extract_proof_and_outline(output: str) -> (str, str):
     return proof, outline
 
 class ParallelExecutor:
-    def __init__(self, num_workers, worker):
+    def __init__(self, num_workers, worker, worker_args):
         self.num_workers = num_workers
         self.input_queues = []
         self.output_queue = mp.Queue()
         self.workers = []
+        self.worker_args = worker_args
 
         for worker_id in range(num_workers):
             q = mp.Queue()
             self.input_queues.append(q)
-            p = mp.Process(target=worker, args=(worker_id, q, self.output_queue))
+            p = mp.Process(target=worker, args=(worker_id, q, self.output_queue, worker_args))
             p.start()
             self.workers.append(p)
 

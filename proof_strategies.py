@@ -10,11 +10,11 @@ from llm_utils import extract_proof_and_outline, PROOF_IMPORTS
 
 max_new_tokens=8192
 
-# This file contains all of the different proof strategies we will try
+# This file contains all of the different proof strategies we tried
 
 
-# Produces the benchmark proofs
-def produce_proof_benchmark(model, tokenizer, problem):
+# Produces the baseline proofs
+def produce_proof_baseline(model, tokenizer, problem):
 
     prompt = textwrap.dedent(f"""
     Complete the following Lean 4 code:

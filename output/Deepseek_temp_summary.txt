@@ -1,0 +1,46 @@
+Model: Deepseek
+Problem set: temp
+
+=== Overall Statistics ===
+
+[baseline]
+Total problems: 3
+Total time (hours): 0.04
+Verified: 2
+Accuracy: 66.67%
+
+[feedback]
+Number of problems: 1
+Total time (hours): 0.01
+Number of problems verified: 0
+Combined accuracy: 66.67%
+Absolute improvement: 0.00%
+
+=== Per-Category Statistics ===
+
+Category: aime
+  baseline:
+    Total problems: 1
+    Number verified: 0    Percent verified: 0.00%  feedback:
+     Total problems: 1
+     Number verified: 0
+     Total percent verified 0.00%
+     Percent improvement: 0.00%
+
+Category: mathd
+  baseline:
+    Total problems: 1
+    Number verified: 1    Percent verified: 100.00%  feedback:
+     Total problems: 0
+     Number verified: 0
+     Total percent verified 100.00%
+     Percent improvement: 0.00%
+
+Category: numbertheory
+  baseline:
+    Total problems: 1
+    Number verified: 1    Percent verified: 100.00%  feedback:
+     Total problems: 0
+     Number verified: 0
+     Total percent verified 100.00%
+     Percent improvement: 0.00%
