@@ -1,0 +1,213 @@
+Model: Goedel
+Problem set: test
+
+=== Overall Statistics ===
+
+[baseline]
+Total problems: 241
+Total time (hours): 9.29
+Verified: 22
+Accuracy: 9.13%
+
+[pass2]
+Number of problems: 219
+Total time (hours): 8.82
+Number of problems verified: 12
+Combined accuracy: 14.11%
+Absolute improvement: 4.98%
+
+[feedback]
+Number of problems: 219
+Total time (hours): 9.37
+Number of problems verified: 84
+Combined accuracy: 43.98%
+Absolute improvement: 34.85%
+
+[commander]
+Number of problems: 157
+Total time (hours): 6.98
+Number of problems verified: 61
+Combined accuracy: 34.44%
+Absolute improvement: 25.31%
+
+=== Per-Category Statistics ===
+
+Category: aime
+  baseline:
+    Stage 1 problems: 15
+    Stage 1 verified: 1    Percent verified: 6.67%
+  pass2:
+    Stage 2 problems: 14
+    Stage 2 verified: 0
+    Total percent verified 6.67%
+    Stage 2 percent improvement: +0.00%
+  feedback:
+    Stage 2 problems: 14
+    Stage 2 verified: 2
+    Total percent verified 20.00%
+    Stage 2 percent improvement: +13.33%
+  commander:
+    Stage 2 problems: 6
+    Stage 2 verified: 0
+    Total percent verified 6.67%
+    Stage 2 percent improvement: +0.00%
+
+Category: algebra
+  baseline:
+    Stage 1 problems: 18
+    Stage 1 verified: 0    Percent verified: 0.00%
+  pass2:
+    Stage 2 problems: 18
+    Stage 2 verified: 0
+    Total percent verified 0.00%
+    Stage 2 percent improvement: +0.00%
+  feedback:
+    Stage 2 problems: 18
+    Stage 2 verified: 3
+    Total percent verified 16.67%
+    Stage 2 percent improvement: +16.67%
+  commander:
+    Stage 2 problems: 14
+    Stage 2 verified: 2
+    Total percent verified 11.11%
+    Stage 2 percent improvement: +11.11%
+
+Category: amc12
+  baseline:
+    Stage 1 problems: 6
+    Stage 1 verified: 0    Percent verified: 0.00%
+  pass2:
+    Stage 2 problems: 6
+    Stage 2 verified: 0
+    Total percent verified 0.00%
+    Stage 2 percent improvement: +0.00%
+  feedback:
+    Stage 2 problems: 6
+    Stage 2 verified: 1
+    Total percent verified 16.67%
+    Stage 2 percent improvement: +16.67%
+  commander:
+    Stage 2 problems: 5
+    Stage 2 verified: 1
+    Total percent verified 16.67%
+    Stage 2 percent improvement: +16.67%
+
+Category: amc12a
+  baseline:
+    Stage 1 problems: 24
+    Stage 1 verified: 1    Percent verified: 4.17%
+  pass2:
+    Stage 2 problems: 23
+    Stage 2 verified: 0
+    Total percent verified 4.17%
+    Stage 2 percent improvement: +0.00%
+  feedback:
+    Stage 2 problems: 23
+    Stage 2 verified: 2
+    Total percent verified 12.50%
+    Stage 2 percent improvement: +8.33%
+  commander:
+    Stage 2 problems: 13
+    Stage 2 verified: 1
+    Total percent verified 8.33%
+    Stage 2 percent improvement: +4.17%
+
+Category: amc12b
+  baseline:
+    Stage 1 problems: 15
+    Stage 1 verified: 2    Percent verified: 13.33%
+  pass2:
+    Stage 2 problems: 13
+    Stage 2 verified: 0
+    Total percent verified 13.33%
+    Stage 2 percent improvement: +0.00%
+  feedback:
+    Stage 2 problems: 13
+    Stage 2 verified: 3
+    Total percent verified 33.33%
+    Stage 2 percent improvement: +20.00%
+  commander:
+    Stage 2 problems: 11
+    Stage 2 verified: 3
+    Total percent verified 33.33%
+    Stage 2 percent improvement: +20.00%
+
+Category: imo
+  baseline:
+    Stage 1 problems: 19
+    Stage 1 verified: 2    Percent verified: 10.53%
+  pass2:
+    Stage 2 problems: 17
+    Stage 2 verified: 0
+    Total percent verified 10.53%
+    Stage 2 percent improvement: +0.00%
+  feedback:
+    Stage 2 problems: 17
+    Stage 2 verified: 2
+    Total percent verified 21.05%
+    Stage 2 percent improvement: +10.53%
+  commander:
+    Stage 2 problems: 12
+    Stage 2 verified: 2
+    Total percent verified 21.05%
+    Stage 2 percent improvement: +10.53%
+
+Category: induction
+  baseline:
+    Stage 1 problems: 8
+    Stage 1 verified: 0    Percent verified: 0.00%
+  pass2:
+    Stage 2 problems: 8
+    Stage 2 verified: 0
+    Total percent verified 0.00%
+    Stage 2 percent improvement: +0.00%
+  feedback:
+    Stage 2 problems: 8
+    Stage 2 verified: 2
+    Total percent verified 25.00%
+    Stage 2 percent improvement: +25.00%
+  commander:
+    Stage 2 problems: 7
+    Stage 2 verified: 1
+    Total percent verified 12.50%
+    Stage 2 percent improvement: +12.50%
+
+Category: mathd
+  baseline:
+    Stage 1 problems: 128
+    Stage 1 verified: 15    Percent verified: 11.72%
+  pass2:
+    Stage 2 problems: 113
+    Stage 2 verified: 11
+    Total percent verified 20.31%
+    Stage 2 percent improvement: +8.59%
+  feedback:
+    Stage 2 problems: 113
+    Stage 2 verified: 68
+    Total percent verified 64.84%
+    Stage 2 percent improvement: +53.12%
+  commander:
+    Stage 2 problems: 84
+    Stage 2 verified: 50
+    Total percent verified 50.78%
+    Stage 2 percent improvement: +39.06%
+
+Category: numbertheory
+  baseline:
+    Stage 1 problems: 8
+    Stage 1 verified: 1    Percent verified: 12.50%
+  pass2:
+    Stage 2 problems: 7
+    Stage 2 verified: 1
+    Total percent verified 25.00%
+    Stage 2 percent improvement: +12.50%
+  feedback:
+    Stage 2 problems: 7
+    Stage 2 verified: 1
+    Total percent verified 25.00%
+    Stage 2 percent improvement: +12.50%
+  commander:
+    Stage 2 problems: 5
+    Stage 2 verified: 1
+    Total percent verified 25.00%
+    Stage 2 percent improvement: +12.50%

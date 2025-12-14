@@ -29,6 +29,8 @@ def compute_stats(problems):
         if p.get("verified", False):
             verified_by_category[category] += 1
 
+    print(problems_by_category)
+
     return {
         "total_problems": total_problems,
         "total_time_hours": total_time_hours,
@@ -44,12 +46,10 @@ def format_pct(x: float) -> str:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", required=True, help="Model name")
+    parser.add_argument("--model", default="Deepseek")
     parser.add_argument(
         "--problem-set",
-        dest="problem_set",
         default="test",
-        help="Problem set name (default: test)",
     )
     args = parser.parse_args()
 
@@ -118,9 +118,9 @@ def main():
 
             out.write(f"\nCategory: {category}\n")
             out.write(f"  baseline:\n"
-                      f"    Total problems: {base_total_cat}\n"
-                      f"    Number verified: {base_verified_cat}"
-                      f"    Percent verified: {format_pct(base_verified_cat / base_total_cat)}")
+                      f"    Stage 1 problems: {base_total_cat}\n"
+                      f"    Stage 1 verified: {base_verified_cat}\n"
+                      f"    Percent verified: {format_pct(base_verified_cat / base_total_cat)}\n")
 
             for strategy in strategies:
                 if strategy == "baseline" or strategy not in stats_by_strategy:
@@ -137,10 +137,10 @@ def main():
 
                 out.write(
                     f"  {strategy}:\n"
-                    f"     Total problems: {strategy_total_cat}\n"
-                    f"     Number verified: {strategy_verified_cat}\n"
-                    f"     Total percent verified {format_pct(combined_acc_cat)}\n"
-                    f"     Percent improvement: +{format_pct(abs_improvement_cat)}\n"
+                    f"    Stage 2 problems: {strategy_total_cat}\n"
+                    f"    Stage 2 verified: {strategy_verified_cat}\n"
+                    f"    Total percent verified {format_pct(combined_acc_cat)}\n"
+                    f"    Stage 2 percent improvement: +{format_pct(abs_improvement_cat)}\n"
                 )
 
     print(f"Wrote summary to {output_path}")
