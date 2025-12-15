@@ -144,10 +144,10 @@ def main():
 
     # Set defaults based on model if not provided
     if args.input_file is None:
-        args.input_file = f"benchmark_{args.model}_50cases_solutions.txt"
+        args.input_file = f"benchmark_{args.model}_test_solutions_241.txt"
     
     if args.output_name is None:
-        args.output_name = f"benchmark_{args.model}_50cases_pass2"
+        args.output_name = f"benchmark_{args.model}_test_pass2"
 
     # Determine output filename based on strategy
     base_output_name = args.output_name

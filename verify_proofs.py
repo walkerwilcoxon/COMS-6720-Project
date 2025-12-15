@@ -14,7 +14,7 @@ import tomli_w
 from llm_utils import verify_proof, ParallelExecutor
 
 # Either a filepath of the proof file or "output" to verify all files inside of the "output" directory
-VERIFY_PATH = "output/benchmark_Goedel_incorrect_subset_solutions.txt"
+VERIFY_PATH = "output/benchmark_Deepseek_test_solutions.txt"
 
 def proof_verifier_worker(worker_id, input_q, output_q):
     print(f"Starting worker {worker_id}")
