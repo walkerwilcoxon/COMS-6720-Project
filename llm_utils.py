@@ -20,7 +20,7 @@ HOME_DIR = os.path.expanduser('~')
 
 DEFAULT_LAKE_PATH = f'{HOME_DIR}/.elan/bin/lake'
 
-DEFAULT_LEAN_WORKSPACE="Goedel_mathlib4"
+DEFAULT_LEAN_WORKSPACE="lean_testing"
 
 DEFAULT_TIMEOUT = 60
 
