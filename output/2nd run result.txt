@@ -1,3 +1,32 @@
+=== goedel ===
+Total Problems: 241
+Pass 1 Success: 29
+Pass 2 Improved: 15
+Total Success: 44
+Total Accuracy: 18.26%
+Absolute Improvement: +6.22%
+Total Generation Time (sum of dt for Pass 2): 58428s
+
+=== goedel with feedback ===
+Total Problems: 241
+Pass 1 Success: 29
+Pass 2 Improved: 84
+Total Success: 113
+Total Accuracy: 46.89%
+Absolute Improvement: +34.85%
+Relative Improvement: +289.66%
+Total Generation Time (sum of dt for Pass 2): 51307s
+
+=== goedel with guidance ===
+Total Problems: 241
+Pass 1 Success: 29
+Pass 2 Improved: 101
+Total Success: 130
+Total Accuracy: 53.94%
+Absolute Improvement: +41.91%
+Relative Improvement: +348.28%
+Total Generation Time (sum of dt for Pass 2): 124508s
+
 === deepseek ===
 Total Problems: 241
 Pass 1 Success: 111
