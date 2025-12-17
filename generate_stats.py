@@ -29,8 +29,6 @@ def compute_stats(problems):
         if p.get("verified", False):
             verified_by_category[category] += 1
 
-    print(problems_by_category)
-
     return {
         "total_problems": total_problems,
         "total_time_hours": total_time_hours,
@@ -46,7 +44,7 @@ def format_pct(x: float) -> str:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="Deepseek")
+    parser.add_argument("--model", default="Goedel")
     parser.add_argument(
         "--problem-set",
         default="test",

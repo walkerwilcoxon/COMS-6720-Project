@@ -35,7 +35,8 @@ Absolute improvement: 18.26%
 Category: aime
   baseline:
     Stage 1 problems: 15
-    Stage 1 verified: 0    Percent verified: 0.00%
+    Stage 1 verified: 0
+    Percent verified: 0.00%
   pass2:
     Stage 2 problems: 15
     Stage 2 verified: 1
@@ -55,7 +56,8 @@ Category: aime
 Category: algebra
   baseline:
     Stage 1 problems: 18
-    Stage 1 verified: 0    Percent verified: 0.00%
+    Stage 1 verified: 0
+    Percent verified: 0.00%
   pass2:
     Stage 2 problems: 18
     Stage 2 verified: 3
@@ -75,7 +77,8 @@ Category: algebra
 Category: amc12
   baseline:
     Stage 1 problems: 6
-    Stage 1 verified: 0    Percent verified: 0.00%
+    Stage 1 verified: 0
+    Percent verified: 0.00%
   pass2:
     Stage 2 problems: 6
     Stage 2 verified: 0
@@ -95,7 +98,8 @@ Category: amc12
 Category: amc12a
   baseline:
     Stage 1 problems: 24
-    Stage 1 verified: 0    Percent verified: 0.00%
+    Stage 1 verified: 0
+    Percent verified: 0.00%
   pass2:
     Stage 2 problems: 24
     Stage 2 verified: 2
@@ -115,7 +119,8 @@ Category: amc12a
 Category: amc12b
   baseline:
     Stage 1 problems: 15
-    Stage 1 verified: 1    Percent verified: 6.67%
+    Stage 1 verified: 1
+    Percent verified: 6.67%
   pass2:
     Stage 2 problems: 14
     Stage 2 verified: 4
@@ -135,7 +140,8 @@ Category: amc12b
 Category: imo
   baseline:
     Stage 1 problems: 19
-    Stage 1 verified: 0    Percent verified: 0.00%
+    Stage 1 verified: 0
+    Percent verified: 0.00%
   pass2:
     Stage 2 problems: 19
     Stage 2 verified: 3
@@ -155,7 +161,8 @@ Category: imo
 Category: induction
   baseline:
     Stage 1 problems: 8
-    Stage 1 verified: 1    Percent verified: 12.50%
+    Stage 1 verified: 1
+    Percent verified: 12.50%
   pass2:
     Stage 2 problems: 7
     Stage 2 verified: 1
@@ -175,7 +182,8 @@ Category: induction
 Category: mathd
   baseline:
     Stage 1 problems: 128
-    Stage 1 verified: 62    Percent verified: 48.44%
+    Stage 1 verified: 62
+    Percent verified: 48.44%
   pass2:
     Stage 2 problems: 66
     Stage 2 verified: 19
@@ -195,7 +203,8 @@ Category: mathd
 Category: numbertheory
   baseline:
     Stage 1 problems: 8
-    Stage 1 verified: 1    Percent verified: 12.50%
+    Stage 1 verified: 1
+    Percent verified: 12.50%
   pass2:
     Stage 2 problems: 7
     Stage 2 verified: 0
